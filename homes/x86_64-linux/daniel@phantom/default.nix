@@ -22,6 +22,7 @@
     desktop = {
       gnome.enable = true;
       firefox.enable = true;
+      discord.enable = true;
       ghostty.enable = true;
       fonts.enable = true;
       mpv.enable = true;

@@ -23,12 +23,13 @@
   skibidi = {
     desktop = {
       firefox.enable = true;
+      discord.enable = true;
       ghostty.enable = true;
       fonts.enable = true;
     };
     user = {
       enable = true;
-      name = "d";
+      name = "daniel";
     };
     cli = {
       home-manager.enable = true;

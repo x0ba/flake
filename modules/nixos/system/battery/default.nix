@@ -15,7 +15,7 @@ in {
 
   config = mkIf cfg.enable {
     # Better scheduling for CPU cycles - thanks System76!!!
-    # services.system76-scheduler.settings.cfsProfiles.enable = true;
+    services.system76-scheduler.settings.cfsProfiles.enable = true;
     services.system76-scheduler.enable = true;
 
     # Enable TLP (better than gnomes internal power manager)
