@@ -17,6 +17,8 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       dwt1-shell-color-scripts
+      btop
+      htop
       gcc
       lazygit
       comma

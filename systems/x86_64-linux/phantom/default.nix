@@ -40,9 +40,11 @@
     };
     system = {
       boot.enable = true;
+      hardware_acceleration.enable = true;
       locale.enable = true;
       time.enable = true;
       xkb.enable = true;
+      battery.enable = true;
     };
     user = {
       name = "daniel";

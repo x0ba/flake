@@ -29,6 +29,10 @@
       inputs.nixpkgs-unstable.follows = "nixpkgs";
     };
     ghostty-hm.url = "github:clo4/ghostty-hm-module";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -64,6 +68,7 @@
 
       homes.modules = with inputs; [
         ghostty-hm.homeModules.default
+        nix-index-database.hmModules.nix-index
       ];
 
       overlays = with inputs; [

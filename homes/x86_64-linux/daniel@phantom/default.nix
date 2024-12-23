@@ -13,6 +13,8 @@
 }: {
   home.packages = with pkgs; [
     nextcloud-client
+    obsidian
+    calibre
   ];
   skibidi = {
     desktop = {

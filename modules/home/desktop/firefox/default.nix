@@ -22,6 +22,7 @@ in {
         search.force = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
+          enhanced-h264ify
           multi-account-containers
           proton-pass
           temporary-containers
@@ -139,6 +140,9 @@ in {
           "toolkit.telemetry.updatePing.enabled" = false;
           "webgl.renderer-string-override" = " ";
           "webgl.vendor-string-override" = " ";
+
+          "gfx.webrender.all" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
 
           # set these to false if you're copying this config...
           # it's to *enable* DRM, not disable it
