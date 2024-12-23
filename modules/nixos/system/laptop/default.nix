@@ -33,7 +33,6 @@ in {
       thermald.enable = true;
       undervolt = {
         enable = true;
-        # TODO: make options for that
         coreOffset = -95;
         gpuOffset = -80;
         tempBat = 65;

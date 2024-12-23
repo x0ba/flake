@@ -1,37 +1,12 @@
 {
-  lib,
-  pkgs,
-  inputs,
-  namespace,
-  system,
-  target,
-  format,
-  virtual,
-  systems,
-  config,
   ...
 }: {
   imports = [
     ./hardware.nix
   ];
 
-  networking = {
-    hostName = "phantom";
-    networkmanager.enable = true;
-    firewall.enable = true;
-  };
+  networking.hostName = "phantom";
 
-  services = {
-    printing.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-  };
-
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   skibidi = {
@@ -41,6 +16,9 @@
     };
     hardware = {
       yubikey.enable = true;
+      audio.enable = true;
+      networking.enable = true;
+      printing.enable = true;
     };
     system = {
       boot.enable = true;

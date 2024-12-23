@@ -22,6 +22,7 @@ in {
       appindicator
       blur-my-shell
       hot-edge
+      caffeine
       alphabetical-app-grid
     ];
     dconf.settings = with lib.gvariant; {
@@ -57,6 +58,7 @@ in {
           "blur-my-shell@aunetx"
           "hotedge@jonathan.jdoda.ca"
           "AlphabeticalAppGrid@stuarthayhurst"
+          "caffeine@patapon.info"
         ];
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
