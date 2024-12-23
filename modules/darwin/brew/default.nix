@@ -24,7 +24,7 @@ in {
   nested-default-attrs = mapAttrs (key: default-attrs);
     enable = mkBoolOpt false "Whether or not to manage homebrew apps";
     casks = mkOpt (listOf package) [ ] "Extra casks to install";
-    brews = mkOpt (listOf package) [ ] "Extra brews to install"
+    brews = mkOpt (listOf package) [ ] "Extra brews to install";
   };
 
   config = mkIf cfg.enable {
