@@ -49,7 +49,7 @@
       locale.enable = true;
       time.enable = true;
       xkb.enable = true;
-      battery.enable = true;
+      laptop.enable = true;
       virtualization.enable = true;
     };
     user = {
