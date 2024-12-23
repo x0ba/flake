@@ -12,7 +12,7 @@ let
   cfg = config.${namespace}.desktop.gnome;
   primary-color = "#161321";
   secondary-color = "#161321";
-  wallpaper-uri = "file://${../../../../assets/wallpaper.jpg}";
+  wallpaper-uri = "file://${../../../../assets/house.png}";
 in
 {
   options.${namespace}.desktop.gnome = with types; {
@@ -60,6 +60,7 @@ in
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
           "firefox.desktop"
+          "com.mitchellh.ghostty.desktop"
         ];
       };
 

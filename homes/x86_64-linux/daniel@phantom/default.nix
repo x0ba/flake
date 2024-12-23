@@ -12,10 +12,15 @@
     ...
 }:
 {
+  home.packages = with pkgs; [
+    nextcloud-client
+  ];
   skibidi = {
     desktop = {
       gnome.enable = true;
       firefox.enable = true;
+      ghostty.enable = true;
+      fonts.enable = true;
     };
     user.enable = true;
     cli = {
@@ -24,6 +29,8 @@
       utils.enable = true;
       neovim.enable = true;
       git.enable = true;
+      yazi.enable = true;
+      gpg.enable = true;
     };
   };
 }

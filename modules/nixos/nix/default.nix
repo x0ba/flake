@@ -10,39 +10,15 @@ with lib;
 with lib.${namespace};
 let
   cfg = config.${namespace}.nix;
-
-  substituters-submodule = types.submodule (
-    { name, ... }:
-    {
-      options = with types; {
-        key = mkOpt (nullOr str) null "The trusted public key for this substituter.";
-      };
-    }
-  );
 in
 {
   options.${namespace}.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
     package = mkOpt package pkgs.lix "Which nix package to use.";
 
-    default-substituter = {
-      url = mkOpt str "https://cache.nixos.org" "The url for the substituter.";
-      key =
-        mkOpt str "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-          "The trusted public key for the substituter.";
-    };
-
-    extra-substituters = mkOpt (attrsOf substituters-submodule) { } "Extra substituters to configure.";
   };
 
   config = mkIf cfg.enable {
-    assertions = mapAttrsToList
-      (name: value: {
-        assertion = value.key != null;
-        message = "plusultra.nix.extra-substituters.${name}.key must be set";
-      })
-      cfg.extra-substituters;
-
     nixpkgs.config.allowUnfree = true;
 
     nix =
@@ -67,11 +43,19 @@ in
             allowed-users = users;
 
             substituters = [
-              cfg.default-substituter.url
-            ] ++ (mapAttrsToList (name: value: name) cfg.extra-substituters);
+              "https://nix-community.cachix.org"
+              "https://ghostty.cachix.org"
+              "https://pre-commit-hooks.cachix.org"
+              "https://nekowinston.cachix.org"
+              "https://mic92.cachix.org"
+            ];
             trusted-public-keys = [
-              cfg.default-substituter.key
-            ] ++ (mapAttrsToList (name: value: value.key) cfg.extra-substituters);
+              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+              "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+              "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
+              "nekowinston.cachix.org-1:lucpmaO+JwtoZj16HCO1p1fOv68s/RL1gumpVzRHRDs="
+              "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
+            ];
           };
 
         gc = {

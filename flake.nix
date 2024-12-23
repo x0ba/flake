@@ -23,6 +23,12 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ghostty = {
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+    };
+    ghostty-hm.url = "github:clo4/ghostty-hm-module";
   };
 
   outputs = inputs:
@@ -38,6 +44,11 @@
           title = "Skibidi Flake";
         };
       };
+
+      homes.modules = with inputs; [
+        ghostty-hm.homeModules.default
+      ];
+
       overlays = with inputs; 
         [
           inputs.nix-vscode-extensions.overlays.default

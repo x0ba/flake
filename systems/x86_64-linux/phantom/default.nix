@@ -36,6 +36,9 @@
 
   skibidi = {
     nix.enable = true;
+    hardware = {
+      yubikey.enable = true;
+    };
     system = {
       boot.enable = true;
       locale.enable = true;
