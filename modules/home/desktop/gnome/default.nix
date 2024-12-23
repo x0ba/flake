@@ -48,6 +48,8 @@ in {
         font-name = "Inter 11";
         document-font-name = "Inter 11";
         monospace-font-name = "Rec Mono Duotone 10";
+        clock-show-weekday = true;
+        clock-format = "12h";
       };
 
       # rice
