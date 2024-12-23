@@ -16,19 +16,19 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      # dwt1-shell-color-scripts
-      # btop
-      # htop
-      # gcc
-      # lazygit
-      # comma
-      # gh
-      # fd
-      # ripgrep
-      # file
-      # ffmpeg
-      # just
-      # yt-dlp
+      dwt1-shell-color-scripts
+      btop
+      htop
+      gcc
+      lazygit
+      comma
+      gh
+      fd
+      ripgrep
+      file
+      ffmpeg
+      just
+      yt-dlp
     ];
     programs = {
       fzf.enable = true;

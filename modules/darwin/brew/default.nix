@@ -23,8 +23,6 @@ in {
   options.${namespace}.brew = with types; {  default-attrs = mapAttrs (key: mkDefault);
   nested-default-attrs = mapAttrs (key: default-attrs);
     enable = mkBoolOpt false "Whether or not to manage homebrew apps";
-    casks = mkOpt (listOf package) [ ] "Extra casks to install";
-    brews = mkOpt (listOf package) [ ] "Extra brews to install";
   };
 
   config = mkIf cfg.enable {
@@ -34,7 +32,7 @@ in {
     homebrew = {
       enable = true;
       caskArgs.require_sha = true;
-      brews = [ ] ++ cfg.brews;
+      brews = [ ];
       casks = [
         "proton-pass"
         "raycast"
@@ -54,7 +52,7 @@ in {
         "syntax-highlight"
         "tor-browser"
         "yubico-yubikey-manager"
-      ] ++ cfg.casks;
+      ];
       onActivation = {
         autoUpdate = true;
         upgrade = true;
