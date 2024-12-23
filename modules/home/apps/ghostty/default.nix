@@ -17,8 +17,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = ([ ] ++ lib.optionals (isLinux) [
-      inputs.ghostty.packages.x86_64-linux.default
+    home.packages = (
+      []
+      ++ lib.optionals isLinux [
+        inputs.ghostty.packages.x86_64-linux.default
       ]
     );
     programs.ghostty = {

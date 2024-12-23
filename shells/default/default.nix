@@ -1,4 +1,9 @@
-{pkgs, inputs, lib, ...}:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     git

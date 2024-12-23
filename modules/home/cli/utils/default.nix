@@ -19,7 +19,6 @@ in {
       dwt1-shell-color-scripts
       btop
       htop
-      gcc
       lazygit
       comma
       gh

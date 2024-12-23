@@ -24,7 +24,8 @@ in {
       enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;
-      initExtraFirst = # bash
+      initExtraFirst =
+        # bash
         ''
           zvm_config() {
             ZVM_INIT_MODE=sourcing
