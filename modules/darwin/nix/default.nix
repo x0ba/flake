@@ -34,7 +34,6 @@ in {
         warn-dirty = false;
         log-lines = 50;
         sandbox = "relaxed";
-        auto-optimise-store = true;
         trusted-users = users;
         allowed-users = users;
 
