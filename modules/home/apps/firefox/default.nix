@@ -9,9 +9,9 @@
   inherit (lib.${namespace}) enabled;
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
-  cfg = config.${namespace}.desktop.firefox;
+  cfg = config.${namespace}.apps.firefox;
 in {
-  options.${namespace}.desktop.firefox = {
+  options.${namespace}.apps.firefox = {
     enable = mkEnableOption "firefox";
   };
 

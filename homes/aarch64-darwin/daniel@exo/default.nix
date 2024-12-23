@@ -22,8 +22,10 @@
 
   skibidi = {
     desktop = {
-      ghostty.enable = true;
       fonts.enable = true;
+    };
+    apps = {
+      ghostty.enable = true;
     };
     user = {
       enable = true;

@@ -9,9 +9,9 @@
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
 
-  cfg = config.${namespace}.desktop.discord;
+  cfg = config.${namespace}.apps.discord;
 in {
-  options.${namespace}.desktop.discord = {
+  options.${namespace}.apps.discord = {
     enable = mkEnableOption "discord";
   };
 

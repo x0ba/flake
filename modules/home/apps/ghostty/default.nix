@@ -10,9 +10,9 @@
   inherit (lib.${namespace}) enabled;
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
-  cfg = config.${namespace}.desktop.ghostty;
+  cfg = config.${namespace}.apps.ghostty;
 in {
-  options.${namespace}.desktop.ghostty = {
+  options.${namespace}.apps.ghostty = {
     enable = mkEnableOption "ghostty";
   };
 

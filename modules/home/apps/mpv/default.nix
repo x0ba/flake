@@ -9,9 +9,9 @@
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
 
-  cfg = config.${namespace}.desktop.mpv;
+  cfg = config.${namespace}.apps.mpv;
 in {
-  options.${namespace}.desktop.mpv = {
+  options.${namespace}.apps.mpv = {
     enable = mkEnableOption "mpv";
   };
 
