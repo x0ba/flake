@@ -59,7 +59,7 @@ in {
       ];
 
       extraConfig = {
-        credential.helper = "oauth";
+        credential.helper = ["cache --timeout 21600" "oauth"];
         init.defaultBranch = "main";
         push.default = "current";
         push.gpgSign = "if-asked";
