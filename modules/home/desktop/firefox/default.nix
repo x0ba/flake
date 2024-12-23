@@ -7,6 +7,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
+  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
   cfg = config.${namespace}.desktop.firefox;
 in {
@@ -16,7 +17,7 @@ in {
 
   config = mkIf cfg.enable {
     programs.firefox = {
-      enable = true;
+      enable = isLinux;
       profiles.default = {
         search.default = "DuckDuckGo";
         search.force = true;

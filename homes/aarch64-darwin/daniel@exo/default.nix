@@ -10,13 +10,9 @@
   host,
   config,
   ...
-}:
-let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
-in
-{
+}: {
   home.file."Library/.ignore" = {
-    enable = isDarwin;
+    enable = true;
     text = ''
       Mobile Documents/
     '';
