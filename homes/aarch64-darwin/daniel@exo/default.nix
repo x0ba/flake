@@ -23,7 +23,6 @@
   skibidi = {
     desktop = {
       firefox.enable = true;
-      discord.enable = true;
       ghostty.enable = true;
       fonts.enable = true;
     };
