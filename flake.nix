@@ -66,6 +66,8 @@
         };
       };
 
+      templates = import ./templates { };
+
       homes.modules = with inputs; [
         ghostty-hm.homeModules.default
         nix-index-database.hmModules.nix-index
