@@ -26,7 +26,10 @@
       ghostty.enable = true;
       fonts.enable = true;
     };
-    user.enable = true;
+    user = {
+      enable = true;
+      name = "d";
+    };
     cli = {
       home-manager.enable = true;
       zsh.enable = true;

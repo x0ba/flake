@@ -24,6 +24,7 @@ in {
         "@sudo"
         "@wheel"
         "daniel"
+        "d"
       ];
     in {
       package = cfg.package;
