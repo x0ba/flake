@@ -22,7 +22,6 @@
 
   skibidi = {
     desktop = {
-      firefox.enable = true;
       ghostty.enable = true;
       fonts.enable = true;
     };

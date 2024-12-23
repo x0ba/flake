@@ -24,7 +24,16 @@ in {
       enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;
-
+      initExtraFirst = # bash
+        ''
+          zvm_config() {
+            ZVM_INIT_MODE=sourcing
+            ZVM_CURSOR_STYLE_ENABLED=false
+            ZVM_VI_HIGHLIGHT_BACKGROUND=black
+            ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
+            ZVM_VI_HIGHLIGHT_FOREGROUND=white
+          }
+        '';
       dotDir = ".config/zsh";
       plugins = zshPlugins [
         {
@@ -34,10 +43,6 @@ in {
         {
           src = pkgs.zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
-        }
-        {
-          src = pkgs.zsh-fzf-tab;
-          file = "share/fzf-tab/fzf-tab.plugin.zsh";
         }
         {
           src = pkgs.zsh-fast-syntax-highlighting;
