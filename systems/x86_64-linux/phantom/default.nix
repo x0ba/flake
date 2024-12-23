@@ -1,17 +1,16 @@
 {
-    lib,
-    pkgs,
-    inputs,
-    namespace, 
-    system,
-    target,
-    format,
-    virtual,
-    systems,
-    config,
-    ...
-}:
-{
+  lib,
+  pkgs,
+  inputs,
+  namespace,
+  system,
+  target,
+  format,
+  virtual,
+  systems,
+  config,
+  ...
+}: {
   imports = [
     ./hardware.nix
   ];
@@ -52,5 +51,5 @@
     desktop.gnome.enable = true;
   };
 
-  system.stateVersion = "24.11"; 
+  system.stateVersion = "24.11";
 }

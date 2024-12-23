@@ -5,27 +5,25 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (pkgs.stdenv) isLinux;
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.desktop.fonts;
-in
-{
+in {
   options.${namespace}.desktop.fonts = {
     enable = mkEnableOption "fonts";
   };
 
-  config = mkIf cfg.enable { 
+  config = mkIf cfg.enable {
     fonts.fontconfig = {
       enable = isLinux;
       defaultFonts = {
-        sansSerif = [ "Inter" ];
-        serif = [ "IBM Plex Serif" ];
-        monospace = [ "Rec Mono Duotone" ];
-        emoji = [ "Twitter Color Emoji" ];
+        sansSerif = ["Inter"];
+        serif = ["IBM Plex Serif"];
+        monospace = ["Rec Mono Duotone"];
+        emoji = ["Twitter Color Emoji"];
       };
     };
     home.packages = with pkgs; [

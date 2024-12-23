@@ -5,19 +5,17 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.desktop.ghostty;
-in
-{
+in {
   options.${namespace}.desktop.ghostty = {
     enable = mkEnableOption "ghostty";
   };
 
-  config = mkIf cfg.enable { 
+  config = mkIf cfg.enable {
     home.packages = [
       inputs.ghostty.packages.x86_64-linux.default
     ];

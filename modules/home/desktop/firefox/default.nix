@@ -4,19 +4,17 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.desktop.firefox;
-in
-{
+in {
   options.${namespace}.desktop.firefox = {
     enable = mkEnableOption "firefox";
   };
 
-  config = mkIf cfg.enable { 
+  config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
       profiles.default = {

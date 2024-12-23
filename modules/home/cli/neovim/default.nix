@@ -4,20 +4,18 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.cli.neovim;
-in
-{
+in {
   options.${namespace}.cli.neovim = {
     enable = mkEnableOption "neovim";
   };
 
-  config = mkIf cfg.enable { 
-    programs.neovim = enabled; 
+  config = mkIf cfg.enable {
+    programs.neovim = enabled;
     home = {
       sessionVariables = {
         EDITOR = "nvim";

@@ -4,19 +4,17 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.cli.git;
-in
-{
+in {
   options.${namespace}.cli.git = {
     enable = mkEnableOption "git";
   };
 
-  config = mkIf cfg.enable { 
+  config = mkIf cfg.enable {
     # use fsmonitor
     home.packages = [
       pkgs.rs-git-fsmonitor
@@ -24,17 +22,17 @@ in
       pkgs.git-credential-oauth
       pkgs.hub
     ];
-  
+
     programs.git = {
       enable = true;
       userName = "daniel";
       userEmail = "danielxu0307@proton.me";
-  
+
       signing = {
         signByDefault = true;
         key = "0x660DBDE129F4E1D9";
       };
-  
+
       diff-so-fancy.enable = true;
       aliases = {
         # get plain text diffs for patches
@@ -45,9 +43,9 @@ in
         # for those 3am commits
         yolo = "!git commit -m \"chore: $(curl -s https://whatthecommit.com/index.txt)\"";
       };
-  
+
       lfs.enable = true;
-  
+
       ignores = [
         # general
         "*.log"
@@ -61,7 +59,7 @@ in
         ".direnv/"
         ".envrc"
       ];
-  
+
       extraConfig = {
         core.fsmonitor = "rs-git-fsmonitor";
         credential.helper = "oauth";
@@ -78,4 +76,3 @@ in
     };
   };
 }
-

@@ -1,4 +1,4 @@
-inputs@{
+inputs @ {
   options,
   config,
   lib,
@@ -7,14 +7,12 @@ inputs@{
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.desktop.gnome;
   primary-color = "#161321";
   secondary-color = "#161321";
   wallpaper-uri = "file://${../../../../assets/house.png}";
-in
-{
+in {
   options.${namespace}.desktop.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to enable gnome.";
   };
@@ -33,7 +31,7 @@ in
       };
       "org/gnome/mutter" = {
         dynamic-workspaces = true;
-	edge-tiling = true;
+        edge-tiling = true;
       };
       "org/gnome/desktop/input-sources" = {
         sources = [
@@ -42,10 +40,13 @@ in
             "us"
           ])
         ];
-        xkb-options = [ "caps:ctrl_modifier" ];
+        xkb-options = ["caps:ctrl_modifier"];
       };
       "org/gnome/desktop/interface" = {
         text-scaling-factor = 1.25;
+        font-name = "Inter 11";
+        document-font-name = "Inter 11";
+        monospace-font-name = "Rec Mono Duotone 10";
       };
 
       # rice
@@ -54,8 +55,8 @@ in
         enabled-extensions = [
           "appindicatorsupport@rgcjonas.gmail.com"
           "blur-my-shell@aunetx"
-	  "hotedge@jonathan.jdoda.ca"
-	  "AlphabeticalAppGrid@stuarthayhurst"
+          "hotedge@jonathan.jdoda.ca"
+          "AlphabeticalAppGrid@stuarthayhurst"
         ];
         favorite-apps = [
           "org.gnome.Nautilus.desktop"

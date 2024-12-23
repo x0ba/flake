@@ -7,8 +7,7 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.desktop.gnome;
 
   defaultExtensions = with pkgs.gnomeExtensions; [
@@ -17,8 +16,7 @@ let
 
   default-attrs = mapAttrs (key: mkDefault);
   nested-default-attrs = mapAttrs (key: default-attrs);
-in
-{
+in {
   options.${namespace}.desktop.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to use Gnome as the desktop environment.";
     wayland = mkBoolOpt true "Whether or not to use Wayland.";
@@ -34,8 +32,7 @@ in
       desktopManager.gnome.enable = true;
     };
 
-    environment.systemPackages =
-      with pkgs;
+    environment.systemPackages = with pkgs;
       [
         wl-clipboard
         gnome-tweaks

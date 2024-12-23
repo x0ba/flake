@@ -1,17 +1,16 @@
 {
-    lib,
-    pkgs,
-    inputs,
-    namespace, 
-    home, 
-    target, 
-    format, 
-    virtual, 
-    host, 
-    config,
-    ...
-}:
-{
+  lib,
+  pkgs,
+  inputs,
+  namespace,
+  home,
+  target,
+  format,
+  virtual,
+  host,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     nextcloud-client
   ];
@@ -21,6 +20,7 @@
       firefox.enable = true;
       ghostty.enable = true;
       fonts.enable = true;
+      mpv.enable = true;
     };
     user.enable = true;
     cli = {

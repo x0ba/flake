@@ -4,25 +4,22 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
-  zshPlugins =
-    plugins:
-    (map (plugin: rec {
+  zshPlugins = plugins: (map (plugin: rec {
       name = src.name;
       inherit (plugin) file src;
-    }) plugins);
+    })
+    plugins);
 
   cfg = config.${namespace}.cli.zsh;
-in
-{
+in {
   options.${namespace}.cli.zsh = {
     enable = mkEnableOption "zsh";
   };
 
-  config = mkIf cfg.enable { 
+  config = mkIf cfg.enable {
     programs.zsh = {
       enable = true;
       autosuggestion.enable = true;
@@ -38,10 +35,10 @@ in
           src = pkgs.zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
         }
-	{
-	  src = pkgs.zsh-fzf-tab;
-	  file = "share/fzf-tab/fzf-tab.plugin.zsh";
-	}
+        {
+          src = pkgs.zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
         {
           src = pkgs.zsh-fast-syntax-highlighting;
           file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
@@ -63,4 +60,3 @@ in
     };
   };
 }
-
