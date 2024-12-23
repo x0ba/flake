@@ -10,7 +10,11 @@
   host,
   config,
   ...
-}: {
+}:
+let
+  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+in
+{
   file."Library/.ignore" = {
     enable = isDarwin;
     text = ''
