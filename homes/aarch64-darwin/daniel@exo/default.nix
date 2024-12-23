@@ -18,7 +18,7 @@
     '';
   };
 
-  home.sessionVariables.SSH_AUTH_SOCK = lib.optionalString isDarwin "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
+  home.sessionVariables.SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
 
   skibidi = {
     desktop = {
