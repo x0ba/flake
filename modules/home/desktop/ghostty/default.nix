@@ -8,6 +8,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
+  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
   cfg = config.${namespace}.desktop.ghostty;
 in {
@@ -16,9 +17,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
+    home.packages = ([ ] ++ lib.optionals (isLinux) [
       inputs.ghostty.packages.x86_64-linux.default
-    ];
+      ]
+    );
     programs.ghostty = {
       enable = true;
       settings = {
