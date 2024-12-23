@@ -24,23 +24,8 @@ in {
       enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;
-      initExtraFirst =
-        # bash
-        ''
-          zvm_config() {
-            ZVM_INIT_MODE=sourcing
-            ZVM_CURSOR_STYLE_ENABLED=false
-            ZVM_VI_HIGHLIGHT_BACKGROUND=black
-            ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
-            ZVM_VI_HIGHLIGHT_FOREGROUND=white
-          }
-        '';
       dotDir = ".config/zsh";
       plugins = zshPlugins [
-        {
-          src = pkgs.zsh-vi-mode;
-          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-        }
         {
           src = pkgs.zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
@@ -48,6 +33,10 @@ in {
         {
           src = pkgs.zsh-fast-syntax-highlighting;
           file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+        }
+        {
+          src = pkgs.zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
         }
       ];
       shellAliases = {
@@ -62,6 +51,17 @@ in {
         mv = "mv -i";
         rm = "rm -i";
       };
+      initExtra = # bash
+        ''
+          # set emacs keybinds
+          bindkey -e
+
+          zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+          zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+          zstyle ':completion:*' menu no
+          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+          zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+        '';
       history.path = "${config.xdg.configHome}/zsh/history";
     };
   };
