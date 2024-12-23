@@ -17,8 +17,6 @@ in {
   config = mkIf cfg.enable {
     # use fsmonitor
     home.packages = [
-      pkgs.rs-git-fsmonitor
-      pkgs.watchman
       pkgs.git-credential-oauth
       pkgs.hub
     ];
@@ -61,7 +59,6 @@ in {
       ];
 
       extraConfig = {
-        core.fsmonitor = "rs-git-fsmonitor";
         credential.helper = "oauth";
         init.defaultBranch = "main";
         push.default = "current";
