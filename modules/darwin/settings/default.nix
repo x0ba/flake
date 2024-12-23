@@ -44,9 +44,6 @@ in {
           NSAutomaticPeriodSubstitutionEnabled = false;
           NSAutomaticQuoteSubstitutionEnabled = false;
           NSAutomaticSpellingCorrectionEnabled = false;
-
-          # units & regional settings
-          AppleMetricUnits = 1;
         };
       };
       keyboard = {

@@ -11,6 +11,7 @@ with lib.${namespace};
     settings.enable = true;
     brew = {
       enable = true;
+      casks = [ "prismlauncher" ];
     };
   };
 

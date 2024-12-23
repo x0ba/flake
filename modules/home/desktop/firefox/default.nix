@@ -22,7 +22,7 @@ in {
         search.force = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
-          enhanced-h264ify
+          # enhanced-h264ify
           multi-account-containers
           proton-pass
           temporary-containers
