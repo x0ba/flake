@@ -23,7 +23,12 @@ in {
         then pkgs.firefox
         else (pkgs.writeScriptBin "__dummy-firefox" "");
       profiles.default = {
-        search.default = "DuckDuckGo";
+        search.engines = {
+          "Startpage" = {
+            urls = [{ template = "https://www.startpage.com/sp/search?query={searchTerms}"; }];
+          };
+        };
+        search.default = "Startpage";
         search.force = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader

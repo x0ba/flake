@@ -32,12 +32,6 @@ in {
         emoji = ["Twitter Color Emoji"];
       };
     };
-    home.activation.installCustomFonts =
-      lib.hm.dag.entryAfter [ "writeBoundary" ] # bash
-        ''
-          mkdir -p "${fontDirectory}"
-          install -Dm644 ${fontPath}/* "${fontDirectory}"
-        '';
     home.packages = with pkgs; [
       nerd-fonts.caskaydia-cove
       nerd-fonts.blex-mono
