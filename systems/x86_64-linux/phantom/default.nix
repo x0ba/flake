@@ -18,6 +18,7 @@
   networking = {
     hostName = "phantom";
     networkmanager.enable = true;
+    firewall.enable = true;
   };
 
   services = {
@@ -45,6 +46,7 @@
       time.enable = true;
       xkb.enable = true;
       battery.enable = true;
+      virtualization.enable = true;
     };
     user = {
       name = "daniel";

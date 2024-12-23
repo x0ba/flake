@@ -1,12 +1,11 @@
 {pkgs, ...}:
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
-    treefmt
     git
-    home-manager
-
     alejandra
-    python310Packages.mdformat
-    shfmt
+    just
+    nix-output-monitor
+    nixd
+    nvd
   ];
 }
