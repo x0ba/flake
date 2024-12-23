@@ -13,8 +13,10 @@
 }: {
   home.packages = with pkgs; [
     nextcloud-client
+    rnote
     obsidian
     calibre
+    thunderbird
   ];
   skibidi = {
     desktop = {

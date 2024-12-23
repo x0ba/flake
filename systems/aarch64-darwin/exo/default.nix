@@ -6,6 +6,7 @@
 }:
 with lib.${namespace};
 {
+  networking.hostName = "exo";
   skibidi = {
     nix.enable = true;
     settings.enable = true;

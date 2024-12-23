@@ -62,6 +62,7 @@ in {
           "org.gnome.Nautilus.desktop"
           "firefox.desktop"
           "com.mitchellh.ghostty.desktop"
+          "thunderbird.desktop"
           "obsidian.desktop"
         ];
       };
