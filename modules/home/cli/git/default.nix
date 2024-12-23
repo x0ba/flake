@@ -19,6 +19,7 @@ in {
     home.packages = [
       pkgs.git-credential-oauth
       pkgs.hub
+      pkgs.git-crypt
     ];
 
     programs.git = {

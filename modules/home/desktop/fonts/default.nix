@@ -9,6 +9,12 @@
   inherit (pkgs.stdenv) isLinux;
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.${namespace}) enabled;
+  fontDirectory =
+    if pkgs.stdenv.isDarwin then
+      "${config.home.homeDirectory}/Library/Fonts"
+    else
+      "${config.xdg.dataHome}/fonts";
+  fontPath = ../../../../assets/fonts;
 
   cfg = config.${namespace}.desktop.fonts;
 in {
@@ -26,6 +32,12 @@ in {
         emoji = ["Twitter Color Emoji"];
       };
     };
+    home.activation.installCustomFonts =
+      lib.hm.dag.entryAfter [ "writeBoundary" ] # bash
+        ''
+          mkdir -p "${fontDirectory}"
+          install -Dm644 ${fontPath}/* "${fontDirectory}"
+        '';
     home.packages = with pkgs; [
       nerd-fonts.caskaydia-cove
       nerd-fonts.blex-mono

@@ -1,0 +1,6 @@
+# noisy diffs
+flake.lock -diff
+lazy-lock.json -diff
+
+# git crypt
+assets/fonts/* filter=git-crypt diff=git-crypt
