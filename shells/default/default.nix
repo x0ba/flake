@@ -1,4 +1,4 @@
-{pkgs, inputs, lib, ...}:
+{pkgs, inputs', lib, ...}:
 pkgs.mkShell {
   nativeBuildInputs = (with pkgs; [
     git
@@ -8,5 +8,5 @@ pkgs.mkShell {
     nixd
     nvd
   ])
-  ++ lib.optionals pkgs.stdenv.isDarwin [ inputs.darwin.packages.darwin-rebuild ];
+  ++ lib.optionals pkgs.stdenv.isDarwin [ inputs'.darwin.packages.darwin-rebuild ];
 }
