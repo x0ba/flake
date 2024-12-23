@@ -8,7 +8,7 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.settings;
+  cfg = config.${namespace}.brew;
   default-attrs = mapAttrs (key: mkDefault);
   nested-default-attrs = mapAttrs (key: default-attrs);
   noQuarantine = name: {
@@ -20,7 +20,7 @@ with lib.${namespace}; let
     args.require_sha = false;
   };
 in {
-  options.${namespace}.settings = with types; {  default-attrs = mapAttrs (key: mkDefault);
+  options.${namespace}.brew = with types; {  default-attrs = mapAttrs (key: mkDefault);
   nested-default-attrs = mapAttrs (key: default-attrs);
     enable = mkBoolOpt false "Whether or not to manage homebrew apps";
     casks = mkOpt (listOf package) [ ] "Extra casks to install";
