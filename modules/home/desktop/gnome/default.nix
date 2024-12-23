@@ -64,6 +64,7 @@ in {
           "com.mitchellh.ghostty.desktop"
           "thunderbird.desktop"
           "obsidian.desktop"
+          "discord.desktop"
         ];
       };
 
