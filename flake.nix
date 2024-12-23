@@ -54,6 +54,9 @@
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
+      channels-config = {
+        allowUnfree = true;
+      };
 
       snowfall = {
         namespace = "skibidi";

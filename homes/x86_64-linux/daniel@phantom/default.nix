@@ -18,6 +18,7 @@
     calibre
     thunderbird
   ];
+  nixpkgs.config.allowUnfree = true;
   skibidi = {
     desktop = {
       gnome.enable = true;
