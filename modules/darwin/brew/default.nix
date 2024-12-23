@@ -36,7 +36,7 @@ in {
       caskArgs.require_sha = true;
       brews = [ ] ++ cfg.brews;
       casks = [
-        "proton-pass"
+        "1password"
         "raycast"
         "discord"
         "easy-move+resize"

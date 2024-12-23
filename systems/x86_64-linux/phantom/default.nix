@@ -36,12 +36,16 @@
 
   skibidi = {
     nix.enable = true;
+    apps = {
+      onepassword.enable = true;
+    };
     hardware = {
       yubikey.enable = true;
     };
     system = {
       boot.enable = true;
       hardware_acceleration.enable = true;
+      ld.enable = true;
       locale.enable = true;
       time.enable = true;
       xkb.enable = true;

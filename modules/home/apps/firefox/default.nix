@@ -23,9 +23,9 @@ in {
         search.force = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
+          onepassword-password-manager
           enhanced-h264ify
           multi-account-containers
-          proton-pass
           temporary-containers
           ublock-origin
           vimium
