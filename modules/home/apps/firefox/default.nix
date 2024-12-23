@@ -17,7 +17,11 @@ in {
 
   config = mkIf cfg.enable {
     programs.firefox = {
-      enable = isLinux;
+      enable = true;
+      package =
+        if isLinux
+        then pkgs.firefox
+        else (pkgs.writeScriptBin "__dummy-firefox" "");
       profiles.default = {
         search.default = "DuckDuckGo";
         search.force = true;

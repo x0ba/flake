@@ -26,6 +26,7 @@
     };
     apps = {
       ghostty.enable = true;
+      firefox.enable = true;
     };
     user = {
       enable = true;

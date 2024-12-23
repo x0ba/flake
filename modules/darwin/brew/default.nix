@@ -43,6 +43,7 @@ in {
           "discord"
           "easy-move+resize"
           "eloston-chromium"
+          "firefox"
           "iina"
           "jordanbaird-ice"
           "keka"
