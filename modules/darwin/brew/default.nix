@@ -23,8 +23,8 @@ in {
   options.${namespace}.brew = with types; {  default-attrs = mapAttrs (key: mkDefault);
   nested-default-attrs = mapAttrs (key: default-attrs);
     enable = mkBoolOpt false "Whether or not to manage homebrew apps";
-    casks = mkOpt (listOf string) [ ] "Extra casks to install";
-    brews = mkOpt (listOf string) [ ] "Extra brews to install";
+    casks = mkOpt (listOf str) [ ] "Extra casks to install";
+    brews = mkOpt (listOf str) [ ] "Extra brews to install";
   };
 
   config = mkIf cfg.enable {
@@ -48,6 +48,7 @@ in {
         "netnewswire"
         "nextcloud"
         "obsidian"
+        (skipSha "spotify")
         "rectangle"
         "calibre"
         "orion"
