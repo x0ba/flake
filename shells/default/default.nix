@@ -7,6 +7,6 @@ pkgs.mkShell {
     nix-output-monitor
     nixd
     nvd
-  ])
-  ++ lib.optionals pkgs.stdenv.isDarwin [ inputs.darwin.packages.darwin-rebuild ];
+  ]);
+  # ++ lib.optionals pkgs.stdenv.isDarwin [ inputs.darwin.packages.darwin-rebuild ];
 }
