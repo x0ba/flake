@@ -50,7 +50,8 @@ in {
         mv = "mv -i";
         rm = "rm -i";
       };
-      initExtra = # bash
+      initExtra =
+        # bash
         ''
           # set emacs keybinds
           bindkey -e

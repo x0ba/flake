@@ -23,6 +23,5 @@ in {
       };
       playerctld.enable = true;
     };
-
   };
 }

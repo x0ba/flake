@@ -27,116 +27,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.swayosd.enable = true;
-    services.swaync = {
-      enable = true;
-      settings = {
-        control-center-layer = "top";
-        control-center-margin-bottom = 0;
-        control-center-margin-left = 0;
-        control-center-margin-right = 0;
-        control-center-margin-top = 0;
-        control-center-width = 500;
-        cssPriority = "application";
-        fit-to-screen = true;
-        hide-on-action = true;
-        hide-on-clear = false;
-        image-visibility = "when-available";
-        keyboard-shortcuts = true;
-        layer = "overlay";
-        layer-shell = true;
-        notification-2fa-action = true;
-        notification-body-image-height = 100;
-        notification-body-image-width = 200;
-        notification-icon-size = 64;
-        notification-inline-replies = false;
-        notification-visibility = { };
-        notification-window-width = 500;
-        positionX = "right";
-        positionY = "top";
-        relative-timestamps = true;
-        script-fail-notify = true;
-        scripts = { };
-        timeout = 10;
-        timeout-critical = 0;
-        timeout-low = 5;
-        transition-time = 200;
-        widget-config = {
-          title = {
-            button-text = "Clear All";
-            clear-all-button = true;
-            text = "Notifications";
-          };
-          dnd.text = "Do Not Disturb";
-          menubar = {
-            buttons = {
-              actions = [
-                {
-                  active = true;
-                  command = "darkman toggle";
-                  label = "󰔎 Toggle Appearance";
-                  type = "toggle";
-                }
-              ];
-              position = "left";
-            };
-            menu = {
-              actions = [
-                {
-                  active = true;
-                  command = "swaylock";
-                  label = "󰌾 Lock";
-                }
-                {
-                  active = true;
-                  command = "systemctl sleep";
-                  label = "󰤄 Sleep";
-                }
-                {
-                  active = true;
-                  command = "systemctl poweroff";
-                  label = "󰐥 Shut down";
-                }
-                {
-                  active = true;
-                  command = "systemctl reboot";
-                  label = "󰜉 Restart";
-                }
-              ];
-              animation-duration = 250;
-              animation-type = "slide_down";
-              label = "󰐥 Power";
-              position = "right";
-            };
-          };
-          mpris = {
-            image-radius = 12;
-            image-size = 96;
-          };
-          volume = {
-            collapse-button-label = "";
-            expand-button-label = "";
-            label = "Volume";
-            show-per-app = true;
-            show-per-app-icon = false;
-            show-per-app-label = true;
-          };
-        };
-        widgets = [
-          "title"
-          "dnd"
-          "menubar"
-          "notifications"
-          "mpris"
-          "volume"
-        ];
-      };
-    };
     services = {
       clipman.enable = true;
+      swayosd.enable = true;
       gnome-keyring = {
         enable = true;
-        components = [ "secrets" ];
+        components = ["secrets"];
       };
       udiskie.enable = true;
     };
@@ -149,8 +45,8 @@ in {
         focus.wrapping = "no";
         focus.mouseWarping = "container";
         startup = [
-          { command = "${lib.getExe pkgs.autotiling} -l2"; }
-          { command = "1password --silent"; }
+          {command = "${lib.getExe pkgs.autotiling} -l2";}
+          {command = "1password --silent";}
           {
             command = ''
               ${lib.getExe pkgs.swayidle} -w \
@@ -159,8 +55,8 @@ in {
                 before-sleep '${lib.getExe config.programs.swaylock.package} -f'
             '';
           }
-          { command = swayosd-server; }
-          { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+          {command = swayosd-server;}
+          {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
         ];
         workspaceAutoBackAndForth = true;
         # TODO: change this back to wezterm whenever it works on sway
@@ -312,125 +208,113 @@ in {
         };
       };
 
-      extraConfig =
-        ''
-          set $rosewater #f5e0dc
-          set $flamingo #f2cdcd
-          set $pink #f5c2e7
-          set $mauve #cba6f7
-          set $red #f38ba8
-          set $maroon #eba0ac
-          set $peach #fab387
-          set $yellow #f9e2af
-          set $green #a6e3a1
-          set $teal #94e2d5
-          set $sky #89dceb
-          set $sapphire #74c7ec
-          set $blue #89b4fa
-          set $lavender #b4befe
-          set $text #cdd6f4
-          set $subtext1 #bac2de
-          set $subtext0 #a6adc8
-          set $overlay2 #9399b2
-          set $overlay1 #7f849c
-          set $overlay0 #6c7086
-          set $surface2 #585b70
-          set $surface1 #45475a
-          set $surface0 #313244
-          set $base #1e1e2e
-          set $mantle #181825
-          set $crust #11111b
+      extraConfig = ''
+        set $rosewater #f5e0dc
+        set $flamingo #f2cdcd
+        set $pink #f5c2e7
+        set $mauve #cba6f7
+        set $red #f38ba8
+        set $maroon #eba0ac
+        set $peach #fab387
+        set $yellow #f9e2af
+        set $green #a6e3a1
+        set $teal #94e2d5
+        set $sky #89dceb
+        set $sapphire #74c7ec
+        set $blue #89b4fa
+        set $lavender #b4befe
+        set $text #cdd6f4
+        set $subtext1 #bac2de
+        set $subtext0 #a6adc8
+        set $overlay2 #9399b2
+        set $overlay1 #7f849c
+        set $overlay0 #6c7086
+        set $surface2 #585b70
+        set $surface1 #45475a
+        set $surface0 #313244
+        set $base #1e1e2e
+        set $mantle #181825
+        set $crust #11111b
 
-          for_window [floating] border pixel 2
+        for_window [floating] border pixel 2
 
-          # floating sticky
-          for_window [class="1Password"] floating enable sticky enable
-          for_window [window_role="PictureInPicture"] floating enable sticky enable
-          for_window [title="Picture in picture"] floating enable sticky enable
+        # floating sticky
+        for_window [class="1Password"] floating enable sticky enable
+        for_window [window_role="PictureInPicture"] floating enable sticky enable
+        for_window [title="Picture in picture"] floating enable sticky enable
 
-          # floating
-          for_window [class="GParted"] floating enable
-          for_window [title="(?i)SteamTinkerLaunch"] floating enable
-          for_window [title="Blender Render"] floating enable
+        # floating
+        for_window [class="GParted"] floating enable
+        for_window [title="(?i)SteamTinkerLaunch"] floating enable
+        for_window [title="Blender Render"] floating enable
 
-          # general WM role settings
-          for_window [title="splash"] floating enable
-          for_window [urgent=latest] focus
-          for_window [window_role="dialog"] floating enable
-          for_window [window_role="pop-up"] floating enable
-          for_window [window_role="task_dialog"] floating enable
-          for_window [window_type="dialog"] floating enable
+        # general WM role settings
+        for_window [title="splash"] floating enable
+        for_window [urgent=latest] focus
+        for_window [window_role="dialog"] floating enable
+        for_window [window_role="pop-up"] floating enable
+        for_window [window_role="task_dialog"] floating enable
+        for_window [window_type="dialog"] floating enable
 
-          # apps
-          for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-          for_window [app_id="org.gnome.NautilusPreviewer"] floating enable
-          for_window [class="Yad" title="Authentication"] floating enable
-          for_window [app_id="jetbrains*" title="Welcome*"] floating enable
-          for_window [class="jetbrains*" title="Welcome*"] floating enable
-          for_window [title="File Transfer*"] floating enable
-          for_window [title="Steam Guard*"] floating enable
+        # apps
+        for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+        for_window [app_id="org.gnome.NautilusPreviewer"] floating enable
+        for_window [class="Yad" title="Authentication"] floating enable
+        for_window [app_id="jetbrains*" title="Welcome*"] floating enable
+        for_window [class="jetbrains*" title="Welcome*"] floating enable
+        for_window [title="File Transfer*"] floating enable
+        for_window [title="Steam Guard*"] floating enable
 
-          # keep apps in scratchpad
-          for_window [app_id="discord"] move scratchpad sticky
-          for_window [app_id="vesktop"] move scratchpad sticky
+        # keep apps in scratchpad
+        for_window [app_id="discord"] move scratchpad sticky
+        for_window [app_id="vesktop"] move scratchpad sticky
 
-          # fullscreen apps inhibit idle
-          for_window [class=".*"] inhibit_idle fullscreen
+        # fullscreen apps inhibit idle
+        for_window [class=".*"] inhibit_idle fullscreen
 
-          set $mode_gaps Gaps: (o)uter, (i)nner
-          set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-          set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-          bindsym ${mod}+Shift+g mode "$mode_gaps"
+        set $mode_gaps Gaps: (o)uter, (i)nner
+        set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+        set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+        bindsym ${mod}+Shift+g mode "$mode_gaps"
 
-          mode "$mode_gaps" {
-            bindsym o      mode "$mode_gaps_outer"
-            bindsym i      mode "$mode_gaps_inner"
-            bindsym Return mode "$mode_gaps"
-            bindsym Escape mode "default"
-          }
-          mode "$mode_gaps_outer" {
-            bindsym plus  gaps outer current plus 5
-            bindsym minus gaps outer current minus 5
-            bindsym 0     gaps outer current set 0
+        mode "$mode_gaps" {
+          bindsym o      mode "$mode_gaps_outer"
+          bindsym i      mode "$mode_gaps_inner"
+          bindsym Return mode "$mode_gaps"
+          bindsym Escape mode "default"
+        }
+        mode "$mode_gaps_outer" {
+          bindsym plus  gaps outer current plus 5
+          bindsym minus gaps outer current minus 5
+          bindsym 0     gaps outer current set 0
 
-            bindsym Shift+plus  gaps outer all plus 5
-            bindsym Shift+minus gaps outer all minus 5
-            bindsym Shift+0     gaps outer all set 0
+          bindsym Shift+plus  gaps outer all plus 5
+          bindsym Shift+minus gaps outer all minus 5
+          bindsym Shift+0     gaps outer all set 0
 
-            bindsym Return mode "$mode_gaps"
-            bindsym Escape mode "default"
-          }
-          mode "$mode_gaps_inner" {
-            bindsym plus  gaps inner current plus 5
-            bindsym minus gaps inner current minus 5
-            bindsym 0     gaps inner current set 0
+          bindsym Return mode "$mode_gaps"
+          bindsym Escape mode "default"
+        }
+        mode "$mode_gaps_inner" {
+          bindsym plus  gaps inner current plus 5
+          bindsym minus gaps inner current minus 5
+          bindsym 0     gaps inner current set 0
 
-            bindsym Shift+plus  gaps inner all plus 5
-            bindsym Shift+minus gaps inner all minus 5
-            bindsym Shift+0     gaps inner all set 0
+          bindsym Shift+plus  gaps inner all plus 5
+          bindsym Shift+minus gaps inner all minus 5
+          bindsym Shift+0     gaps inner all set 0
 
-            bindsym Return mode "$mode_gaps"
-            bindsym Escape mode "default"
+          bindsym Return mode "$mode_gaps"
+          bindsym Escape mode "default"
 
-            shadows             enable
-            shadow_color        #11111b99
-            shadow_blur_radius  20
-
-            corner_radius       5
-            smart_corner_radius enable
-
-            blur                enable
-            blur_passes         2
-            blur_radius         4
-
-            client.focused           $lavender $base $text  $rosewater $lavender
-            client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-            client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-            client.urgent            $peach    $base $peach $overlay0  $peach
-            client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-            client.background        $base
-          }
-        '';
+          client.focused           $lavender $base $text  $rosewater $lavender
+          client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+          client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+          client.urgent            $peach    $base $peach $overlay0  $peach
+          client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+          client.background        $base
+        }
+      '';
       systemd = {
         enable = true;
         xdgAutostart = true;

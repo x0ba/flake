@@ -14,13 +14,16 @@
   nixpkgs.config.allowUnfree = true;
   skibidi = {
     desktop = {
-      gnome.enable = true;
+      # gnome.enable = true;
+      niri.enable = true;
       fonts.enable = true;
+      gtk.enable = true;
     };
     apps = {
       firefox.enable = true;
       discord.enable = true;
       ghostty.enable = true;
+      onepassword.enable = true;
       mpv.enable = true;
     };
     user.enable = true;

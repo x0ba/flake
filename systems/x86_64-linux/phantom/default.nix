@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware.nix
   ];
@@ -21,6 +19,7 @@
     system = {
       boot.enable = true;
       hardware_acceleration.enable = true;
+      greeter.enable = true;
       ld.enable = true;
       locale.enable = true;
       time.enable = true;
@@ -32,7 +31,8 @@
       name = "daniel";
       initialPassword = "password";
     };
-    desktop.gnome.enable = true;
+    # desktop.gnome.enable = true;
+    desktop.niri.enable = true;
   };
 
   system.stateVersion = "24.11";
