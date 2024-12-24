@@ -77,6 +77,7 @@ in {
 
         # needed for some plugin build steps
         gnumake
+        gcc
         unzip
       ];
       sessionVariables = {

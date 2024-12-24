@@ -75,6 +75,7 @@ in {
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
       };
 
@@ -82,6 +83,12 @@ in {
         binding = "<Control><Alt>t";
         command = "ghostty";
         name = "ghostty";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = "<Shift><Control>space";
+        command = "1password --quick-access";
+        name = "1password quick access";
       };
 
       # wallpaper

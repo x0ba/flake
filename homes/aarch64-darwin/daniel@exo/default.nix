@@ -15,7 +15,6 @@
   skibidi = {
     desktop = {
       fonts.enable = true;
-      gnome.enable = true;
     };
     apps = {
       ghostty.enable = true;
