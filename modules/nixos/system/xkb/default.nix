@@ -19,7 +19,7 @@ in {
     services.xserver = {
       xkb = {
         layout = "us";
-        options = "ctrl:nocaps";
+        options = "caps:ctrl_modifier";
       };
     };
   };

@@ -22,6 +22,7 @@ in {
 
   config = mkIf cfg.enable {
     skibidi.system.xkb.enable = true;
+    hardware.pulseaudio.enable = false;
 
     services.xserver = {
       enable = true;

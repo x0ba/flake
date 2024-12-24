@@ -18,7 +18,7 @@ in
   config = mkIf cfg.enable {
     home.packages = [pkgs.gtklock];
 
-    home.configFile."gtklock/style.css".text = ''
+    xdg.configFile."gtklock/style.css".text = ''
       window {
          background-size: cover;
          background-repeat: no-repeat;

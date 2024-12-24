@@ -24,7 +24,6 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = null;
     };
 
     home.packages = with pkgs; [
@@ -46,7 +45,7 @@ in {
         wl-paste | swappy -f -
       '')
     ];
-    home.configFile = {
+    xdg.configFile = {
       "hypr/launch".source = ./launch;
       "hypr/hyprland.conf".source = ./hyprland.conf;
       "hypr/colors.conf" = {

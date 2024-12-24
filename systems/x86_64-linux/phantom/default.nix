@@ -7,8 +7,6 @@
 
   networking.hostName = "phantom";
 
-  security.rtkit.enable = true;
-
   skibidi = {
     nix.enable = true;
     apps = {
