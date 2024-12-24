@@ -6,7 +6,6 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.${namespace}) enabled;
   zshPlugins = plugins: (map (plugin: rec {
       name = src.name;
       inherit (plugin) file src;

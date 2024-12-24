@@ -3,7 +3,6 @@
   config,
   pkgs,
   namespace,
-  osConfig ? {},
   ...
 }: let
   inherit
@@ -16,8 +15,6 @@
   inherit (lib.${namespace}) mkOpt;
 
   cfg = config.${namespace}.user;
-
-  is-linux = pkgs.stdenv.isLinux;
   is-darwin = pkgs.stdenv.isDarwin;
 
   home-directory =

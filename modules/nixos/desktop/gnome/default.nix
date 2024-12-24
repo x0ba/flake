@@ -13,9 +13,6 @@ with lib.${namespace}; let
   defaultExtensions = with pkgs.gnomeExtensions; [
     appindicator
   ];
-
-  default-attrs = mapAttrs (key: mkDefault);
-  nested-default-attrs = mapAttrs (key: default-attrs);
 in {
   options.${namespace}.desktop.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to use Gnome as the desktop environment.";

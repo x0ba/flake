@@ -66,8 +66,6 @@
         };
       };
 
-      templates = import ./templates { };
-
       homes.modules = with inputs; [
         ghostty-hm.homeModules.default
         nix-index-database.hmModules.nix-index
@@ -76,9 +74,7 @@
       overlays = with inputs; [
         inputs.nix-vscode-extensions.overlays.default
         (
-          final: prev: let
-            inherit (final.stdenv) system;
-          in {
+          final: _prev: {
             nur = import inputs.nur {
               nurpkgs = final;
               pkgs = final;

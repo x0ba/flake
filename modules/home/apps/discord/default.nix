@@ -1,13 +1,11 @@
 {
   lib,
   config,
-  inputs,
   pkgs,
   namespace,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.apps.discord;
 in {

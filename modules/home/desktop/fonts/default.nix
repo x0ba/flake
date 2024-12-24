@@ -1,20 +1,12 @@
 {
   lib,
   config,
-  inputs,
   pkgs,
   namespace,
   ...
 }: let
   inherit (pkgs.stdenv) isLinux;
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.${namespace}) enabled;
-  fontDirectory =
-    if pkgs.stdenv.isDarwin then
-      "${config.home.homeDirectory}/Library/Fonts"
-    else
-      "${config.xdg.dataHome}/fonts";
-  fontPath = ../../../../assets/fonts;
 
   cfg = config.${namespace}.desktop.fonts;
 in {

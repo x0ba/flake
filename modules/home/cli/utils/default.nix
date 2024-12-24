@@ -6,7 +6,6 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.cli.utils;
 in {

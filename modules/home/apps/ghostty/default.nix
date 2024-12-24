@@ -7,8 +7,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.${namespace}) enabled;
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
 
   cfg = config.${namespace}.apps.ghostty;
 in {

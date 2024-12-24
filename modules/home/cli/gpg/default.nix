@@ -6,7 +6,6 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.${namespace}) enabled;
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
   key = "0x660DBDE129F4E1D9";
 

@@ -24,19 +24,6 @@ with lib.${namespace}; let
       fileName = defaultIconFileName;
     };
   };
-  propagatedIcon =
-    pkgs.runCommandNoCC "propagated-icon"
-    {
-      passthru = {
-        fileName = cfg.icon.fileName;
-      };
-    }
-    ''
-      local target="$out/share/skibidi-icons/user/${cfg.name}"
-      mkdir -p "$target"
-
-      cp ${cfg.icon} "$target/${cfg.icon.fileName}"
-    '';
 in {
   options.${namespace}.user = with types; {
     name = mkOpt str "daniel" "The name to use for the user account.";
