@@ -23,7 +23,6 @@
       firefox.enable = true;
       discord.enable = true;
       ghostty.enable = true;
-      onepassword.enable = true;
       mpv.enable = true;
     };
     user.enable = true;

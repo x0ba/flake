@@ -22,6 +22,7 @@ in {
       nautilus
       nautilus-python
       nautilus-open-any-terminal
+      wl-clipboard
       # thumbnails
       webp-pixbuf-loader
       ffmpegthumbnailer

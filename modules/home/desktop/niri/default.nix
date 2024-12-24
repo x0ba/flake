@@ -134,11 +134,12 @@ in {
               draw-border-with-background false
           }
 
+          spawn-at-startup "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
           spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-i" "${../../../../assets/house.png}"
           spawn-at-startup "${pkgs.waybar}/bin/waybar"
-          spawn-at-startup "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
           spawn-at-startup "${swayosd-server}"
-          spawn-at-startup "1password" "--silent"
+          spawn-at-startup "1password --silent"
+          spawn-at-startup "nextcloud --background"
 
           binds {
               Mod+Shift+Slash { show-hotkey-overlay; }
@@ -256,7 +257,7 @@ in {
                   spawn "sh" "-c" r#"
                       file=~/Pictures/screenshots/"$(date +%s)".png
                       ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -b '#00000090' -w 0)" "$file"
-                      ${pkgs.wl-clipboard-rs}/bin/wl-copy < "$file"
+                      ${pkgs.wl-clipboard}/bin/wl-copy < "$file"
                   "#;
               }
 

@@ -107,5 +107,32 @@ in {
         inherit primary-color secondary-color;
       };
     };
+    xdg.configFile = {
+      "autostart/Nextcloud.desktop".text = ''
+        [Desktop Entry]
+        Name=Nextcloud
+        GenericName=File Synchronizer
+        Exec=nextcloud --background
+        Terminal=false
+        Icon=Nextcloud
+        Categories=Network
+        Type=Application
+        StartupNotify=false
+        X-GNOME-Autostart-enabled=true
+        X-GNOME-Autostart-Delay=10
+      '';
+      "autostart/1Password.desktop".text = ''
+        [Desktop Entry]
+        Name=1Password
+        Exec=1password --silent %U
+        Terminal=false
+        Type=Application
+        Icon=1password
+        StartupWMClass=1Password
+        Comment=Password manager and secure wallet
+        MimeType=x-scheme-handler/onepassword;
+        Categories=Office;
+      '';
+    };
   };
 }
