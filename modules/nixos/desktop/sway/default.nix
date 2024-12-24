@@ -56,9 +56,9 @@ in
     };
 
     services.dbus.packages = with pkgs; [
-      darkman
       nautilus-open-any-terminal
     ];
+
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
