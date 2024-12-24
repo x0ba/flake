@@ -26,8 +26,19 @@ in {
 
     services.xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
+      displayManager = {
+        gdm.enable = true;
+        autoLogin = {
+          enable = true;
+          user = "daniel";
+        };
+      };
       desktopManager.gnome.enable = true;
+    };
+
+    programs.kdeconnect = {
+      enable = true;
+      package = pkgs.gnomeExtensions.gsconnect;
     };
 
     environment.systemPackages = with pkgs;

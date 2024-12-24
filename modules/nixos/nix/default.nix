@@ -16,7 +16,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs = {
+      config.allowUnfree = true;
+    };
 
     nix = let
       users = [
@@ -29,9 +31,14 @@ in {
       package = cfg.package;
 
       settings = {
-        experimental-features = "nix-command flakes";
+        experimental-features = [
+          "nix-command"
+          "flakes"
+          "auto-allocate-uids"
+        ];
         http-connections = 50;
         warn-dirty = false;
+        use-xdg-base-directories = true;
         log-lines = 50;
         sandbox = "relaxed";
         auto-optimise-store = true;
@@ -55,7 +62,6 @@ in {
       gc = {
         automatic = true;
         dates = "weekly";
-        options = "--delete-older-than 30d";
       };
 
       # flake-utils-plus

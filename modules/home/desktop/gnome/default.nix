@@ -61,6 +61,7 @@ in {
           "hotedge@jonathan.jdoda.ca"
           "AlphabeticalAppGrid@stuarthayhurst"
           "caffeine@patapon.info"
+          "gsconnect@andyholmes.github.io"
         ];
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
