@@ -17,6 +17,13 @@ in {
   config = mkIf cfg.enable {
     virtualisation = {
       libvirtd.enable = true;
+      podman = {
+        enable = true;
+        extraPackages = with pkgs; [
+          podman-compose
+          podman-tui
+        ];
+      };
     };
     users.users."daniel".extraGroups = [
       "libvirtd"
@@ -25,6 +32,7 @@ in {
       virt-manager
       virt-viewer
       virtiofsd
+      distrobox
     ];
   };
 }
