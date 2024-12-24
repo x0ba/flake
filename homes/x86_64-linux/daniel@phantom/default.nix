@@ -14,7 +14,7 @@
   nixpkgs.config.allowUnfree = true;
   skibidi = {
     desktop = {
-      gnome.enable = true;
+      # gnome.enable = true;
       fonts.enable = true;
     };
     apps = {

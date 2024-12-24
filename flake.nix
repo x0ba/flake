@@ -33,16 +33,22 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
     extra-substituters = [
       "https://nix-community.cachix.org"
+      "https://cosmic.cachix.org"
       "https://pre-commit-hooks.cachix.org"
       "https://mic92.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
       "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
     ];
@@ -69,6 +75,10 @@
       homes.modules = with inputs; [
         ghostty-hm.homeModules.default
         nix-index-database.hmModules.nix-index
+      ];
+
+      systems.modules.nixos = with inputs; [
+        nixos-cosmic.nixosModules.default
       ];
 
       overlays = with inputs; [
