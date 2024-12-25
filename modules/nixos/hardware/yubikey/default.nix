@@ -21,5 +21,11 @@ in {
     };
 
     hardware.gpgSmartcards.enable = true;
+
+    security.pam.u2f = {
+      enable = true;
+      settings.cue = true;
+    };
+
   };
 }
