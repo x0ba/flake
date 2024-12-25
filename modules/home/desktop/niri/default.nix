@@ -20,6 +20,7 @@ in {
     skibidi.apps = {
       rofi.enable = true;
       waybar.enable = true;
+      swaync.enable = true;
     };
     programs.ghostty.settings.window-decoration = false;
     programs.niri = {
@@ -138,8 +139,7 @@ in {
           spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-i" "${../../../../assets/house.png}"
           spawn-at-startup "${pkgs.waybar}/bin/waybar"
           spawn-at-startup "${swayosd-server}"
-          spawn-at-startup "1password --silent"
-          spawn-at-startup "nextcloud --background"
+          spawn-at-startup "${pkgs.swaynotificationcenter}/bin/swaync"
 
           binds {
               Mod+Shift+Slash { show-hotkey-overlay; }
@@ -268,6 +268,21 @@ in {
               Mod+Shift+P { power-off-monitors; }
           }
         '';
+    };
+    xdg.configFile = {
+      "autostart/Nextcloud.desktop".text = ''
+        [Desktop Entry]
+        Name=Nextcloud
+        GenericName=File Synchronizer
+        Exec=nextcloud --background
+        Terminal=false
+        Icon=Nextcloud
+        Categories=Network
+        Type=Application
+        StartupNotify=false
+        X-GNOME-Autostart-enabled=true
+        X-GNOME-Autostart-Delay=10
+      '';
     };
   };
 }

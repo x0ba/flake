@@ -19,16 +19,17 @@ in {
 
     # Enable TLP (better than gnomes internal power manager)
     services = {
-      tlp = {
-        enable = true;
-        settings = {
-          CPU_BOOST_ON_AC = 1;
-          CPU_BOOST_ON_BAT = 0;
-          CPU_SCALING_GOVERNOR_ON_AC = "performance";
-          CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-          USB_DENYLIST = "046d:c52b 1050:0407";
-        };
-      };
+      # tlp = {
+      #   enable = true;
+      #   settings = {
+      #     CPU_BOOST_ON_AC = 1;
+      #     CPU_BOOST_ON_BAT = 0;
+      #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      #     USB_DENYLIST = "046d:c52b 1050:0407";
+      #   };
+      # };
+      auto-cpufreq.enable = true;
       power-profiles-daemon.enable = false;
       thermald.enable = true;
       undervolt = {

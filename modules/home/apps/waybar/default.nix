@@ -29,112 +29,135 @@ in {
           modules-center = [
             "sway/window"
           ];
-          modules-right = [
-            "battery"
-            "cpu"
-            "memory"
-            "temperature"
-            "clock"
-            "tray"
-          ];
+          modules-right =
+            [
+              "battery"
+              "cpu"
+              "memory"
+              "temperature"
+              "clock"
+              "tray"
+            ]
+            ++ lib.optionals config.skibidi.apps.swaync.enable ["custom/swaync"];
           "sway/window" = {
             max-length = 50;
             max-length-mode = "middle";
             tooltip = true;
           };
+          "custom/swaync" = {
+            tooltip = false;
+            format = "{icon}";
+            format-icons = {
+              notification = "<span foreground='red'><sup></sup></span>";
+              none = "";
+              dnd-notification = "<span foreground='red'><sup></sup></span>";
+              dnd-none = "";
+              inhibited-notification = "<span foreground='red'><sup></sup></span>";
+              inhibited-none = "";
+              dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+              dnd-inhibited-none = "";
+            };
+            return-type = "json";
+            exec-if = "which swaync-client";
+            exec = "swaync-client -swb";
+            on-click = "swaync-client -t -sw";
+            on-click-right = "swaync-client -d -sw";
+            escape = true;
+          };
           "sway/workspaces" = {
             disable-scroll = false;
             all-outputs = false;
             format = "";
-                persistent_workspaces = {
-                 "1" = [
-                    "eDP-1"
-                    "DP-3"
-                  ];
-                  "2" = [
-                    "eDP-1"
-                    "DP-3"
-                  ];
-                  "3" = [
-                    "eDP-1"
-                    "DP-3"
-                  ];
-                  "4" = [
-                    "eDP-1"
-                    "DP-3"
-                  ];
-                  "5" = [
-                    "eDP-1"
-                    "DP-3"
-                  ];
-                  "6" = [
-                    "DP-1"
-                    "DP-3"
-                  ];
-                  "7" = [
-                    "DP-1"
-                  ];
-                  "8" = [
-                    "DP-1"
-                  ];
-                  "9" = [
-                    "DP-1"
-                  ];
-                  "10" = [
-                    "DP-1"
-                  ];
-                };
+            persistent_workspaces = {
+              "1" = [
+                "eDP-1"
+                "DP-3"
+              ];
+              "2" = [
+                "eDP-1"
+                "DP-3"
+              ];
+              "3" = [
+                "eDP-1"
+                "DP-3"
+              ];
+              "4" = [
+                "eDP-1"
+                "DP-3"
+              ];
+              "5" = [
+                "eDP-1"
+                "DP-3"
+              ];
+              "6" = [
+                "DP-1"
+                "DP-3"
+              ];
+              "7" = [
+                "DP-1"
+              ];
+              "8" = [
+                "DP-1"
+              ];
+              "9" = [
+                "DP-1"
+              ];
+              "10" = [
+                "DP-1"
+              ];
+            };
           };
-            tray = {
-              spacing = 10;
+          tray = {
+            spacing = 10;
+          };
+          clock = {
+            timezone = "America/Los_Angeles";
+            format = "󰅐 {:%a %H:%M}";
+            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+            format-alt = "󰅐 {:%a %d.%m.%Y %H:%M}";
+          };
+          cpu = {
+            format = "󰘚 {usage}%";
+            tooltip = true;
+          };
+          memory = {
+            format = "󰍛 {}%";
+          };
+          temperature = {
+            critical-threshold = 70;
+            interval = 3;
+            format = "{icon} {temperatureC}°C";
+            format-icons = [
+              "󱃃"
+              "󰔏"
+              "󱃂"
+            ];
+          };
+          battery = {
+            interval = 10;
+            states = {
+              critical = 25;
             };
-            clock = {
-              timezone = "America/Los_Angeles";
-              format = "󰅐 {:%a %H:%M}";
-              tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-              format-alt = "󰅐 {:%a %d.%m.%Y %H:%M}";
-            };
-            cpu = {
-              format = "󰘚 {usage}%";
-              tooltip = true;
-            };
-            memory = {
-              format = "󰍛 {}%";
-            };
-            temperature = {
-              critical-threshold = 70;
-              interval = 3;
-              format = "{icon} {temperatureC}°C";
-              format-icons = [
-                "󱃃"
-                "󰔏"
-                "󱃂"
-              ];
-            };
-            battery = {
-              interval = 10;
-              states = {
-                critical = 25;
-              };
-              format = "{icon} {capacity}%";
-              format-charging = "󰂄 {capacity}%";
-              format-icons = [
-                "󰂎"
-                "󰁺"
-                "󰁻"
-                "󰁼"
-                "󰁽"
-                "󰁾"
-                "󰁿"
-                "󰂀"
-                "󰂁"
-                "󰂂"
-                "󰁹"
-              ];
-            };
+            format = "{icon} {capacity}%";
+            format-charging = "󰂄 {capacity}%";
+            format-icons = [
+              "󰂎"
+              "󰁺"
+              "󰁻"
+              "󰁼"
+              "󰁽"
+              "󰁾"
+              "󰁿"
+              "󰂀"
+              "󰂁"
+              "󰂂"
+              "󰁹"
+            ];
+          };
         }
       ];
-      style = # css
+      style =
+        # css
         ''
           * {
               font-family: Inter, sans-serif;

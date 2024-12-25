@@ -35,7 +35,8 @@ in {
         sidebar-mode = true;
       };
     };
-    home.file.".local/share/rofi/themes/catppuccin-mocha.rasi".text = # rasi
+    home.file.".local/share/rofi/themes/catppuccin-mocha.rasi".text =
+      # rasi
       ''
         * {
             bg-col:  #1e1e2e;

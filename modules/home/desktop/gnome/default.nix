@@ -86,12 +86,6 @@ in {
         name = "ghostty";
       };
 
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        binding = "<Shift><Control>space";
-        command = "1password --quick-access";
-        name = "1password quick access";
-      };
-
       # wallpaper
       "org/gnome/desktop/background" = {
         color-shading-type = "solid";
@@ -120,18 +114,6 @@ in {
         StartupNotify=false
         X-GNOME-Autostart-enabled=true
         X-GNOME-Autostart-Delay=10
-      '';
-      "autostart/1Password.desktop".text = ''
-        [Desktop Entry]
-        Name=1Password
-        Exec=1password --silent %U
-        Terminal=false
-        Type=Application
-        Icon=1password
-        StartupWMClass=1Password
-        Comment=Password manager and secure wallet
-        MimeType=x-scheme-handler/onepassword;
-        Categories=Office;
       '';
     };
   };

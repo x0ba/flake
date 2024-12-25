@@ -7,9 +7,6 @@
 
   skibidi = {
     nix.enable = true;
-    apps = {
-      onepassword.enable = true;
-    };
     hardware = {
       yubikey.enable = true;
       audio.enable = true;
