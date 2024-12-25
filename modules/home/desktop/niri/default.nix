@@ -77,8 +77,8 @@ in {
           }
 
           layout {
-              gaps 12
-              center-focused-column "always"
+              gaps 9
+              always-center-single-column
 
               preset-column-widths {
                   proportion 0.25
@@ -111,7 +111,7 @@ in {
 
           prefer-no-csd
 
-          screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+          screenshot-path "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png"
 
           animations {
           }
@@ -267,13 +267,7 @@ in {
               Mod+Shift+Minus { set-window-height "-10%"; }
               Mod+Shift+Equal { set-window-height "+10%"; }
 
-              Print {
-                  spawn "sh" "-c" r#"
-                      file=~/Pictures/screenshots/"$(date +%s)".png
-                      ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -b '#00000090' -w 0)" "$file"
-                      ${pkgs.wl-clipboard}/bin/wl-copy < "$file"
-                  "#;
-              }
+              Print { spawn "${lib.getExe pkgs.sway-contrib.grimshot}" "copy" "area"; }
 
               Alt+Print { screenshot; }
 

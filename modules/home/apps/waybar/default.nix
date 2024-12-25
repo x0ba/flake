@@ -104,9 +104,6 @@ in {
               ];
             };
           };
-          # tray = {
-          #   spacing = 10;
-          # };
           clock = {
             timezone = "America/Los_Angeles";
             format = "󰅐  {:%a %I:%M %p}";

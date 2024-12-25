@@ -48,58 +48,64 @@ in {
           }
 
           #lock {
-              background-image: url("${./icons/lock.svg}");
+              background-image: url("file://${./icons/lock.svg}");
           }
 
           #logout {
-              background-image: url("${./icons/logout.svg}");
+              background-image: url("file://${./icons/logout.svg}");
           }
 
           #suspend {
-              background-image: url("${./icons/suspend.svg}");
+              background-image: url("file://${./icons/suspend.svg}");
           }
 
           #hibernate {
-              background-image: url("${./icons/hibernate.svg}");
+              background-image: url("file://${./icons/hibernate.svg}");
           }
 
           #shutdown {
-              background-image: url("${./icons/shutdown.svg}");
+              background-image: url("file://${./icons/shutdown.svg}");
           }
 
           #reboot {
-              background-image: url("${./icons/reboot.svg}");
+              background-image: url("file://${./icons/reboot.svg}");
           }
         '';
       layout = [
         {
           "label" = "lock";
           "action" = "${lib.getExe config.programs.swaylock.package}";
+          "keybind" = "l";
           "text" = "Lock";
         }
         {
           "label" = "logout";
           "action" = "loginctl terminate-user $USER";
+          "keybind" = "o";
           "text" = "Logout";
         }
         {
           "label" = "suspend";
           "action" = "systemctl suspend";
+          "keybind" = "s";
           "text" = "Suspend";
         }
         {
           "label" = "shutdown";
           "action" = "systemctl poweroff";
+          "keybind" = "p";
           "text" = "Shutdown";
         }
         {
           "label" = "reboot";
           "action" = "systemctl reboot";
+          "keybind" = "r";
           "text" = "Reboot";
         }
         {
           "label" = "hibernate";
           "action" = "systemctl hibernate";
+          "keybind" = "h";
           "text" = "Hibernate";
         }
       ];
