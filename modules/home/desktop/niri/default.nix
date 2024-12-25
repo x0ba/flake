@@ -146,6 +146,7 @@ in {
 
               Mod+Return { spawn "ghostty"; }
               Mod+D { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "drun"; }
+              Mod+P { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "power-menu" "-modi" "power-menu:rofi-power-menu"; }
               Super+Alt+L { spawn "${pkgs.swaylock}/bin/swaylock"; }
 
               XF86AudioRaiseVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "5"; }
