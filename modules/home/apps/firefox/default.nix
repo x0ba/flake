@@ -31,7 +31,7 @@ in {
         search.force = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
-          proton-pass
+          onepassword-password-manager
           enhanced-h264ify
           multi-account-containers
           temporary-containers

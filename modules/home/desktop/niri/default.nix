@@ -144,6 +144,8 @@ in {
           spawn-at-startup "${swayosd-server}"
           spawn-at-startup "${pkgs.swaynotificationcenter}/bin/swaync"
           spawn-at-startup "${pkgs.wlsunset}/bin/wlsunset" "-l" "37.4" "-L" "-121.9"
+          spawn-at-startup "${lib.getExe pkgs._1password-gui}" "--silent"
+          spawn-at-startup "${lib.getExe pkgs.nextcloud-client}" "--background"
 
           binds {
               Mod+Shift+Slash { show-hotkey-overlay; }
@@ -152,10 +154,15 @@ in {
               Mod+D { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "drun"; }
               Mod+P { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "power-menu" "-modi" "power-menu:rofi-power-menu"; }
               Super+Alt+L { spawn "${pkgs.swaylock-effects}/bin/swaylock"; }
+              Mod+Shift+Space { spawn "${lib.getExe pkgs._1password-gui}" "--quick-access"; }
 
               XF86AudioRaiseVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "5"; }
               XF86AudioLowerVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "-5"; }
               XF86AudioMute allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "mute-toggle"; }
+
+              XF86AudioNext { spawn "${lib.getExe pkgs.playerctl}" "next"; }
+              XF86AudioPrev { spawn "${lib.getExe pkgs.playerctl}" "previous"; }
+              XF86AudioPlay { spawn "${lib.getExe pkgs.playerctl}" "play-pause"; }
 
               Xf86MonBrightnessUp allow-when-locked=true { spawn "${swayosd-client}" "--brightness" "raise"; }
               Xf86MonBrightnessDown allow-when-locked=true { spawn "${swayosd-client}" "--brightness" "lower"; }
@@ -273,21 +280,6 @@ in {
               Mod+Shift+P { power-off-monitors; }
           }
         '';
-    };
-    xdg.configFile = {
-      "autostart/Nextcloud.desktop".text = ''
-        [Desktop Entry]
-        Name=Nextcloud
-        GenericName=File Synchronizer
-        Exec=nextcloud --background
-        Terminal=false
-        Icon=Nextcloud
-        Categories=Network
-        Type=Application
-        StartupNotify=false
-        X-GNOME-Autostart-enabled=true
-        X-GNOME-Autostart-Delay=10
-      '';
     };
   };
 }

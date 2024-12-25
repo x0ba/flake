@@ -24,6 +24,7 @@
     };
     apps = {
       firefox.enable = true;
+      chromium.enable = true;
       discord.enable = true;
       ghostty.enable = true;
       mpv.enable = true;
