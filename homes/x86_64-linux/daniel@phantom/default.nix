@@ -9,7 +9,10 @@
     rnote
     obsidian
     calibre
+    pika-backup
+    spotify
     thunderbird
+    powertop
   ];
   nixpkgs.config.allowUnfree = true;
   skibidi = {

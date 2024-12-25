@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   namespace,
   ...
 }: let
@@ -13,6 +14,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [libnotify];
     services.swaync = {
       enable = true;
       style =

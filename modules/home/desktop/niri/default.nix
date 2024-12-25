@@ -16,12 +16,14 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.swayosd.enable = true;
     skibidi.apps = {
       rofi.enable = true;
+      swaylock.enable = true;
+      swayosd.enable = true;
       waybar.enable = true;
       swaync.enable = true;
     };
+    skibidi.desktop.services.enable = true;
     programs.ghostty.settings.window-decoration = false;
     programs.niri = {
       enable = true;
@@ -31,13 +33,14 @@ in {
         ''
           environment {
               DISPLAY ":0"
-              QT_QPA_PLATFORM "wayland"
-              XDG_CURRENT_DESKTOP "niri"
               XDG_SESSION_TYPE "wayland"
+              XDG_SESSION_DESKTOP "niri"
+              XDG_CURRENT_DESKTOP "niri"
+              NIXOS_OZONE_WL "1"
               MOZ_ENABLE_WAYLAND "1"
-              EDITOR "nvim"
+              QT_QPA_PLATFORM "wayland"
+              SDL_VIDEODRIVER "wayland"
               _JAVA_AWT_WM_NONREPARENTING "1"
-              _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=gasp"
           }
 
           input {
@@ -66,7 +69,7 @@ in {
           }
 
           output "eDP-1" {
-              mode "1920x1080@120.030"
+              mode "1920x1080@60"
               scale 1.0
               transform "normal"
               position x=0 y=0
@@ -136,10 +139,11 @@ in {
           }
 
           spawn-at-startup "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
-          spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-i" "${../../../../assets/house.png}"
+          spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-i" "${../../../../assets/man.jpg}"
           spawn-at-startup "${pkgs.waybar}/bin/waybar"
           spawn-at-startup "${swayosd-server}"
           spawn-at-startup "${pkgs.swaynotificationcenter}/bin/swaync"
+          spawn-at-startup "${pkgs.wlsunset}/bin/wlsunset" "-l" "37.4" "-L" "-121.9"
 
           binds {
               Mod+Shift+Slash { show-hotkey-overlay; }
@@ -147,7 +151,7 @@ in {
               Mod+Return { spawn "ghostty"; }
               Mod+D { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "drun"; }
               Mod+P { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "power-menu" "-modi" "power-menu:rofi-power-menu"; }
-              Super+Alt+L { spawn "${pkgs.swaylock}/bin/swaylock"; }
+              Super+Alt+L { spawn "${pkgs.swaylock-effects}/bin/swaylock"; }
 
               XF86AudioRaiseVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "5"; }
               XF86AudioLowerVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "-5"; }

@@ -20,7 +20,7 @@ in {
       defaultFonts = {
         sansSerif = ["Inter"];
         serif = ["IBM Plex Serif"];
-        monospace = ["Rec Mono Duotone"];
+        monospace = ["JetBrainsMono Nerd Font"];
         emoji = ["Twitter Color Emoji"];
       };
     };

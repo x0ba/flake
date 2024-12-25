@@ -26,7 +26,7 @@ in {
       enable = true;
       settings = {
         font-size = 13;
-        font-family = "Rec Mono Duotone";
+        font-family = "JetBrainsMono Nerd Font";
 
         theme = "catppuccin-mocha";
 

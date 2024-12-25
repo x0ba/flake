@@ -165,7 +165,7 @@ in {
           }
 
           window#waybar {
-              background-color: rgba(30, 30, 46, 1);
+              background-color: transparent;
               color: rgba(255, 255, 255, 0.87);
           }
 
