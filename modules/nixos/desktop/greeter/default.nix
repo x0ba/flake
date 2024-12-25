@@ -8,9 +8,9 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.system.greeter;
+  cfg = config.${namespace}.desktop.greeter;
 in {
-  options.${namespace}.system.greeter = with types; {
+  options.${namespace}.desktop.greeter = with types; {
     enable = mkBoolOpt false "Whether or not to enable tuigreet";
   };
 

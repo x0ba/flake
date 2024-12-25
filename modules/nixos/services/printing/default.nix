@@ -8,9 +8,9 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.hardware.printing;
+  cfg = config.${namespace}.services.printing;
 in {
-  options.${namespace}.hardware.printing = with types; {
+  options.${namespace}.services.printing = with types; {
     enable = mkBoolOpt false "Whether or not to enable printing support.";
   };
 

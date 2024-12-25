@@ -28,6 +28,7 @@
       discord.enable = true;
       ghostty.enable = true;
       mpv.enable = true;
+      xdg.enable = true;
     };
     user.enable = true;
     cli = {
