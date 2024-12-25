@@ -25,12 +25,12 @@ in {
       enable = true;
       font.name = "Inter";
       iconTheme = {
-        name = "Yaru-dark";
-        package = pkgs.yaru-theme;
+        name = "WhiteSur-dark";
+        package = pkgs.whitesur-icon-theme;
       };
       theme = {
-        name = "Yaru-dark";
-        package = pkgs.yaru-theme;
+        name = "WhiteSur-Dark";
+        package = pkgs.whitesur-gtk-theme;
       };
     };
   };
