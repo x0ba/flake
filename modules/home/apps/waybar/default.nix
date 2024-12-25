@@ -24,22 +24,19 @@ in {
           spacing = 0;
           fixed-center = false;
           modules-left = [
-            "sway/workspaces"
+            "niri/workspaces"
           ];
           modules-center = [
-            "sway/window"
+            "niri/window"
           ];
           modules-right =
             [
-              "battery"
-              "cpu"
-              "memory"
-              "temperature"
-              "clock"
               "tray"
+              "battery"
+              "clock"
             ]
             ++ lib.optionals config.skibidi.apps.swaync.enable ["custom/swaync"];
-          "sway/window" = {
+          "niri/window" = {
             max-length = 50;
             max-length-mode = "middle";
             tooltip = true;
@@ -64,7 +61,7 @@ in {
             on-click-right = "swaync-client -d -sw";
             escape = true;
           };
-          "sway/workspaces" = {
+          "niri/workspaces" = {
             disable-scroll = false;
             all-outputs = false;
             format = "";
@@ -107,14 +104,14 @@ in {
               ];
             };
           };
-          tray = {
-            spacing = 10;
-          };
+          # tray = {
+          #   spacing = 10;
+          # };
           clock = {
             timezone = "America/Los_Angeles";
-            format = "󰅐 {:%a %H:%M}";
+            format = "󰅐  {:%a %I:%M %p}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-            format-alt = "󰅐 {:%a %d.%m.%Y %H:%M}";
+            format-alt = "󰅐  {:%a %d.%m.%Y %I:%M %p}";
           };
           cpu = {
             format = "󰘚 {usage}%";
@@ -161,11 +158,11 @@ in {
         ''
           * {
               font-family: Inter, sans-serif;
-              font-size: 15px;
+              font-size: 16px;
           }
 
           window#waybar {
-              background-color: transparent;
+              background-color: #1e1e2e;
               color: rgba(255, 255, 255, 0.87);
           }
 

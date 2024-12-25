@@ -19,6 +19,7 @@ in {
     skibidi.apps = {
       rofi.enable = true;
       swaylock.enable = true;
+      wlogout.enable = true;
       swayosd.enable = true;
       waybar.enable = true;
       swaync.enable = true;
@@ -138,12 +139,13 @@ in {
               draw-border-with-background false
           }
 
-          spawn-at-startup "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
-          spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-i" "${../../../../assets/man.jpg}"
-          spawn-at-startup "${pkgs.waybar}/bin/waybar"
+          spawn-at-startup "${lib.getExe pkgs.xwayland-satellite}"
+          spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../../../../assets/space.png}"
+          spawn-at-startup "${lib.getExe pkgs.waybar}"
           spawn-at-startup "${swayosd-server}"
+          spawn-at-startup "sh" "-c" "${lib.getExe pkgs.swayidle} -w timeout 300 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep '${lib.getExe config.programs.swaylock.package} -f'"
           spawn-at-startup "${pkgs.swaynotificationcenter}/bin/swaync"
-          spawn-at-startup "${pkgs.wlsunset}/bin/wlsunset" "-l" "37.4" "-L" "-121.9"
+          spawn-at-startup "${lib.getExe pkgs.wlsunset}" "-l" "37.4" "-L" "-121.9"
           spawn-at-startup "${lib.getExe pkgs._1password-gui}" "--silent"
           spawn-at-startup "${lib.getExe pkgs.nextcloud-client}" "--background"
 
@@ -151,9 +153,9 @@ in {
               Mod+Shift+Slash { show-hotkey-overlay; }
 
               Mod+Return { spawn "ghostty"; }
-              Mod+D { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "drun"; }
-              Mod+P { spawn "${pkgs.rofi-wayland}/bin/rofi" "-show" "power-menu" "-modi" "power-menu:rofi-power-menu"; }
-              Super+Alt+L { spawn "${pkgs.swaylock-effects}/bin/swaylock"; }
+              Mod+D { spawn "${lib.getExe pkgs.rofi-wayland}" "-show" "drun"; }
+              Mod+P { spawn "${lib.getExe pkgs.wlogout}"; }
+              Super+Alt+L { spawn "${lib.getExe config.programs.swaylock.package}"; }
               Mod+Shift+Space { spawn "${lib.getExe pkgs._1password-gui}" "--quick-access"; }
 
               XF86AudioRaiseVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "5"; }
