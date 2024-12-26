@@ -3,7 +3,8 @@
   home,
   config,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     nextcloud-client
     rnote

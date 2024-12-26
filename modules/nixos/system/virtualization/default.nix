@@ -7,9 +7,11 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.system.virtualization;
-in {
+in
+{
   options.${namespace}.system.virtualization = with types; {
     enable = mkBoolOpt false "Whether or not to manage virtualization settings.";
   };

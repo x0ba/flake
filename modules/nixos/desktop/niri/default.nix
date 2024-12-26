@@ -8,15 +8,17 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.desktop.niri;
-in {
+in
+{
   options.${namespace}.desktop.niri = with types; {
     enable = mkBoolOpt false "Enable or disable the niri window manager.";
   };
 
   config = mkIf cfg.enable {
-    security.pam.services.swaylock = {};
+    security.pam.services.swaylock = { };
     programs.niri.enable = true;
     skibidi.desktop.greeter.enable = true;
     environment.systemPackages = with pkgs; [

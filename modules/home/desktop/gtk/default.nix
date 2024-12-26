@@ -4,12 +4,14 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (pkgs.stdenv) isLinux;
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.desktop.gtk;
-in {
+in
+{
   options.${namespace}.desktop.gtk = {
     enable = mkEnableOption "gtk";
   };

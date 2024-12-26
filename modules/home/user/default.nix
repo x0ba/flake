@@ -4,9 +4,9 @@
   pkgs,
   namespace,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     types
     mkIf
     mkDefault
@@ -18,15 +18,18 @@
   is-darwin = pkgs.stdenv.isDarwin;
 
   home-directory =
-    if cfg.name == null
-    then null
-    else if is-darwin
-    then "/Users/${cfg.name}"
-    else "/home/${cfg.name}";
-in {
+    if cfg.name == null then
+      null
+    else if is-darwin then
+      "/Users/${cfg.name}"
+    else
+      "/home/${cfg.name}";
+in
+{
   options.${namespace}.user = {
     enable = mkOpt types.bool true "Whether to configure the user account.";
-    name = mkOpt (types.nullOr types.str) (config.snowfallorg.user.name or "daniel") "The user account.";
+    name = mkOpt (types.nullOr types.str) (config.snowfallorg.user.name or "daniel"
+    ) "The user account.";
 
     fullName = mkOpt types.str "Daniel Xu" "The full name of the user.";
     email = mkOpt types.str "danielxu0307@proton.me" "The email of the user.";

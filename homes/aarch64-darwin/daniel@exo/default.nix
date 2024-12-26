@@ -2,7 +2,8 @@
   home,
   config,
   ...
-}: {
+}:
+{
   home.file."Library/.ignore" = {
     enable = true;
     text = ''

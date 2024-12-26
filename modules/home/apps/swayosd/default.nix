@@ -4,11 +4,13 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.swayosd;
-in {
+in
+{
   options.${namespace}.apps.swayosd = {
     enable = mkEnableOption "swayosd";
   };

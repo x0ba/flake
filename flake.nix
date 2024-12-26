@@ -43,7 +43,8 @@
     };
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -74,14 +75,12 @@
 
       overlays = with inputs; [
         inputs.nix-vscode-extensions.overlays.default
-        (
-          final: _prev: {
-            nur = import inputs.nur {
-              nurpkgs = final;
-              pkgs = final;
-            };
-          }
-        )
+        (final: _prev: {
+          nur = import inputs.nur {
+            nurpkgs = final;
+            pkgs = final;
+          };
+        })
       ];
     };
 }

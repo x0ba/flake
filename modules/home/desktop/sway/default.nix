@@ -5,7 +5,8 @@
   namespace,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   mod = "Mod4";
@@ -21,7 +22,8 @@
 
   cfg' = config.wayland.windowManager.sway.config;
   cfg = config.${namespace}.desktop.sway;
-in {
+in
+{
   options.${namespace}.desktop.sway = {
     enable = mkEnableOption "sway";
   };
@@ -32,7 +34,7 @@ in {
       swayosd.enable = true;
       gnome-keyring = {
         enable = true;
-        components = ["secrets"];
+        components = [ "secrets" ];
       };
       udiskie.enable = true;
     };
@@ -45,8 +47,8 @@ in {
         focus.wrapping = "no";
         focus.mouseWarping = "container";
         startup = [
-          {command = "${lib.getExe pkgs.autotiling} -l2";}
-          {command = "1password --silent";}
+          { command = "${lib.getExe pkgs.autotiling} -l2"; }
+          { command = "1password --silent"; }
           {
             command = ''
               ${lib.getExe pkgs.swayidle} -w \
@@ -55,8 +57,8 @@ in {
                 before-sleep '${lib.getExe config.programs.swaylock.package} -f'
             '';
           }
-          {command = swayosd-server;}
-          {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
+          { command = swayosd-server; }
+          { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         ];
         workspaceAutoBackAndForth = true;
         # TODO: change this back to wezterm whenever it works on sway

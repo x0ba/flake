@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.system.laptop;
-in {
+in
+{
   options.${namespace}.system.laptop = with types; {
     enable = mkBoolOpt false "Whether or not to enable laptop optimizations and utils.";
   };

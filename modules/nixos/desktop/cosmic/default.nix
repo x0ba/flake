@@ -8,9 +8,11 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.desktop.cosmic;
-in {
+in
+{
   options.${namespace}.desktop.cosmic = with types; {
     enable = mkBoolOpt false "Enable or disable the cosmic desktop environment";
   };

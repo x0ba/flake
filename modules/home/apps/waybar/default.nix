@@ -4,11 +4,13 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.waybar;
-in {
+in
+{
   options.${namespace}.apps.waybar = {
     enable = mkEnableOption "waybar";
   };
@@ -29,13 +31,11 @@ in {
           modules-center = [
             "niri/window"
           ];
-          modules-right =
-            [
-              "tray"
-              "battery"
-              "clock"
-            ]
-            ++ lib.optionals config.skibidi.apps.swaync.enable ["custom/swaync"];
+          modules-right = [
+            "tray"
+            "battery"
+            "clock"
+          ] ++ lib.optionals config.skibidi.apps.swaync.enable [ "custom/swaync" ];
           "niri/window" = {
             max-length = 50;
             max-length-mode = "middle";
@@ -107,7 +107,7 @@ in {
           clock = {
             timezone = "America/Los_Angeles";
             format = "󰅐  {:%a %I:%M %p}";
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+            tooltip-format = "<tt><small>{calendar}</small></tt>";
             format-alt = "󰅐  {:%a %d.%m.%Y %I:%M %p}";
           };
           cpu = {

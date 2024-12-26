@@ -4,11 +4,13 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.rofi;
-in {
+in
+{
   options.${namespace}.apps.rofi = {
     enable = mkEnableOption "rofi";
   };

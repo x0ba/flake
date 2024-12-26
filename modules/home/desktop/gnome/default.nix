@@ -7,12 +7,14 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.desktop.gnome;
   primary-color = "#161321";
   secondary-color = "#161321";
   wallpaper-uri = "file://${../../../../assets/house.png}";
-in {
+in
+{
   options.${namespace}.desktop.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to enable gnome.";
   };
@@ -41,7 +43,7 @@ in {
             "us"
           ])
         ];
-        xkb-options = ["caps:ctrl_modifier"];
+        xkb-options = [ "caps:ctrl_modifier" ];
       };
       "org/gnome/desktop/interface" = {
         text-scaling-factor = 1.25;

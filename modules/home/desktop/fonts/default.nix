@@ -5,7 +5,8 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (pkgs.stdenv) isLinux;
   inherit (lib) mkEnableOption mkIf;
 
@@ -17,7 +18,8 @@
   fontPath = ./fonts;
 
   cfg = config.${namespace}.desktop.fonts;
-in {
+in
+{
   options.${namespace}.desktop.fonts = {
     enable = mkEnableOption "fonts";
   };
@@ -26,10 +28,10 @@ in {
     fonts.fontconfig = {
       enable = isLinux;
       defaultFonts = {
-        sansSerif = ["Inter"];
-        serif = ["IBM Plex Serif"];
-        monospace = ["JetBrainsMono Nerd Font"];
-        emoji = ["Twitter Color Emoji"];
+        sansSerif = [ "Inter" ];
+        serif = [ "IBM Plex Serif" ];
+        monospace = [ "JetBrainsMono Nerd Font" ];
+        emoji = [ "Twitter Color Emoji" ];
       };
     };
     home.activation.installCustomFonts =

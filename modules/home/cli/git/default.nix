@@ -4,11 +4,13 @@
   config,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.git;
-in {
+in
+{
   options.${namespace}.cli.git = {
     enable = mkEnableOption "git";
   };
@@ -59,7 +61,10 @@ in {
       ];
 
       extraConfig = {
-        credential.helper = ["cache --timeout 21600" "oauth"];
+        credential.helper = [
+          "cache --timeout 21600"
+          "oauth"
+        ];
         init.defaultBranch = "main";
         push.default = "current";
         push.gpgSign = "if-asked";

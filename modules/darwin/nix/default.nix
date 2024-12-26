@@ -7,9 +7,11 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.nix;
-in {
+in
+{
   options.${namespace}.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
     package = mkOpt package pkgs.lix "Which nix package to use.";
@@ -20,59 +22,61 @@ in {
       config.allowUnfree = true;
     };
 
-    nix = let
-      users = [
-        "@sudo"
-        "@wheel"
-        "daniel"
-        "d"
-      ];
-    in {
-      package = cfg.package;
-
-      settings = {
-        experimental-features = [
-          "auto-allocate-uids"
-          "flakes"
-          "nix-command"
+    nix =
+      let
+        users = [
+          "@sudo"
+          "@wheel"
+          "daniel"
+          "d"
         ];
-        http-connections = 50;
-        use-xdg-base-directories = true;
-        warn-dirty = false;
-        log-lines = 50;
-        sandbox = "relaxed";
-        trusted-users = users;
-        allowed-users = users;
+      in
+      {
+        package = cfg.package;
 
-        substituters = [
-          "https://nix-community.cachix.org"
-          "https://ghostty.cachix.org"
-          "https://cosmic.cachix.org"
-          "https://pre-commit-hooks.cachix.org"
-          "https://mic92.cachix.org"
-        ];
-        trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
-          "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-          "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
-          "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
-        ];
-      };
+        settings = {
+          experimental-features = [
+            "auto-allocate-uids"
+            "flakes"
+            "nix-command"
+          ];
+          http-connections = 50;
+          use-xdg-base-directories = true;
+          warn-dirty = false;
+          log-lines = 50;
+          sandbox = "relaxed";
+          trusted-users = users;
+          allowed-users = users;
 
-      gc = {
-        automatic = true;
-        interval = {
-          Weekday = 0;
-          Hour = 0;
-          Minute = 0;
+          substituters = [
+            "https://nix-community.cachix.org"
+            "https://ghostty.cachix.org"
+            "https://cosmic.cachix.org"
+            "https://pre-commit-hooks.cachix.org"
+            "https://mic92.cachix.org"
+          ];
+          trusted-public-keys = [
+            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+            "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+            "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
+            "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
+          ];
         };
-      };
 
-      # flake-utils-plus
-      generateRegistryFromInputs = true;
-      generateNixPathFromInputs = true;
-      linkInputs = true;
-    };
+        gc = {
+          automatic = true;
+          interval = {
+            Weekday = 0;
+            Hour = 0;
+            Minute = 0;
+          };
+        };
+
+        # flake-utils-plus
+        generateRegistryFromInputs = true;
+        generateNixPathFromInputs = true;
+        linkInputs = true;
+      };
   };
 }

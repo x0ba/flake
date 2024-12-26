@@ -1,9 +1,10 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     git
     git-crypt
-    alejandra
+    treefmt
+    nixfmt-rfc-style
     just
     nix-output-monitor
     nixd

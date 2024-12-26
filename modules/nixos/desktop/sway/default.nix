@@ -8,9 +8,11 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.desktop.sway;
-in {
+in
+{
   options.${namespace}.desktop.sway = with types; {
     enable = mkBoolOpt false "Enable or disable the sway window manager.";
   };
@@ -27,7 +29,7 @@ in {
     ];
     programs.dconf.enable = true;
 
-    environment.pathsToLink = ["/share/nautilus-python/extensions"];
+    environment.pathsToLink = [ "/share/nautilus-python/extensions" ];
     environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "/var/run/current-system/sw/lib/nautilus/extensions-4";
 
     programs.file-roller.enable = true;

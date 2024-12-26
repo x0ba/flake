@@ -5,19 +5,21 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv.hostPlatform) isLinux;
 
   cfg = config.${namespace}.apps.ghostty;
-in {
+in
+{
   options.${namespace}.apps.ghostty = {
     enable = mkEnableOption "ghostty";
   };
 
   config = mkIf cfg.enable {
     home.packages = (
-      []
+      [ ]
       ++ lib.optionals isLinux [
         inputs.ghostty.packages.x86_64-linux.default
       ]

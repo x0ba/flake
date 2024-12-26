@@ -4,18 +4,20 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.discord;
-in {
+in
+{
   options.${namespace}.apps.discord = {
     enable = mkEnableOption "discord";
   };
 
   config = mkIf cfg.enable {
     home.packages = [
-      (pkgs.discord.override {withOpenASAR = true;})
+      (pkgs.discord.override { withOpenASAR = true; })
     ];
   };
 }

@@ -4,11 +4,13 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.utils;
-in {
+in
+{
   options.${namespace}.cli.utils = {
     enable = mkEnableOption "misc cli utils";
   };

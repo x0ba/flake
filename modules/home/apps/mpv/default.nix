@@ -3,11 +3,13 @@
   config,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.mpv;
-in {
+in
+{
   options.${namespace}.apps.mpv = {
     enable = mkEnableOption "mpv";
   };

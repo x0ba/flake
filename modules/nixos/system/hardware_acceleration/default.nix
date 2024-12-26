@@ -7,9 +7,11 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.system.hardware_acceleration;
-in {
+in
+{
   options.${namespace}.system.hardware_acceleration = with types; {
     enable = mkBoolOpt false "Whether or not to manage hardware acceleration.";
   };
@@ -21,6 +23,8 @@ in {
         intel-media-driver
       ];
     };
-    environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
+    environment.sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
   };
 }

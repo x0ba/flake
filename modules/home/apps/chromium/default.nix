@@ -4,11 +4,13 @@
   config,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.chromium;
-in {
+in
+{
   options.${namespace}.apps.chromium = {
     enable = mkEnableOption "chromium";
   };

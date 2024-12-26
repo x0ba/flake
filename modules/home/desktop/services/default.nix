@@ -4,12 +4,14 @@
   pkgs,
   namespace,
   ...
-}: let
+}:
+let
   inherit (pkgs.stdenv) isLinux;
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.desktop.services;
-in {
+in
+{
   options.${namespace}.desktop.services = {
     enable = mkEnableOption "services";
   };
