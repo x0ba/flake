@@ -43,7 +43,6 @@ in
           ];
           http-connections = 50;
           warn-dirty = false;
-          use-xdg-base-directories = true;
           log-lines = 50;
           sandbox = "relaxed";
           auto-optimise-store = true;

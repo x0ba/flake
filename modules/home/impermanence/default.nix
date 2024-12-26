@@ -17,14 +17,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    imports = [
-      inputs.impermanence.nixosModules.home-manager.impermanence
-    ];
-
     home.persistence."/persist/home" = {
       directories = [
         "Downloads"
-        "Music"
+        "Music"	
         "Pictures"
         "Code"
         "Documents"
