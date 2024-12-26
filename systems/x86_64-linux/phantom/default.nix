@@ -6,6 +6,13 @@
 
   networking.hostName = "phantom";
 
+  home-manager = {
+    users = {
+      # Import your home-manager configuration
+      daniel = import "../../../homes/x86_64-linux/daniel@phantom";
+    };
+  };
+
   skibidi = {
     impermanence.enable = true;
     suites = {

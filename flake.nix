@@ -97,7 +97,6 @@
         (import ./disks/default.nix {
           inherit lib;
           device = "/dev/nvme0n1";
-
         })
         {
           # Required for impermanence

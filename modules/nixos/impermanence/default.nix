@@ -68,36 +68,6 @@ in
           };
         }
       ];
-      users.daniel = {
-        directories = [
-          "Downloads"
-          "Music"
-          "Pictures"
-          "Code"
-          "Documents"
-          "Videos"
-          "Nextcloud"
-          {
-            directory = ".gnupg";
-            mode = "0700";
-          }
-          {
-            directory = ".ssh";
-            mode = "0700";
-          }
-          {
-            directory = ".local/share/keyrings";
-            mode = "0700";
-          }
-          ".local/share/atuin"
-          ".local/share/nvim"
-          ".local/share/zoxide"
-          ".local/share/direnv"
-        ];
-        files = [
-          ".screenrc"
-        ];
-      };
     };
   };
 }
