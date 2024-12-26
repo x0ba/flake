@@ -37,7 +37,6 @@ in
         "1password"
         "raycast"
         "discord"
-        "vesktop"
         "easy-move+resize"
         "eloston-chromium"
         "firefox"
