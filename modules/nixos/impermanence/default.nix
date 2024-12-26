@@ -20,10 +20,6 @@ in
     removeTmpFilesOlderThan = mkOpt int 14 "Number of days to keep old btrfs_tmp files";
   };
 
-  options.${namespace}.environment = with types; {
-    persist = mkOpt attrs { } "Files and directories to persist in the home";
-  };
-
   config = mkIf cfg.enable {
     # This script does the actual wipe of the system
     # So if it doesn't run, the btrfs system effectively acts like a normal system
@@ -53,9 +49,25 @@ in
         umount /btrfs_tmp
       ''
     );
-
-    environment.persistence."/persist" = mkIf cfg.enable (
-      mkAliasDefinitions options.${namespace}.environment.persist
-    );
+    environment.persistence."/persist/system" = {
+      hideMounts = true;
+      directories = [
+        "/var/log"
+        "/var/lib/bluetooth"
+        "/var/lib/nixos"
+        "/var/lib/systemd/coredump"
+        "/etc/NetworkManager/system-connections"
+      ];
+      files = [
+        "/etc/machine-id"
+        {
+          file = "/var/keys/secret_file";
+          parentDirectory = {
+            mode = "u=rwx,g=,o=";
+          };
+        }
+      ];
+    };
+    programs.fuse.userAllowOther = true;
   };
 }

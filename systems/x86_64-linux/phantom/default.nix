@@ -7,6 +7,7 @@
   networking.hostName = "phantom";
 
   skibidi = {
+    impermanence.enable = true;
     suites = {
       common.enable = true;
       desktop.enable = true;

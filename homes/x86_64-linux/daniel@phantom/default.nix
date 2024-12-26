@@ -15,7 +15,6 @@
     thunderbird
     powertop
   ];
-  nixpkgs.config.allowUnfree = true;
   skibidi = {
     desktop = {
       # gnome.enable = true;
