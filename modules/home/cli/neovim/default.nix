@@ -80,6 +80,7 @@ in
         nodePackages.prettier
         proselint
         shellcheck
+        nodejs_23
         shfmt
         tree-sitter
 

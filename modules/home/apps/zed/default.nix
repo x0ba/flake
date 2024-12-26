@@ -40,8 +40,8 @@ in
           dark = "Catppuccin Mocha";
         };
         languages.Nix.language_servers = [
-          "nil"
-          "!nixd"
+          "nixd"
+          "!nil"
         ];
         lsp.nixd.settings.diagnostic.suppress = [ "sema-extra-with" ];
       };

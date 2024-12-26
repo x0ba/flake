@@ -2,6 +2,7 @@
   options,
   config,
   pkgs,
+  inputs,
   lib,
   namespace,
   ...
@@ -64,6 +65,8 @@ in
             "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
           ];
         };
+
+        nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
         gc = {
           automatic = true;

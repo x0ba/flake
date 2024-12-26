@@ -64,6 +64,8 @@ in
           ];
         };
 
+        nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
         gc = {
           automatic = true;
           interval = {

@@ -28,6 +28,7 @@
       chromium.enable = true;
       discord.enable = true;
       ghostty.enable = true;
+      kitty.enable = true;
       mpv.enable = true;
       xdg.enable = true;
       vscode.enable = true;

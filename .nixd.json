@@ -1,0 +1,19 @@
+{
+  "eval": {
+    "target": {
+      "args": [
+        "-f",
+        "default.nix"
+      ],
+      "installable": "nixosConfigurations.phantom.config"
+    },
+    "depth": 10
+  },
+  "options": {
+    "enable": true,
+    "target": {
+      "args": [],
+      "installable": ".#nixosConfigurations.phantom.options"
+    }
+  }
+}

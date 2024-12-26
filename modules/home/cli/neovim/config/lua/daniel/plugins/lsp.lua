@@ -160,7 +160,27 @@ return {
       end,
     })
 
-    require("lspconfig").nixd.setup({})
+    require("lspconfig").nixd.setup({
+      cmd = { "nixd" },
+      settings = {
+        nixd = {
+          nixpkgs = {
+            expr = "import <nixpkgs> { }",
+          },
+          formatting = {
+            command = { "nixfmt" },
+          },
+          options = {
+            nixos = {
+              expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.phantom.options',
+            },
+            home_manager = {
+              expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations."daniel@phantom".options',
+            },
+          },
+        },
+      },
+    })
     require("lspconfig").rust_analyzer.setup({})
     require("lspconfig").gopls.setup({})
     require("lspconfig").bashls.setup({})
