@@ -28,7 +28,6 @@ in
         "Nextcloud"
         ".gnupg"
         ".mozilla/firefox"
-        ".dotfiles"
         ".ssh"
         ".local/share/keyrings"
         ".local/share/atuin"
