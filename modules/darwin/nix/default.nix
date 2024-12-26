@@ -2,6 +2,7 @@
   options,
   config,
   pkgs,
+  inputs,
   lib,
   namespace,
   ...
