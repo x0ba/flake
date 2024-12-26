@@ -91,6 +91,7 @@
                 deadnix.enable = true;
                 just.enable = true;
                 stylua.enable = true;
+                toml-sort.enable = true;
               };
             };
           treefmtEval = inputs.treefmt-nix.lib.evalModule (channels.nixpkgs) treefmtConfig;
