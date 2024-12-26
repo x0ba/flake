@@ -69,5 +69,6 @@ in
         }
       ];
     };
+    programs.fuse.userAllowOther = true;
   };
 }
