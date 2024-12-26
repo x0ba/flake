@@ -20,7 +20,7 @@ in
     home.persistence."/persist/home" = {
       directories = [
         "Downloads"
-        "Music"	
+        "Music"
         "Pictures"
         "Code"
         "Documents"

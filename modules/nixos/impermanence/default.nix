@@ -21,6 +21,10 @@ in
     removeTmpFilesOlderThan = mkOpt int 14 "Number of days to keep old btrfs_tmp files";
   };
 
+  options.${namespace}.environment = with types; {
+    persist = mkOpt attrs { } "Files and directories to persist in the home";
+  };
+
   config = mkIf cfg.enable {
     # This script does the actual wipe of the system
     # So if it doesn't run, the btrfs system effectively acts like a normal system
@@ -68,7 +72,36 @@ in
           };
         }
       ];
+      users.daniel = {
+        directories = [
+          "Downloads"
+          "Music"
+          "Pictures"
+          "Code"
+          "Documents"
+          "Videos"
+          "Nextcloud"
+          {
+            directory = ".gnupg";
+            mode = "0700";
+          }
+          {
+            directory = ".ssh";
+            mode = "0700";
+          }
+          {
+            directory = ".local/share/keyrings";
+            mode = "0700";
+          }
+          ".local/share/atuin"
+          ".local/share/nvim"
+          ".local/share/zoxide"
+          ".local/share/direnv"
+        ];
+        files = [
+          ".screenrc"
+        ];
+      };
     };
-    programs.fuse.userAllowOther = true;
   };
 }
