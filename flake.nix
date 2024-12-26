@@ -86,6 +86,7 @@
               projectRootFile = "flake.nix";
               programs = {
                 nixfmt-rfc-style.enable = true;
+                actionlint.enable = true;
                 mdformat.enable = true;
                 deadnix.enable = true;
                 just.enable = true;
