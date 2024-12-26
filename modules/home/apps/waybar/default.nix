@@ -23,7 +23,7 @@ in
           position = "top";
           height = 32;
           spacing = 0;
-          fixed-center = false;
+          fixed-center = true;
           modules-left = [
             "niri/workspaces"
           ];
@@ -64,49 +64,11 @@ in
             disable-scroll = false;
             all-outputs = false;
             format = "";
-            persistent_workspaces = {
-              "1" = [
-                "eDP-1"
-                "DP-3"
-              ];
-              "2" = [
-                "eDP-1"
-                "DP-3"
-              ];
-              "3" = [
-                "eDP-1"
-                "DP-3"
-              ];
-              "4" = [
-                "eDP-1"
-                "DP-3"
-              ];
-              "5" = [
-                "eDP-1"
-                "DP-3"
-              ];
-              "6" = [
-                "DP-1"
-                "DP-3"
-              ];
-              "7" = [
-                "DP-1"
-              ];
-              "8" = [
-                "DP-1"
-              ];
-              "9" = [
-                "DP-1"
-              ];
-              "10" = [
-                "DP-1"
-              ];
-            };
           };
           clock = {
             timezone = "America/Los_Angeles";
             format = "󰅐  {:%a %I:%M %p}";
-            tooltip-format = "<tt><small>{calendar}</small></tt>";
+            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
             format-alt = "󰅐  {:%a %d.%m.%Y %I:%M %p}";
           };
           cpu = {

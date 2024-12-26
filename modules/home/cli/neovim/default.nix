@@ -73,6 +73,7 @@ in
 
         # etc
         alejandra
+        nixfmt-rfc-style
         deno
         ltex-ls
         nixd

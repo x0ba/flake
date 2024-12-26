@@ -30,6 +30,7 @@
       ghostty.enable = true;
       mpv.enable = true;
       xdg.enable = true;
+      vscode.enable = true;
     };
     user.enable = true;
     cli = {

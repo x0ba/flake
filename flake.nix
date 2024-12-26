@@ -45,6 +45,10 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin-vsc = {
+      url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -80,28 +84,28 @@
       outputs-builder =
         channels:
         let
-          treefmtConfig =
-            { ... }:
-            {
-              projectRootFile = "flake.nix";
-              programs = {
-                nixfmt-rfc-style.enable = true;
-                actionlint.enable = true;
-                mdformat.enable = true;
-                deadnix.enable = true;
-                just.enable = true;
-                stylua.enable = true;
-                toml-sort.enable = true;
-              };
+          treefmtConfig = _: {
+            projectRootFile = "flake.nix";
+            programs = {
+              nixfmt-rfc-style.enable = true;
+              actionlint.enable = true;
+              mdformat.enable = true;
+              deadnix.enable = true;
+              just.enable = true;
+              stylua.enable = true;
+              toml-sort.enable = true;
+              jsonfmt.enable = true;
             };
+          };
           treefmtEval = inputs.treefmt-nix.lib.evalModule (channels.nixpkgs) treefmtConfig;
         in
         {
           formatter = treefmtEval.config.build.wrapper;
         };
 
-      overlays = with inputs; [
+      overlays = [
         inputs.nix-vscode-extensions.overlays.default
+        inputs.catppuccin-vsc.overlays.default
         (final: _prev: {
           nur = import inputs.nur {
             nurpkgs = final;

@@ -12,7 +12,7 @@ let
   cfg = config.${namespace}.desktop.gnome;
   primary-color = "#161321";
   secondary-color = "#161321";
-  wallpaper-uri = "file://${../../../../assets/house.png}";
+  wallpaper-uri = "file://${../wallpapers/space.png}";
 in
 {
   options.${namespace}.desktop.gnome = with types; {
