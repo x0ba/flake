@@ -1,4 +1,7 @@
 { ... }:
+let
+  user = "daniel@phantom";
+in
 {
   imports = [
     ./hardware.nix
@@ -9,7 +12,7 @@
   home-manager = {
     users = {
       # Import your home-manager configuration
-      daniel = import ../../../homes/x86_64-linux/"daniel@phantom";
+      daniel = import ../../../homes/x86_64-linux/${user};
     };
   };
 
