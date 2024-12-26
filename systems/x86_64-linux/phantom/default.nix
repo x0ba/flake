@@ -12,7 +12,6 @@ in
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      # Import your home-manager configuration
       daniel = import ../../../homes/x86_64-linux/${user};
     };
   };

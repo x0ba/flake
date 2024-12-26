@@ -14,7 +14,6 @@ in
 {
   imports = with inputs; [
     impermanence.nixosModules.impermanence
-    persist-retro.nixosModules.persist-retro
   ];
   options.${namespace}.impermanence = with types; {
     enable = mkBoolOpt false "Enable impermanence";
@@ -22,6 +21,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    programs.fuse.userAllowOther = true;
     # This script does the actual wipe of the system
     # So if it doesn't run, the btrfs system effectively acts like a normal system
     boot.initrd.postDeviceCommands = mkIf cfg.enable (
@@ -50,6 +50,7 @@ in
         umount /btrfs_tmp
       ''
     );
+    fileSystems."/persist".neededForBoot = true;
     environment.persistence."/persist/system" = {
       hideMounts = true;
       directories = [
@@ -69,6 +70,5 @@ in
         }
       ];
     };
-    programs.fuse.userAllowOther = true;
   };
 }
