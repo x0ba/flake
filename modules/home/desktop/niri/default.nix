@@ -154,7 +154,7 @@ in
           binds {
               Mod+Shift+Slash { show-hotkey-overlay; }
 
-              Mod+Return { spawn "${lib.getExe pkgs.kitty}"; }
+              Mod+Return { spawn "ghostty"; }
               Mod+D { spawn "${lib.getExe pkgs.rofi-wayland}" "-show" "drun"; }
               Mod+P { spawn "${lib.getExe pkgs.wlogout}"; }
               Super+Alt+L { spawn "${lib.getExe config.programs.swaylock.package}"; }

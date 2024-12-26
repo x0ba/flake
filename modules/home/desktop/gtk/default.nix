@@ -22,16 +22,28 @@ in
       gtk.enable = true;
     };
 
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+
+    qt = {
+      enable = true;
+      platformTheme.name = "gtk3";
+    };
+
     gtk = {
       enable = true;
       font.name = "Inter";
+      font.size = 12;
       iconTheme = {
-        name = "WhiteSur-dark";
-        package = pkgs.whitesur-icon-theme;
+        name = "Yaru-dark";
+        package = pkgs.yaru-theme;
       };
       theme = {
-        name = "WhiteSur-Dark";
-        package = pkgs.whitesur-gtk-theme;
+        name = "Yaru-Dark";
+        package = pkgs.yaru-theme;
       };
     };
   };

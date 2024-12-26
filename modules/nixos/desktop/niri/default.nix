@@ -19,6 +19,7 @@ in
   config = mkIf cfg.enable {
     security.pam.services.swaylock = { };
     programs.niri.enable = true;
+    programs.dconf.enable = true;
     skibidi.desktop.greeter.enable = true;
     environment.systemPackages = with pkgs; [
       # file management
