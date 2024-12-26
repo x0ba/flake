@@ -6,7 +6,6 @@
   ...
 }:
 let
-  inherit (pkgs.stdenv) isLinux;
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.desktop.gtk;

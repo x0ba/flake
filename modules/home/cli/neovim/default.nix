@@ -18,6 +18,11 @@ in
 
   config = mkIf cfg.enable {
     programs.neovim = enabled;
+    xdg.configFile = {
+      "nvim/init.lua".source = ./config/init.lua;
+      "nvim/lua".source = ./config/lua;
+      "nvim/plugin".source = ./config/plugin;
+    };
     home = {
       packages = with pkgs; [
         # lua

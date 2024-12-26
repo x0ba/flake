@@ -81,12 +81,15 @@
         channels:
         let
           treefmtConfig =
-            { pkgs, ... }:
+            { ... }:
             {
               projectRootFile = "flake.nix";
               programs = {
                 nixfmt-rfc-style.enable = true;
                 mdformat.enable = true;
+                deadnix.enable = true;
+                just.enable = true;
+                stylua.enable = true;
               };
             };
           treefmtEval = inputs.treefmt-nix.lib.evalModule (channels.nixpkgs) treefmtConfig;
