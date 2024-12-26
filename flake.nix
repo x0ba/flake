@@ -86,7 +86,7 @@
 
       systems.modules.nixos = with inputs; [
         nixos-cosmic.nixosModules.default
-        # niri.nixosModules.niri
+        home-manager.nixosModules.home-manager
       ];
 
       overlays = with inputs; [

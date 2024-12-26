@@ -1,3 +1,5 @@
 # noisy diffs
 flake.lock -diff
 lazy-lock.json -diff
+
+modules/home/desktop/fonts/fonts/* filter=git-crypt diff=git-crypt
