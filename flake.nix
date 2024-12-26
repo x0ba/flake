@@ -49,6 +49,12 @@
       url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    impermanence.url = "github:nix-community/impermanence";
+    persist-retro.url = "github:Geometer1729/persist-retro";
   };
 
   outputs =
@@ -79,6 +85,23 @@
       systems.modules.nixos = with inputs; [
         nixos-cosmic.nixosModules.default
         home-manager.nixosModules.home-manager
+        {
+          # Required for impermanence
+          fileSystems."/persist".neededForBoot = true;
+        }
+        disko.nixosModules.disko
+      ];
+
+      systems.hosts.phantom.modules = with inputs; [
+        (import ./disks/default.nix {
+          inherit lib;
+          device = "/dev/nvme0n1";
+
+        })
+        {
+          # Required for impermanence
+          fileSystems."/persist".neededForBoot = true;
+        }
       ];
 
       outputs-builder =
