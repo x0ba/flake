@@ -26,6 +26,9 @@ in
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
+      "org/gnome/desktop/interface" = {
+        text-scaling-factor = 1.25;
+      };
     };
 
     qt = {
@@ -36,7 +39,6 @@ in
     gtk = {
       enable = true;
       font.name = "Inter";
-      font.size = 12;
       iconTheme = {
         name = "Yaru-dark";
         package = pkgs.yaru-theme;
