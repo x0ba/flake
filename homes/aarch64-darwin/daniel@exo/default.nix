@@ -20,6 +20,7 @@
     apps = {
       ghostty.enable = true;
       firefox.enable = true;
+      vscode.enable = true;
     };
     user = {
       enable = true;
