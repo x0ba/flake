@@ -41,6 +41,10 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -72,6 +76,24 @@
         nixos-cosmic.nixosModules.default
         home-manager.nixosModules.home-manager
       ];
+
+      outputs-builder =
+        channels:
+        let
+          treefmtConfig =
+            { pkgs, ... }:
+            {
+              projectRootFile = "flake.nix";
+              programs = {
+                nixfmt-rfc-style.enable = true;
+                mdformat.enable = true;
+              };
+            };
+          treefmtEval = inputs.treefmt-nix.lib.evalModule (channels.nixpkgs) treefmtConfig;
+        in
+        {
+          formatter = treefmtEval.config.build.wrapper;
+        };
 
       overlays = with inputs; [
         inputs.nix-vscode-extensions.overlays.default
