@@ -30,7 +30,6 @@ in
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.greetd = {
       enableGnomeKeyring = true;
-      u2fAuth = true;
     };
     security.polkit.enable = true;
 
