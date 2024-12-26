@@ -3,7 +3,6 @@ default:
   @just --choose
 
 export NIX_CONFIG := "
-  accept-flake-config = true
   extra-experimental-features = flakes nix-command
 "
 
