@@ -17,7 +17,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = [
-      pkgs.vencord
+      pkgs.vesktop
     ];
   };
 }
