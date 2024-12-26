@@ -21,6 +21,7 @@
       ghostty.enable = true;
       firefox.enable = true;
       vscode.enable = true;
+      zed.enable = true;
     };
     user = {
       enable = true;

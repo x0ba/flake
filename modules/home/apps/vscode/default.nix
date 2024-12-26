@@ -156,6 +156,6 @@ in
       "VSCodium/User/settings.json".source = ./config/settings.json;
       "VSCodium/User/snippets".source = ./config/snippets;
     };
-    xdg.mimeApps.defaultApplications."text/plain" = "code.desktop";
+    xdg.mimeApps.defaultApplications."text/plain" = "codium.desktop";
   };
 }
