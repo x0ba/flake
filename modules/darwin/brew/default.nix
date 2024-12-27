@@ -42,6 +42,7 @@ in
         "firefox"
         "iina"
         "jordanbaird-ice"
+        "ghostty"
         "keka"
         "macfuse"
         "netnewswire"
