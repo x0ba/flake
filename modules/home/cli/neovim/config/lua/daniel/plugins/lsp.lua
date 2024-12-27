@@ -168,7 +168,7 @@ return {
             expr = "import <nixpkgs> { }",
           },
           formatting = {
-            command = { "nixfmt" },
+            command = { "alejandra" },
           },
           options = {
             nixos = {
