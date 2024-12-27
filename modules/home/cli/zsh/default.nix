@@ -95,6 +95,9 @@ in {
           file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
         }
       ];
+      sessionVariables = {
+        MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      };
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza";
         ll = "${pkgs.eza}/bin/eza -l";
