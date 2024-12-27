@@ -44,6 +44,7 @@ in {
           "jordanbaird-ice"
           "ghostty"
           "keka"
+          "veracrypt"
           "macfuse"
           "netnewswire"
           "nextcloud"

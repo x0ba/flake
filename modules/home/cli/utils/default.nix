@@ -22,6 +22,7 @@ in {
         ".local/share/atuin"
         ".local/share/zoxide"
         ".local/share/direnv"
+        ".cache/tealdeer"
       ]
       else [];
     home.packages = with pkgs; [
