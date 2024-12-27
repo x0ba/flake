@@ -6,7 +6,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
   cfg = config.${namespace}.apps.emacs;
 in {
   options.${namespace}.apps.emacs = {
@@ -14,12 +14,18 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.persistence."/persist/home".directories =
+      if isLinux
+      then [
+        ".config/doom"
+        ".config/emacs"
+      ]
+      else [];
     home.packages = with pkgs; [
-      emacs-pgtk
       binutils
       ## Emacs itself
       binutils # native-comp needs 'as', provided by this
-      emacs # HEAD + native-comp
+      emacs-pgtk # HEAD + native-comp
 
       ## Doom dependencies
       git
@@ -43,6 +49,8 @@ in {
       sqlite
       # :lang cc
       clang-tools
+      # :lang latex & :lang org (latex previews)
+      texlive.combined.scheme-medium
       # :lang beancount
       beancount
       fava

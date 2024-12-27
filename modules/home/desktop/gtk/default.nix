@@ -25,7 +25,7 @@ in {
         color-scheme = "prefer-dark";
       };
       "org/gnome/desktop/interface" = {
-        text-scaling-factor = 1.25;
+        text-scaling-factor = 1.20;
       };
     };
 

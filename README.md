@@ -11,5 +11,5 @@ Here are my cross-platform dotfiles using NixOS, home-manager, and nix-darwin.
 - Browser: Firefox
 - Editor: Neovim
 - Other random bits of config tools I've collected over the years
-- Window Manager (Linux only): niri
+- Window Manager (Linux only): niri + waybar
 
