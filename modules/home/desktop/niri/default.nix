@@ -138,13 +138,13 @@ in
         }
 
         spawn-at-startup "${lib.getExe pkgs.xwayland-satellite}"
+        spawn-at-startup "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../wallpapers/leaves.png}"
         spawn-at-startup "${lib.getExe pkgs.waybar}"
         spawn-at-startup "${swayosd-server}"
         spawn-at-startup "sh" "-c" "${lib.getExe pkgs.swayidle} -w timeout 300 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep '${lib.getExe config.programs.swaylock.package} -f'"
         spawn-at-startup "${pkgs.swaynotificationcenter}/bin/swaync"
         spawn-at-startup "${lib.getExe pkgs.wlsunset}" "-l" "37.4" "-L" "-121.9"
-        spawn-at-startup "${lib.getExe pkgs.nextcloud-client}" "--background"
 
         binds {
             Mod+Shift+Slash { show-hotkey-overlay; }

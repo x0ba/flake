@@ -6,13 +6,11 @@
 }:
 {
   home.packages = with pkgs; [
-    nextcloud-client
     rnote
     obsidian
     calibre
     pika-backup
     spotify
-    thunderbird
     powertop
   ];
   skibidi = {
@@ -33,6 +31,7 @@
       xdg.enable = true;
       vscode.enable = true;
       zed.enable = true;
+      syncthing.enable = true;
     };
     user.enable = true;
     cli = {
