@@ -7,5 +7,6 @@ pkgs.mkShell {
     nix-output-monitor
     nixd
     nvd
+    sops
   ];
 }

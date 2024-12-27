@@ -1,0 +1,11 @@
+keys:
+  - &daniel 7062369036F842822CA109C2660DBDE129F4E1D9
+  - &phantom age1cg38r9k5e4yean359swxeggglzxwzajmfdd05vfxwuyy3fvh8ans282330
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+    - pgp:
+      - *daniel
+      age:
+      - *phantom
+

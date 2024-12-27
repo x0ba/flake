@@ -29,6 +29,7 @@
     };
     cli = {
       home-manager.enable = true;
+      ssh.enable = true;
       zsh.enable = true;
       utils.enable = true;
       neovim.enable = true;

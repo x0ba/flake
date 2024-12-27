@@ -1,5 +1,5 @@
 {
-  description = "x0ba's hm flake";
+  description = "skibidi dots";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -50,6 +50,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -79,6 +83,7 @@
       systems.modules.nixos = with inputs; [
         nixos-cosmic.nixosModules.default
         home-manager.nixosModules.home-manager
+        sops-nix.nixosModules.sops
         {
           # Required for impermanence
           fileSystems."/persist".neededForBoot = true;

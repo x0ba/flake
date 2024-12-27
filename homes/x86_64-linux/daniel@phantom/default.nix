@@ -35,6 +35,7 @@
     cli = {
       home-manager.enable = true;
       zsh.enable = true;
+      ssh.enable = true;
       utils.enable = true;
       neovim.enable = true;
       git.enable = true;
