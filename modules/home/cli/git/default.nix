@@ -21,6 +21,13 @@ in {
       pkgs.git-crypt
     ];
 
+    programs.lazygit = {
+      enable = true;
+      settings = {
+        gui.theme = {};
+      };
+    };
+
     programs.git = {
       enable = true;
       userName = "daniel";
