@@ -61,7 +61,7 @@ in {
             spacing = 10;
           };
           clock = {
-            format = "{:%H:%M}";
+            format = "{:%I:%M %p}";
           };
           pulseaudio = {
             format = "  {volume}%";
@@ -133,7 +133,7 @@ in {
 
           window * {
             background-color: transparent;
-            border-radius: 0px;
+            border-radius: 17px;
           }
 
           #workspaces button label {
