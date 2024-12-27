@@ -25,7 +25,7 @@ in {
       binutils
       ## Emacs itself
       binutils # native-comp needs 'as', provided by this
-      emacs-pgtk # HEAD + native-comp
+      emacs29-pgtk # HEAD + native-comp
       cmake
 
       ## Doom dependencies
