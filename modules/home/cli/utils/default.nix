@@ -4,29 +4,26 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv.hostPlatform) isLinux;
 
   cfg = config.${namespace}.cli.utils;
-in
-{
+in {
   options.${namespace}.cli.utils = {
     enable = mkEnableOption "misc cli utils";
   };
 
   config = mkIf cfg.enable {
     home.persistence."/persist/home".directories =
-      if isLinux then
-        [
-          ".local/state/syncthing"
-          ".local/share/atuin"
-          ".local/share/zoxide"
-          ".local/share/direnv"
-        ]
-      else
-        [ ];
+      if isLinux
+      then [
+        ".local/state/syncthing"
+        ".local/share/atuin"
+        ".local/share/zoxide"
+        ".local/share/direnv"
+      ]
+      else [];
     home.packages = with pkgs; [
       dwt1-shell-color-scripts
       htop
@@ -66,7 +63,7 @@ in
 
       atuin = {
         enable = true;
-        flags = [ "--disable-up-arrow" ];
+        flags = ["--disable-up-arrow"];
         settings = {
           inline_height = 30;
           style = "compact";
