@@ -2,7 +2,6 @@
   lib,
   config,
   namespace,
-  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -185,7 +184,6 @@ in {
               #f38ba8
             );
             background-size: 300% 300%;
-            animation: colored-gradient 20s ease infinite;
           }
 
           @keyframes colored-gradient {
@@ -230,7 +228,6 @@ in {
               #313244
             );
             background-size: 400% 100%;
-            animation: grey-gradient 3s linear infinite;
             transition: all 0.3s ease;
           }
 
@@ -272,7 +269,6 @@ in {
               #313244
             );
             background-size: 400% 100%;
-            animation: grey-gradient 3s linear infinite;
             min-width: 500px;
             border-radius: 17px;
           }
