@@ -38,12 +38,12 @@ in {
       enable = true;
       font.name = "Inter";
       iconTheme = {
-        name = "Yaru-dark";
-        package = pkgs.yaru-theme;
+        name = "Adwaita";
+        package = pkgs.gnome-themes-extra;
       };
       theme = {
-        name = "Yaru-dark";
-        package = pkgs.yaru-theme;
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
       };
     };
   };
