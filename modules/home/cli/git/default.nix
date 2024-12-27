@@ -7,6 +7,8 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
 
+  inherit (pkgs.stdenv) isDarwin;
+
   cfg = config.${namespace}.cli.git;
 in {
   options.${namespace}.cli.git = {
@@ -14,7 +16,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # use fsmonitor
     home.packages = [
       pkgs.git-credential-oauth
       pkgs.hub
@@ -26,6 +27,12 @@ in {
       settings = {
         gui.theme = {};
       };
+    };
+
+    # disable loading the systme config on Darwin, where Nix tells it to use the
+    # osxkeychain credential manager.
+    home.sessionVariables = lib.mkIf isDarwin {
+      GIT_CONFIG_NOSYSTEM = 1;
     };
 
     programs.git = {
