@@ -32,6 +32,8 @@ in {
       home = "/home/${cfg.name}";
       group = "users";
 
+      hashedPasswordFile = lib.mkIf config.${namespace}.secrets.enable config.sops.secrets.password.path;
+
       shell = pkgs.zsh;
 
       # Arbitrary user ID to use for the user. Since I only

@@ -5,6 +5,8 @@ in {
     ./hardware.nix
   ];
 
+  sops.secrets.password.neededForUsers = true;
+
   networking.hostName = "phantom";
 
   home-manager = {
@@ -15,6 +17,7 @@ in {
   };
 
   skibidi = {
+    secrets.enable = true;
     impermanence.enable = true;
     suites = {
       common.enable = true;
@@ -22,7 +25,6 @@ in {
     };
     user = {
       name = "daniel";
-      initialPassword = "password";
     };
     system = {
       hardware_acceleration.enable = true;
