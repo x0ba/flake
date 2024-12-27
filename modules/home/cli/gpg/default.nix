@@ -4,28 +4,36 @@
   config,
   namespace,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
   key = "0x660DBDE129F4E1D9";
 
   cfg = config.${namespace}.cli.gpg;
-in {
+in
+{
   options.${namespace}.cli.gpg = {
     enable = mkEnableOption "gpg";
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories = [
-      ".gnupg"
-      ".ssh"
-    ];
-    home.packages = with pkgs; (
-      [
-        yubikey-personalization
-      ]
-      ++ lib.optionals isDarwin [pinentry_mac]
-    );
+    home.persistence."/persist/home".directories =
+      if isLinux then
+        [
+          ".gnupg"
+          ".ssh"
+        ]
+      else
+        [ ];
+    home.packages =
+      with pkgs;
+      (
+        [
+          yubikey-personalization
+        ]
+        ++ lib.optionals isDarwin [ pinentry_mac ]
+      );
     programs.zsh.initExtra =
       # bash
       ''
