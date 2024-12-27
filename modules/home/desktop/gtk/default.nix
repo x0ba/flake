@@ -44,7 +44,7 @@ in
         package = pkgs.yaru-theme;
       };
       theme = {
-        name = "Yaru-Dark";
+        name = "Yaru-dark";
         package = pkgs.yaru-theme;
       };
     };

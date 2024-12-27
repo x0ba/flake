@@ -18,7 +18,7 @@ in
   config = mkIf cfg.enable {
 
     skibidi = {
-      apps.onepassword.enable = true;
+      # apps.onepassword.enable = true;
       hardware.yubikey.enable = true;
       system.virtualization.enable = true;
     };

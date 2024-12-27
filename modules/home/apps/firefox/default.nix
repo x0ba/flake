@@ -30,7 +30,7 @@ in
         search.force = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
-          onepassword-password-manager
+          proton-pass
           enhanced-h264ify
           multi-account-containers
           temporary-containers
@@ -148,6 +148,10 @@ in
           "toolkit.telemetry.updatePing.enabled" = false;
           "webgl.renderer-string-override" = " ";
           "webgl.vendor-string-override" = " ";
+          "identity.fxaccounts.enabled" = false;
+          "signon.rememberSignons" = false;
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
 
           "gfx.webrender.all" = true;
           "media.ffmpeg.vaapi.enabled" = true;

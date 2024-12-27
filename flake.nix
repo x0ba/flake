@@ -37,16 +37,12 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin-vsc = {
-      url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
+      url = "github:catppuccin/vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -79,7 +75,6 @@
         ghostty-hm.homeModules.default
         impermanence.homeManagerModules.impermanence
         nix-index-database.hmModules.nix-index
-        niri.homeModules.niri
       ];
 
       systems.modules.nixos = with inputs; [

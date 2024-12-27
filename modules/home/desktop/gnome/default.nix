@@ -117,18 +117,6 @@ in
         X-GNOME-Autostart-enabled=true
         X-GNOME-Autostart-Delay=10
       '';
-      "autostart/1Password.desktop".text = ''
-        [Desktop Entry]
-        Name=1Password
-        Exec=1password --silent %U
-        Terminal=false
-        Type=Application
-        Icon=1password
-        StartupWMClass=1Password
-        Comment=Password manager and secure wallet
-        MimeType=x-scheme-handler/onepassword;
-        Categories=Office;
-      '';
     };
   };
 }
