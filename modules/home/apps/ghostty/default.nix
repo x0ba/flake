@@ -30,8 +30,8 @@ in {
 
         theme = "catppuccin-mocha";
 
-        window-padding-x = "5";
-        window-padding-y = "5";
+        window-padding-x = "7";
+        window-padding-y = "7";
       };
     };
   };

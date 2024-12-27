@@ -54,6 +54,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -70,7 +74,7 @@
 
         meta = {
           name = "skibidi-flake";
-          title = "Skibidi Flake";
+          title = "skibidi Flake";
         };
       };
 
@@ -123,6 +127,7 @@
 
       overlays = [
         inputs.nix-vscode-extensions.overlays.default
+        inputs.emacs-overlay.overlays.default
         inputs.catppuccin-vsc.overlays.default
         (final: _prev: {
           nur = import inputs.nur {

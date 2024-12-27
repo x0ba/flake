@@ -40,6 +40,14 @@ in {
       nautilus-open-any-terminal
     ];
 
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+      ];
+      xdgOpenUsePortal = true;
+    };
+
     services = {
       # mounting
       gvfs.enable = true;

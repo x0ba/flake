@@ -30,6 +30,7 @@
       firefox.enable = true;
       chromium.enable = true;
       discord.enable = true;
+      emacs.enable = true;
       ghostty.enable = true;
       spotify.enable = true;
       kitty.enable = true;
