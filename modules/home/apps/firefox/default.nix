@@ -17,6 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.persistence."/persist/home".directories = [ ".mozilla/firefox" ];
     programs.firefox = {
       enable = true;
       package = if isLinux then pkgs.firefox else (pkgs.writeScriptBin "__dummy-firefox" "");

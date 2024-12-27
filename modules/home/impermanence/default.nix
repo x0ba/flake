@@ -25,15 +25,7 @@ in
         "Code"
         "Documents"
         "Videos"
-        "Nextcloud"
-        ".gnupg"
-        ".mozilla/firefox"
-        ".ssh"
         ".local/share/keyrings"
-        ".local/share/atuin"
-        ".local/share/nvim"
-        ".local/share/zoxide"
-        ".local/share/direnv"
       ];
       allowOther = true;
     };

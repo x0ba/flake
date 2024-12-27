@@ -16,6 +16,12 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.persistence."/persist/home".directories = [
+      ".local/state/syncthing"
+      ".local/share/atuin"
+      ".local/share/zoxide"
+      ".local/share/direnv"
+    ];
     home.packages = with pkgs; [
       dwt1-shell-color-scripts
       htop

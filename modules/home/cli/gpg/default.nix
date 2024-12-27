@@ -18,6 +18,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.persistence."/persist/home".directories = [
+      ".gnupg"
+      ".ssh"
+    ];
     home.packages =
       with pkgs;
       (

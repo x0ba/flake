@@ -16,6 +16,9 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.persistence."/persist/home".directories = [
+      ".local/state/syncthing"
+    ];
     services.syncthing = {
       enable = true;
     };
