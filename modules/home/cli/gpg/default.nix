@@ -20,7 +20,6 @@ in {
       if isLinux
       then [
         ".gnupg"
-        ".ssh"
       ]
       else [];
     home.packages = with pkgs; (

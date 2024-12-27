@@ -22,7 +22,6 @@ in {
         "Documents"
         "Videos"
         ".local/share/keyrings"
-        ".config/sops"
       ];
       allowOther = true;
     };

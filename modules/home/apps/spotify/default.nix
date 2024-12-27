@@ -8,19 +8,21 @@
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
 
-  cfg = config.${namespace}.cli.ssh;
+  cfg = config.${namespace}.apps.spotify;
 in {
-  options.${namespace}.cli.ssh = {
-    enable = mkEnableOption "ssh";
+  options.${namespace}.apps.spotify = {
+    enable = mkEnableOption "spotify";
   };
 
   config = mkIf cfg.enable {
     home.persistence."/persist/home".directories =
       if isLinux
       then [
-        ".ssh"
+        ".config/spotify"
       ]
       else [];
-    programs.ssh.enable = true;
+    home.packages = with pkgs; [
+      spotify
+    ];
   };
 }

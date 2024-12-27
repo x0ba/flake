@@ -15,6 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.persistence."/persist/system".directories = ["/var/lib/libvirt/images"];
     virtualisation = {
       libvirtd.enable = true;
       podman = {

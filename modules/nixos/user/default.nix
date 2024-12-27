@@ -24,6 +24,7 @@ in {
 
   config = {
     programs.zsh.enable = true;
+    sops.secrets.phantom-password.neededForUsers = lib.mkIf config.${namespace}.secrets.enable true;
     users.users.${cfg.name} = {
       isNormalUser = true;
 
@@ -32,7 +33,7 @@ in {
       home = "/home/${cfg.name}";
       group = "users";
 
-      hashedPasswordFile = lib.mkIf config.${namespace}.secrets.enable config.sops.secrets.password.path;
+      hashedPasswordFile = lib.mkIf config.${namespace}.secrets.enable config.sops.secrets.phantom-password.path;
 
       shell = pkgs.zsh;
 

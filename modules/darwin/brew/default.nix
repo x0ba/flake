@@ -40,6 +40,7 @@ in {
           "eloston-chromium"
           "firefox"
           "iina"
+          "tailscale"
           "jordanbaird-ice"
           "ghostty"
           "keka"

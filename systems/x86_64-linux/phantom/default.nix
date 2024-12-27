@@ -5,8 +5,6 @@ in {
     ./hardware.nix
   ];
 
-  sops.secrets.password.neededForUsers = true;
-
   networking.hostName = "phantom";
 
   home-manager = {
@@ -22,6 +20,9 @@ in {
     suites = {
       common.enable = true;
       desktop.enable = true;
+    };
+    services = {
+      tailscale.enable = true;
     };
     user = {
       name = "daniel";
