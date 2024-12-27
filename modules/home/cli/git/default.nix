@@ -4,13 +4,11 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.git;
-in
-{
+in {
   options.${namespace}.cli.git = {
     enable = mkEnableOption "git";
   };

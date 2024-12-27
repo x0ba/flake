@@ -52,8 +52,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs =
-    inputs:
+  outputs = inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -98,27 +97,24 @@
         }
       ];
 
-      outputs-builder =
-        channels:
-        let
-          treefmtConfig = _: {
-            projectRootFile = "flake.nix";
-            programs = {
-              nixfmt-rfc-style.enable = true;
-              actionlint.enable = true;
-              mdformat.enable = true;
-              deadnix.enable = true;
-              just.enable = true;
-              stylua.enable = true;
-              toml-sort.enable = true;
-              jsonfmt.enable = true;
-            };
+      outputs-builder = channels: let
+        treefmtConfig = _: {
+          projectRootFile = "flake.nix";
+          programs = {
+            alejandra.enable = true;
+            actionlint.enable = true;
+            mdformat.enable = true;
+            deadnix.enable = true;
+            just.enable = true;
+            stylua.enable = true;
+            toml-sort.enable = true;
+            jsonfmt.enable = true;
           };
-          treefmtEval = inputs.treefmt-nix.lib.evalModule (channels.nixpkgs) treefmtConfig;
-        in
-        {
-          formatter = treefmtEval.config.build.wrapper;
         };
+        treefmtEval = inputs.treefmt-nix.lib.evalModule (channels.nixpkgs) treefmtConfig;
+      in {
+        formatter = treefmtEval.config.build.wrapper;
+      };
 
       overlays = [
         inputs.nix-vscode-extensions.overlays.default

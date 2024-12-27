@@ -1,16 +1,13 @@
 {
   lib,
   config,
-  pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.syncthing;
-in
-{
+in {
   options.${namespace}.apps.syncthing = {
     enable = mkEnableOption "syncthing";
   };

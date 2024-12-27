@@ -3,13 +3,11 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.desktop.services;
-in
-{
+in {
   options.${namespace}.desktop.services = {
     enable = mkEnableOption "services";
   };

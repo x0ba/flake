@@ -4,12 +4,12 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
-  inherit (config.xdg)
+  inherit
+    (config.xdg)
     cacheHome
     configHome
     dataHome
@@ -18,8 +18,7 @@ let
   inherit (config.home) homeDirectory sessionVariables;
 
   cfg = config.${namespace}.apps.xdg;
-in
-{
+in {
   options.${namespace}.apps.xdg = {
     enable = mkEnableOption "xdg";
   };

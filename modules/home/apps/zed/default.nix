@@ -3,13 +3,11 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.zed;
-in
-{
+in {
   options.${namespace}.apps.zed = {
     enable = mkEnableOption "zed";
   };
@@ -43,7 +41,7 @@ in
           "nixd"
           "!nil"
         ];
-        lsp.nixd.settings.diagnostic.suppress = [ "sema-extra-with" ];
+        lsp.nixd.settings.diagnostic.suppress = ["sema-extra-with"];
       };
     };
   };

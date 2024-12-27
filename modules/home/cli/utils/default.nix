@@ -4,13 +4,11 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.utils;
-in
-{
+in {
   options.${namespace}.cli.utils = {
     enable = mkEnableOption "misc cli utils";
   };
@@ -61,7 +59,7 @@ in
 
       atuin = {
         enable = true;
-        flags = [ "--disable-up-arrow" ];
+        flags = ["--disable-up-arrow"];
         settings = {
           inline_height = 30;
           style = "compact";

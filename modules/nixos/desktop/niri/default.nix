@@ -7,17 +7,15 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.desktop.niri;
-in
-{
+in {
   options.${namespace}.desktop.niri = with types; {
     enable = mkBoolOpt false "Enable or disable the niri window manager.";
   };
 
   config = mkIf cfg.enable {
-    security.pam.services.swaylock = { };
+    security.pam.services.swaylock = {};
 
     programs.niri.enable = true;
     programs.dconf.enable = true;
@@ -35,7 +33,7 @@ in
     ];
     programs.file-roller.enable = true;
 
-    environment.pathsToLink = [ "/share/nautilus-python/extensions" ];
+    environment.pathsToLink = ["/share/nautilus-python/extensions"];
     environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "/var/run/current-system/sw/lib/nautilus/extensions-4";
 
     services.dbus.packages = with pkgs; [

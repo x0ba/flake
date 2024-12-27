@@ -4,14 +4,12 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
   cfg = config.${namespace}.apps.vscode;
-in
-{
+in {
   options.${namespace}.apps.vscode = {
     enable = mkEnableOption "vscode";
   };
@@ -56,10 +54,12 @@ in
           # other extensions like Go/Rust are only really used with devShells,
           # nix & shell are universal enough for me to want them everywhere.
           (jnoortheen.nix-ide.overrideAttrs (prev: {
-            nativeBuildInputs = prev.nativeBuildInputs ++ [
-              pkgs.jq
-              pkgs.moreutils
-            ];
+            nativeBuildInputs =
+              prev.nativeBuildInputs
+              ++ [
+                pkgs.jq
+                pkgs.moreutils
+              ];
             postInstall = ''
               cd "$out/$installPrefix"
               jq -e '
@@ -71,10 +71,12 @@ in
             '';
           }))
           (mads-hartmann.bash-ide-vscode.overrideAttrs (prev: {
-            nativeBuildInputs = prev.nativeBuildInputs ++ [
-              pkgs.jq
-              pkgs.moreutils
-            ];
+            nativeBuildInputs =
+              prev.nativeBuildInputs
+              ++ [
+                pkgs.jq
+                pkgs.moreutils
+              ];
             postInstall = ''
               cd "$out/$installPrefix"
               jq -e '
@@ -84,10 +86,12 @@ in
             '';
           }))
           (mkhl.shfmt.overrideAttrs (prev: {
-            nativeBuildInputs = prev.nativeBuildInputs ++ [
-              pkgs.jq
-              pkgs.moreutils
-            ];
+            nativeBuildInputs =
+              prev.nativeBuildInputs
+              ++ [
+                pkgs.jq
+                pkgs.moreutils
+              ];
             postInstall = ''
               cd "$out/$installPrefix"
               jq -e '
@@ -104,8 +108,8 @@ in
             extraBordersEnabled = false;
             workbenchMode = "default";
             bracketMode = "rainbow";
-            colorOverrides = { };
-            customUIColors = { };
+            colorOverrides = {};
+            customUIColors = {};
           })
           adrianwilczynski.alpine-js-intellisense
           antfu.icons-carbon

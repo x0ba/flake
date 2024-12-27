@@ -3,15 +3,14 @@
   namespace,
   ...
 }:
-with lib.${namespace};
-{
+with lib.${namespace}; {
   networking.hostName = "exo";
   skibidi = {
     nix.enable = true;
     settings.enable = true;
     brew = {
       enable = true;
-      casks = [ "prismlauncher" ];
+      casks = ["prismlauncher"];
     };
   };
 

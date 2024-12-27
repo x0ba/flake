@@ -6,11 +6,9 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.settings;
-in
-{
+in {
   options.${namespace}.settings = with types; {
     enable = mkBoolOpt false "Whether or not to manage some basic settings";
   };

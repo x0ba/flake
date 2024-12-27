@@ -1,17 +1,13 @@
 {
   lib,
   config,
-  pkgs,
-  inputs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.impermanence;
-in
-{
+in {
   options.${namespace}.impermanence = {
     enable = mkEnableOption "impermanence";
   };

@@ -3,13 +3,11 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.onepassword;
-in
-{
+in {
   options.${namespace}.apps.onepassword = {
     enable = mkEnableOption "onepassword";
   };

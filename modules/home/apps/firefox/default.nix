@@ -4,27 +4,28 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv.hostPlatform) isLinux;
 
   cfg = config.${namespace}.apps.firefox;
-in
-{
+in {
   options.${namespace}.apps.firefox = {
     enable = mkEnableOption "firefox";
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories = [ ".mozilla/firefox" ];
+    home.persistence."/persist/home".directories = [".mozilla/firefox"];
     programs.firefox = {
       enable = true;
-      package = if isLinux then pkgs.firefox else (pkgs.writeScriptBin "__dummy-firefox" "");
+      package =
+        if isLinux
+        then pkgs.firefox
+        else (pkgs.writeScriptBin "__dummy-firefox" "");
       profiles.default = {
         search.engines = {
           "Startpage" = {
-            urls = [ { template = "https://www.startpage.com/sp/search?query={searchTerms}"; } ];
+            urls = [{template = "https://www.startpage.com/sp/search?query={searchTerms}";}];
           };
         };
         search.default = "Startpage";

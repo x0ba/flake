@@ -4,15 +4,13 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   swayosd-client = "${config.services.swayosd.package}/bin/swayosd-client";
   swayosd-server = "${config.services.swayosd.package}/bin/swayosd-server";
 
   cfg = config.${namespace}.desktop.niri;
-in
-{
+in {
   options.${namespace}.desktop.niri = {
     enable = mkEnableOption "niri";
   };
@@ -28,7 +26,8 @@ in
     };
     skibidi.desktop.services.enable = true;
     programs.ghostty.settings.window-decoration = false;
-    xdg.configFile."niri/config.kdl".text = # kdl
+    xdg.configFile."niri/config.kdl".text =
+      # kdl
       ''
         environment {
             DISPLAY ":0"

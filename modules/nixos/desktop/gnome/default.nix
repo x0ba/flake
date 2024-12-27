@@ -7,15 +7,13 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.desktop.gnome;
 
   defaultExtensions = with pkgs.gnomeExtensions; [
     appindicator
   ];
-in
-{
+in {
   options.${namespace}.desktop.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to use Gnome as the desktop environment.";
     wayland = mkBoolOpt true "Whether or not to use Wayland.";
@@ -43,8 +41,7 @@ in
       package = pkgs.gnomeExtensions.gsconnect;
     };
 
-    environment.systemPackages =
-      with pkgs;
+    environment.systemPackages = with pkgs;
       [
         wl-clipboard
         gnome-tweaks

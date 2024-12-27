@@ -3,13 +3,11 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.waybar;
-in
-{
+in {
   options.${namespace}.apps.waybar = {
     enable = mkEnableOption "waybar";
   };
@@ -30,11 +28,13 @@ in
           modules-center = [
             "niri/window"
           ];
-          modules-right = [
-            "tray"
-            "battery"
-            "clock"
-          ] ++ lib.optionals config.skibidi.apps.swaync.enable [ "custom/swaync" ];
+          modules-right =
+            [
+              "tray"
+              "battery"
+              "clock"
+            ]
+            ++ lib.optionals config.skibidi.apps.swaync.enable ["custom/swaync"];
           "niri/window" = {
             max-length = 50;
             max-length-mode = "middle";

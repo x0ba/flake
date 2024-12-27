@@ -6,17 +6,14 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.suites.desktop;
-in
-{
+in {
   options.${namespace}.suites.desktop = with types; {
     enable = mkBoolOpt false "Whether or not to enable desktop configuration.";
   };
 
   config = mkIf cfg.enable {
-
     skibidi = {
       # apps.onepassword.enable = true;
       hardware.yubikey.enable = true;

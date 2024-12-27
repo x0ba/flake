@@ -3,22 +3,20 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.wlogout;
-in
-{
+in {
   options.${namespace}.apps.wlogout = {
     enable = mkEnableOption "wlogout";
   };
 
   config = mkIf cfg.enable {
-
     programs.wlogout = {
       enable = true;
-      style = # css
+      style =
+        # css
         ''
           * {
             background-image: none;

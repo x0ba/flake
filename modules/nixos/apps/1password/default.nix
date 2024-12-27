@@ -6,11 +6,9 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.apps.onepassword;
-in
-{
+in {
   options.${namespace}.apps.onepassword = with types; {
     enable = mkBoolOpt false "Whether or not to enable 1password.";
   };
@@ -20,7 +18,7 @@ in
       _1password.enable = true;
       _1password-gui = {
         enable = true;
-        polkitPolicyOwners = [ "daniel" ];
+        polkitPolicyOwners = ["daniel"];
       };
     };
   };

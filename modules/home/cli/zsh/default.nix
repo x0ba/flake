@@ -4,19 +4,16 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-  zshPlugins =
-    plugins:
-    (map (plugin: rec {
+  zshPlugins = plugins: (map (plugin: rec {
       name = src.name;
       inherit (plugin) file src;
-    }) plugins);
+    })
+    plugins);
 
   cfg = config.${namespace}.cli.zsh;
-in
-{
+in {
   options.${namespace}.cli.zsh = {
     enable = mkEnableOption "zsh";
   };

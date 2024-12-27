@@ -1,10 +1,8 @@
 {
   pkgs,
   home,
-  config,
   ...
-}:
-{
+}: {
   home.packages = with pkgs; [
     rnote
     obsidian

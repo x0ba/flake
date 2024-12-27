@@ -7,18 +7,16 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.hardware.yubikey;
-in
-{
+in {
   options.${namespace}.hardware.yubikey = with types; {
     enable = mkBoolOpt false "Whether or not to enable yubikey support.";
   };
 
   config = mkIf cfg.enable {
     services = {
-      udev.packages = [ pkgs.yubikey-personalization ];
+      udev.packages = [pkgs.yubikey-personalization];
       pcscd.enable = true;
     };
 
@@ -28,6 +26,5 @@ in
       enable = true;
       settings.cue = true;
     };
-
   };
 }

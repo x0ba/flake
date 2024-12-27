@@ -4,13 +4,11 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.swaylock;
-in
-{
+in {
   options.${namespace}.apps.swaylock = {
     enable = mkEnableOption "swaylock";
   };

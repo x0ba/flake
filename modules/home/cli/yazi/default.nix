@@ -3,13 +3,11 @@
   config,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.yazi;
-in
-{
+in {
   options.${namespace}.cli.yazi = {
     enable = mkEnableOption "yazi";
   };

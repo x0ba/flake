@@ -1,8 +1,6 @@
-{ inputs, ... }:
-let
+{inputs, ...}: let
   user = "daniel@phantom";
-in
-{
+in {
   imports = [
     ./hardware.nix
   ];
@@ -10,7 +8,7 @@ in
   networking.hostName = "phantom";
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       daniel = import ../../../homes/x86_64-linux/${user};
     };

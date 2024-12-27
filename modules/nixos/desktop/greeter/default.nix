@@ -7,11 +7,9 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.desktop.greeter;
-in
-{
+in {
   options.${namespace}.desktop.greeter = with types; {
     enable = mkBoolOpt false "Whether or not to enable tuigreet";
   };
@@ -29,13 +27,13 @@ in
 
     # start a keyring daemon for sway
     systemd = {
-      packages = [ pkgs.polkit_gnome ];
+      packages = [pkgs.polkit_gnome];
       user.services.polkit-gnome-authentication-agent-1 = {
         unitConfig = {
           Description = "polkit-gnome-authentication-agent-1";
-          Wants = [ "graphical-session.target" ];
-          WantedBy = [ "graphical-session.target" ];
-          After = [ "graphical-session.target" ];
+          Wants = ["graphical-session.target"];
+          WantedBy = ["graphical-session.target"];
+          After = ["graphical-session.target"];
         };
         serviceConfig = {
           Type = "simple";
@@ -46,6 +44,5 @@ in
         };
       };
     };
-
   };
 }

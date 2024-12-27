@@ -7,11 +7,9 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.impermanence;
-in
-{
+in {
   imports = with inputs; [
     impermanence.nixosModules.impermanence
   ];
