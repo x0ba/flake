@@ -26,7 +26,7 @@ in {
       enable = true;
       settings = {
         font-size = 13;
-        font-family = "BerkeleyMono Nerd Font";
+        font-family = "Departure Mono";
 
         theme = "catppuccin-mocha";
 
