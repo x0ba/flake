@@ -32,11 +32,10 @@
       emacs.enable = true;
       ghostty.enable = true;
       spotify.enable = true;
-      kitty.enable = true;
       mpv.enable = true;
       xdg.enable = true;
       vscode.enable = true;
-      zed.enable = true;
+      # zed.enable = true;
       syncthing.enable = true;
     };
     user.enable = true;
