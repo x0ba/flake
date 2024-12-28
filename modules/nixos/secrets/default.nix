@@ -16,7 +16,7 @@ in {
   config = mkIf cfg.enable {
     sops.defaultSopsFile = ../../../secrets/secrets.yaml;
     sops.age.sshKeyPaths = [
-      "/persist/home/.ssh/id_ed25519"
+      "/persist/home/daniel/.ssh/id_ed25519"
     ];
     sops.age.generateKey = true;
   };
