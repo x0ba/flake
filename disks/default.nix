@@ -28,12 +28,17 @@
               resumeDevice = true;
             };
           };
-          root = {
-            name = "root";
+          luks = {
             size = "100%";
             content = {
-              type = "lvm_pv";
-              vg = "root_vg";
+              type = "luks";
+              name = "crypted";
+              settings.allowDiscards = true;
+              passwordFile = "/tmp/secret.key";
+              content = {
+                type = "lvm_pv";
+                vg = "root_vg";
+              };
             };
           };
         };

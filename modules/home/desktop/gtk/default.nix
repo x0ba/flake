@@ -38,12 +38,12 @@ in {
       enable = true;
       font.name = "Inter";
       iconTheme = {
-        name = "Numix-Circle";
-        package = pkgs.numix-icon-theme-circle;
+        name = "Qogir-dark";
+        package = pkgs.qogir-icon-theme;
       };
       theme = {
-        name = "Orchis-Dark";
-        package = pkgs.orchis-theme;
+        name = "Colloid-Dark";
+        package = pkgs.colloid-gtk-theme;
       };
     };
   };

@@ -14,13 +14,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories =
-      if isLinux
-      then [
-        ".config/doom"
-        ".config/emacs"
-      ]
-      else [];
     home.packages = with pkgs; [
       binutils
       ## Emacs itself
