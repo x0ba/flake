@@ -102,12 +102,12 @@ in {
           right_format = "$directory\${custom.jjid}\${custom.jjstat}$git_state$git_commit$git_status";
 
           character = {
-            success_symbol = "[ ♥ ](fg:black bg:cyan)";
-            error_symbol = "[ ♥ ](fg:black bg:red)";
-            vimcmd_symbol = "[ ♡ ](fg:black bg:purple)";
-            vimcmd_replace_symbol = "[ ♡ ](fg:black bg:green)";
-            vimcmd_replace_one_symbol = "[ ♡ ](fg:black bg:green)";
-            vimcmd_visual_symbol = "[ ♡ ](fg:black bg:yellow)";
+            success_symbol = "[ λ ](fg:black bg:cyan)";
+            error_symbol = "[ λ ](fg:black bg:red)";
+            vimcmd_symbol = "[ Λ ](fg:black bg:purple)";
+            vimcmd_replace_symbol = "[ Λ ](fg:black bg:green)";
+            vimcmd_replace_one_symbol = "[ Λ ](fg:black bg:green)";
+            vimcmd_visual_symbol = "[ Λ ](fg:black bg:yellow)";
           };
 
           username = {

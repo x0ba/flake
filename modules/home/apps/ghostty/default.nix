@@ -25,8 +25,8 @@ in {
     programs.ghostty = {
       enable = true;
       settings = {
-        font-size = 12;
-        font-family = "Departure Mono";
+        font-size = 13;
+        font-family = "BerkeleyMono Nerd Font";
 
         theme = "catppuccin-mocha";
 
