@@ -21,7 +21,7 @@ in {
           position = "top";
           mod = "dock";
           exclusive = true;
-          passtrough = false;
+          passthrough = false;
           gtk-layer-shell = true;
           height = 32;
           modules-left = [
@@ -90,7 +90,6 @@ in {
         # css
         ''
           * {
-            /* `otf-font-awesome` is required to be installed for icons */
             font-family: BerkeleyMono Nerd Font;
             font-size: 15px;
             border-radius: 17px;
@@ -161,7 +160,7 @@ in {
 
           #workspaces button {
             background-color: #1e1e2e;
-            border-radius: 12px;
+            border-radius: 100px;
             margin-left: 10px;
 
             transition: all 0.3s ease;
