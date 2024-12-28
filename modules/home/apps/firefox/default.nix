@@ -201,10 +201,6 @@ in {
           "findbar.highlightAll" = true;
           "layout.word_select.eat_space_to_next_word" = false;
 
-          "apz.overscroll.enabled" = true;
-          "general.smoothScroll" = true;
-          "mousewheel.default.delta_multiplier_y" = 275;
-
           "identity.fxaccounts.enabled" = false;
           "signon.rememberSignons" = false;
           "extensions.formautofill.addresses.enabled" = false;
