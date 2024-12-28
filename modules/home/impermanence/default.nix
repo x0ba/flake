@@ -22,6 +22,7 @@ in {
         "Documents"
         "Videos"
         ".local/share/keyrings"
+        ".config/obsidian"
       ];
       allowOther = true;
     };
