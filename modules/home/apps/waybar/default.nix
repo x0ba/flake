@@ -91,8 +91,8 @@ in {
         ''
           * {
             /* `otf-font-awesome` is required to be installed for icons */
-            font-family: JetBrainsMono Nerd Font;
-            font-size: 13px;
+            font-family: BerkeleyMono Nerd Font;
+            font-size: 14px;
             border-radius: 17px;
           }
 
