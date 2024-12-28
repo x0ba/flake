@@ -15,12 +15,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories =
-      if isLinux
-      then [
-        ".config/spotify"
-      ]
-      else [];
     home.packages = with pkgs; [
       spotify
     ];

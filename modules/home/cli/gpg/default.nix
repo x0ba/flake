@@ -16,12 +16,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories =
-      if isLinux
-      then [
-        ".gnupg"
-      ]
-      else [];
     home.packages = with pkgs; (
       [
         yubikey-personalization

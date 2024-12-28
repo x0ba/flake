@@ -61,6 +61,38 @@ in {
       files = [
         "/etc/machine-id"
       ];
+      users.daniel = {
+        directories = [
+          "Downloads"
+          "Music"
+          "Pictures"
+          "Documents"
+          "Videos"
+          ".local/state/syncthing"
+          ".config/spotify"
+          ".config/doom"
+          ".config/emacs"
+          ".local/share/nvim"
+          ".mozilla/firefox"
+          ".local/state/nvim"
+          ".local/share/atuin"
+          ".local/share/zoxide"
+          ".local/share/direnv"
+          ".cache/tealdeer"
+          {
+            directory = ".gnupg";
+            mode = "0700";
+          }
+          {
+            directory = ".ssh";
+            mode = "0700";
+          }
+          {
+            directory = ".local/share/keyrings";
+            mode = "0700";
+          }
+        ];
+      };
     };
   };
 }

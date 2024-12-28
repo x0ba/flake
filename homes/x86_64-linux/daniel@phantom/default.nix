@@ -19,7 +19,6 @@
     };
   };
   skibidi = {
-    impermanence.enable = true;
     desktop = {
       # gnome.enable = true;
       niri.enable = true;

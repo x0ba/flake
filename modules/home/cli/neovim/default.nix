@@ -17,13 +17,6 @@ in {
 
   config = mkIf cfg.enable {
     programs.neovim = enabled;
-    home.persistence."/persist/home".directories =
-      if isLinux
-      then [
-        ".local/share/nvim"
-        ".local/state/nvim"
-      ]
-      else [];
     xdg.configFile = {
       "nvim/init.lua".source = ./config/init.lua;
       "nvim/lua".source = ./config/lua;

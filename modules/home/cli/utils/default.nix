@@ -15,16 +15,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories =
-      if isLinux
-      then [
-        ".local/state/syncthing"
-        ".local/share/atuin"
-        ".local/share/zoxide"
-        ".local/share/direnv"
-        ".cache/tealdeer"
-      ]
-      else [];
     home.packages = with pkgs; [
       dwt1-shell-color-scripts
       htop

@@ -15,10 +15,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories =
-      if isLinux
-      then [".mozilla/firefox"]
-      else [];
     programs.firefox = {
       enable = true;
       package =

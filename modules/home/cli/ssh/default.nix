@@ -15,12 +15,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.persistence."/persist/home".directories =
-      if isLinux
-      then [
-        ".ssh"
-      ]
-      else [];
     programs.ssh.enable = true;
   };
 }
