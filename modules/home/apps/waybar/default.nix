@@ -92,7 +92,7 @@ in {
           * {
             /* `otf-font-awesome` is required to be installed for icons */
             font-family: BerkeleyMono Nerd Font;
-            font-size: 14px;
+            font-size: 15px;
             border-radius: 17px;
           }
 
