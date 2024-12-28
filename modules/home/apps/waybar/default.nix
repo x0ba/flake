@@ -160,7 +160,7 @@ in {
 
           #workspaces button {
             background-color: #1e1e2e;
-            border-radius: 100px;
+            border-radius: 12px;
             margin-left: 10px;
 
             transition: all 0.3s ease;

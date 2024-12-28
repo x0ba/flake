@@ -101,11 +101,6 @@ in {
         }
 
 
-        cursor {
-            xcursor-theme "phinger-cursors-light"
-            xcursor-size 32
-        }
-
         prefer-no-csd
 
         screenshot-path "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png"

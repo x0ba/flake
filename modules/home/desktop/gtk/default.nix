@@ -38,12 +38,12 @@ in {
       enable = true;
       font.name = "Inter";
       iconTheme = {
-        name = "Adwaita";
-        package = pkgs.gnome-themes-extra;
+        name = "Numix-Circle";
+        package = pkgs.numix-icon-theme-circle;
       };
       theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome-themes-extra;
+        name = "Orchis-Dark";
+        package = pkgs.orchis-theme;
       };
     };
   };
