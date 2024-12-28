@@ -17,7 +17,13 @@ in {
   config = mkIf cfg.enable {
     services.greetd = {
       enable = true;
-      settings.default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -c niri-session";
+      settings = {
+        default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -c niri-session";
+        initial_session = {
+          command = "niri-session";
+          user = "daniel";
+        };
+      };
     };
     security.pam.services.greetd = {
       enableGnomeKeyring = true;
