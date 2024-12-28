@@ -43,6 +43,7 @@ in {
           "tailscale"
           "jordanbaird-ice"
           "ghostty"
+          "maccy"
           "keka"
           "veracrypt"
           "macfuse"

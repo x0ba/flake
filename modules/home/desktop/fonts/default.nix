@@ -33,7 +33,7 @@ in {
     };
     home.activation.installCustomFonts =
       inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"] # bash
-
+      
       ''
         mkdir -p "${fontDirectory}"
         install -Dm644 ${fontPath}/* "${fontDirectory}"

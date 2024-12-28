@@ -6,7 +6,6 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  inherit (pkgs.stdenv.hostPlatform) isLinux;
 
   cfg = config.${namespace}.apps.syncthing;
 in {
