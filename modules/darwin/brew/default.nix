@@ -34,6 +34,7 @@ in {
       casks =
         [
           "1password"
+          "aldente"
           "raycast"
           "discord"
           "easy-move+resize"
