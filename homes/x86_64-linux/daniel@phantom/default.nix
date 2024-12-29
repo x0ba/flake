@@ -7,6 +7,7 @@
     rnote
     nextcloud-client
     obsidian
+    transmission_4-gtk
     calibre
     pika-backup
     spotify

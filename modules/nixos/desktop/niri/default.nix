@@ -25,7 +25,6 @@ in {
       # file management
       nautilus
       nautilus-python
-      nautilus-open-any-terminal
       wl-clipboard
       # thumbnails
       webp-pixbuf-loader
@@ -35,16 +34,12 @@ in {
 
     programs.nautilus-open-any-terminal = {
       enable = true;
-      terminal = "${lib.getExe pkgs.ghostty}";
+      terminal = "ghostty";
     };
 
     environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
     environment.pathsToLink = [
       "/share/nautilus-python/extensions"
-    ];
-
-    services.dbus.packages = with pkgs; [
-      nautilus-open-any-terminal
     ];
 
     xdg.portal = {

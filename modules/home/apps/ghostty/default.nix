@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   namespace,
   ...
 }: let
@@ -16,7 +17,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = lib.mkIf isLinux [
-      pkgs.ghostty
+      inputs.ghostty.packages.x86_64-linux.default
     ];
     programs.ghostty = {
       enable = true;
