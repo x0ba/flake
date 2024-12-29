@@ -1,9 +1,6 @@
--- Set <space> as the leader key
--- needs to be done before loading lazy
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- set up lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"

@@ -41,6 +41,7 @@ in {
         warn-dirty = false;
         log-lines = 50;
         sandbox = "relaxed";
+        use-xdg-base-directories = true;
         auto-optimise-store = true;
         trusted-users = users;
         allowed-users = users;
