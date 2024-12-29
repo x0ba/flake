@@ -27,7 +27,6 @@ in {
       extraPackages = epkgs: [epkgs.vterm];
     };
     home.packages = with pkgs; [
-      binutils # native-comp needs 'as', provided by this
       cmake
 
       ## Doom dependencies
