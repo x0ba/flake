@@ -31,8 +31,6 @@ in {
         alf.stealthenabled = 1;
         dock.autohide = true;
         NSGlobalDomain = {
-          AppleInterfaceStyleSwitchesAutomatically = true;
-
           # input
           "com.apple.keyboard.fnState" = false;
           ApplePressAndHoldEnabled = false;
