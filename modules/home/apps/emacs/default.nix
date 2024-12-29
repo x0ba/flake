@@ -28,8 +28,6 @@ in {
     };
     home.packages = with pkgs; [
       binutils
-      ## Emacs itself
-      binutils # native-comp needs 'as', provided by this
       cmake
 
       ## Doom dependencies
