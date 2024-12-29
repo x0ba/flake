@@ -7,17 +7,26 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.${namespace}.apps.emacs;
+
+  inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
 in {
   options.${namespace}.apps.emacs = {
     enable = mkEnableOption "emacs";
   };
 
   config = mkIf cfg.enable {
+    programs.emacs = {
+      enable = true;
+      program =
+        if isDarwin
+        then pkgs.emacs29-macport
+        else pkgs.emacs29-pgtk;
+      extraPackages = epkgs: [epkgs.vterm];
+    };
     home.packages = with pkgs; [
       binutils
       ## Emacs itself
       binutils # native-comp needs 'as', provided by this
-      emacs29-pgtk # HEAD + native-comp
       cmake
 
       ## Doom dependencies

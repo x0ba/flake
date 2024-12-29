@@ -74,6 +74,7 @@ in {
           ".config/spotify"
           ".config/doom"
           ".config/emacs"
+          ".config/obsidian"
           ".local/share/nvim"
           ".mozilla/firefox"
           ".local/state/nvim"
