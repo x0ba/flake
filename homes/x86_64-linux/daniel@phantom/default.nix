@@ -28,6 +28,7 @@
     apps = {
       firefox.enable = true;
       chromium.enable = true;
+      wofi.enable = true;
       discord.enable = true;
       emacs.enable = true;
       ghostty.enable = true;

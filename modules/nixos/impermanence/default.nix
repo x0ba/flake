@@ -70,6 +70,7 @@ in {
           "Videos"
           "Code"
           "Nextcloud"
+          ".config/Nextcloud"
           ".local/state/syncthing"
           ".config/spotify"
           ".config/doom"

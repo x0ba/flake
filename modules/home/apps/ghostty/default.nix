@@ -25,6 +25,7 @@ in {
         font-family = "BerkeleyMono Nerd Font";
 
         theme = "catppuccin-mocha";
+        confirm-close-surface = false;
 
         window-padding-x = "7";
         window-padding-y = "7";

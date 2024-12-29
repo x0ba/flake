@@ -28,7 +28,6 @@ in {
     };
     security.pam.services.greetd = {
       enableGnomeKeyring = true;
-      u2fAuth = true;
     };
     security.polkit.enable = true;
     systemd = {
