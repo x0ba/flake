@@ -50,6 +50,7 @@ in {
           "netnewswire"
           "nextcloud"
           "obsidian"
+          "yubico-authenticator"
           (skipSha "spotify")
           "rectangle"
           "calibre"
