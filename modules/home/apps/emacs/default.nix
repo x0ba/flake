@@ -27,7 +27,7 @@ in {
       extraPackages = epkgs: [epkgs.vterm];
     };
     home.packages = with pkgs; [
-      binutils
+      binutils # native-comp needs 'as', provided by this
       cmake
 
       ## Doom dependencies
@@ -52,8 +52,6 @@ in {
       sqlite
       # :lang cc
       clang-tools
-      # :lang latex & :lang org (latex previews)
-      texlive.combined.scheme-medium
       # :lang beancount
       beancount
       fava
