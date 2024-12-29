@@ -15,11 +15,10 @@ in {
   config = mkIf cfg.enable {
     services = {
       clipman.enable = true;
-      # wlsunset = {
-      #   enable = true;
-      #   latitude = "37.4";
-      #   longitude = "-121.8";
-      # };
+      gnome-keyring = {
+        enable = true;
+        components = ["secrets"];
+      };
       udiskie.enable = true;
     };
   };

@@ -33,8 +33,15 @@ in {
     ];
     programs.file-roller.enable = true;
 
-    environment.pathsToLink = ["/share/nautilus-python/extensions"];
-    environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "/var/run/current-system/sw/lib/nautilus/extensions-4";
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "${lib.getExe pkgs.ghostty}";
+    };
+
+    environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
+    environment.pathsToLink = [
+      "/share/nautilus-python/extensions"
+    ];
 
     services.dbus.packages = with pkgs; [
       nautilus-open-any-terminal
@@ -54,10 +61,7 @@ in {
       udisks2.enable = true;
       devmon.enable = true;
       # previews
-      gnome = {
-        sushi.enable = true;
-        gnome-keyring.enable = true;
-      };
+      gnome.sushi.enable = true;
       # search metadata
       gnome.tracker-miners.enable = true;
       # thumbnails

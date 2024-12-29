@@ -15,6 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    services.gnome.gnome-keyring.enable = true;
     services.greetd = {
       enable = true;
       settings = {
@@ -30,8 +31,6 @@ in {
       u2fAuth = true;
     };
     security.polkit.enable = true;
-
-    # start a keyring daemon for sway
     systemd = {
       packages = [pkgs.polkit_gnome];
       user.services.polkit-gnome-authentication-agent-1 = {

@@ -449,21 +449,6 @@
         "type": "github"
       }
     },
-    "persist-retro": {
-      "locked": {
-        "lastModified": 1709936804,
-        "narHash": "sha256-PXLha5hQLAFasIkSO4HJn9/pUbpXo8dtUKuXYYHsh6Y=",
-        "owner": "Geometer1729",
-        "repo": "persist-retro",
-        "rev": "28b016825449dc3f893e0515abfed418baed011f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Geometer1729",
-        "repo": "persist-retro",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "catppuccin-vsc": "catppuccin-vsc",
@@ -480,7 +465,6 @@
         "nixos-cosmic": "nixos-cosmic",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
-        "persist-retro": "persist-retro",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
         "treefmt-nix": "treefmt-nix_2"

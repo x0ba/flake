@@ -12,7 +12,6 @@ with lib.${namespace}; let
 in {
   imports = with inputs; [
     impermanence.nixosModules.impermanence
-    persist-retro.nixosModules.persist-retro
   ];
   options.${namespace}.impermanence = with types; {
     enable = mkBoolOpt false "Enable impermanence";
@@ -70,6 +69,7 @@ in {
           "Documents"
           "Videos"
           "Code"
+          "Nextcloud"
           ".local/state/syncthing"
           ".config/spotify"
           ".config/doom"

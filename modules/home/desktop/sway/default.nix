@@ -30,10 +30,6 @@ in {
     services = {
       clipman.enable = true;
       swayosd.enable = true;
-      gnome-keyring = {
-        enable = true;
-        components = ["secrets"];
-      };
       udiskie.enable = true;
     };
     wayland.windowManager.sway = {
