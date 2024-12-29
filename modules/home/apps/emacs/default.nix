@@ -19,7 +19,7 @@ in {
       enable = true;
       package =
         if isDarwin
-        then pkgs.emacs29-macport
+        then pkgs.emacs-macport
         else pkgs.emacs29-pgtk;
       extraPackages = epkgs: [epkgs.vterm];
     };
