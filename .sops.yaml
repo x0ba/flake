@@ -1,6 +1,6 @@
 keys:
   - &daniel 7062369036F842822CA109C2660DBDE129F4E1D9
-  - &phantom age1vduq0kxywnrd7g7d4zle2hp7vpzttzhw0r59vznr6pcx7a53jcxszg9wqu
+  - &phantom age1rk3kdxfu9zg5afhd3vt9zc27qju84ha0ugtlwy54ddcvmwzclsjsfj6fxw
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
