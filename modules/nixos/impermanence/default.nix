@@ -62,6 +62,9 @@ in {
         "/etc/machine-id"
       ];
       users.daniel = {
+        files = [
+          ".local/share/clipman.json"
+        ];
         directories = [
           "Downloads"
           "Music"
