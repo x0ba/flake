@@ -27,7 +27,7 @@ in {
             ];
           };
         };
-        ".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
+        ".GlobalPreferences"."com.apple.mouse.scaling" = 0.5;
         alf.stealthenabled = 1;
         dock.autohide = true;
         NSGlobalDomain = {
