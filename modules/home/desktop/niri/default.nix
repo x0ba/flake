@@ -29,18 +29,6 @@ in {
     xdg.configFile."niri/config.kdl".text =
       # kdl
       ''
-        environment {
-            DISPLAY ":0"
-            XDG_SESSION_TYPE "wayland"
-            XDG_SESSION_DESKTOP "niri"
-            XDG_CURRENT_DESKTOP "niri"
-            NIXOS_OZONE_WL "1"
-            MOZ_ENABLE_WAYLAND "1"
-            QT_QPA_PLATFORM "wayland"
-            SDL_VIDEODRIVER "wayland"
-            _JAVA_AWT_WM_NONREPARENTING "1"
-        }
-
         input {
             keyboard {
                 xkb {

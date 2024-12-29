@@ -37,10 +37,24 @@ in {
       terminal = "ghostty";
     };
 
-    environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
-    environment.pathsToLink = [
-      "/share/nautilus-python/extensions"
-    ];
+    environment = {
+      sessionVariables = {
+        NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
+        # session
+        XDG_SESSION_TYPE = "wayland";
+        XDG_SESSION_DESKTOP = "sway";
+        XDG_CURRENT_DESKTOP = "sway";
+        # wayland
+        NIXOS_OZONE_WL = 1;
+        MOZ_ENABLE_WAYLAND = 1;
+        QT_QPA_PLATFORM = "wayland";
+        SDL_VIDEODRIVER = "wayland";
+        _JAVA_AWT_WM_NONREPARENTING = 1;
+      };
+      pathsToLink = [
+        "/share/nautilus-python/extensions"
+      ];
+    };
 
     xdg.portal = {
       enable = true;

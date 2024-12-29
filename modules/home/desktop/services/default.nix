@@ -17,7 +17,7 @@ in {
       clipman.enable = true;
       gnome-keyring = {
         enable = true;
-        # components = ["secrets"];
+        components = ["secrets"];
       };
       udiskie.enable = true;
     };
