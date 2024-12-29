@@ -17,7 +17,7 @@ in {
   config = mkIf cfg.enable {
     programs.emacs = {
       enable = true;
-      program =
+      package =
         if isDarwin
         then pkgs.emacs29-macport
         else pkgs.emacs29-pgtk;
