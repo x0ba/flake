@@ -1,4 +1,8 @@
-{device ? throw "Set this to your disk device, e.g. /dev/sda", ...}: {
+{
+  device ? throw "Set this to your disk device, e.g. /dev/sda",
+  ...
+}:
+{
   disko.devices = {
     disk.main = {
       inherit device;
@@ -19,13 +23,6 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-            };
-          };
-          swap = {
-            size = "4G";
-            content = {
-              type = "swap";
-              resumeDevice = true;
             };
           };
           luks = {
@@ -52,7 +49,7 @@
             size = "100%FREE";
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
 
               subvolumes = {
                 "/root" = {

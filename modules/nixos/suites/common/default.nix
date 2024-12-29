@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.suites.common;
-in {
+in
+{
   options.${namespace}.suites.common = with types; {
     enable = mkBoolOpt false "Whether or not to enable common configuration.";
   };
@@ -28,6 +30,7 @@ in {
 
       system = {
         boot.enable = true;
+        zram.enable = true;
         ld.enable = true;
         locale.enable = true;
         time.enable = true;
