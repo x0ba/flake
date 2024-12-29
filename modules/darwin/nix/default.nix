@@ -38,8 +38,8 @@ in {
           "nix-command"
         ];
         http-connections = 50;
-        use-xdg-base-directories = true;
         warn-dirty = false;
+        sandbox = "relaxed";
         log-lines = 50;
         trusted-users = users;
         allowed-users = users;
