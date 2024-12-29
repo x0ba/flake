@@ -145,6 +145,7 @@ in {
             Mod+Shift+Slash { show-hotkey-overlay; }
 
             Mod+Return { spawn "ghostty"; }
+            Mod+E { spawn "${pkgs.emacs29-pgtk}/bin/emacsclient" "-c"; }
             Mod+D { spawn "${lib.getExe pkgs.rofi-wayland}" "-show" "drun"; }
             Mod+P { spawn "${lib.getExe pkgs.wlogout}"; }
             Super+Alt+L { spawn "${lib.getExe config.programs.swaylock.package}"; }

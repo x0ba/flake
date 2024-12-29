@@ -96,7 +96,7 @@ in {
         }
       ];
       sessionVariables = {
-        MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+        MANPAGER = "${lib.getExe pkgs.neovim} +Man!";
       };
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza";
