@@ -50,14 +50,14 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 ```
 
 7. Create a host config in `systems`. See existing ones for examples.
-8. Install NixOS
+1. Install NixOS
 
 ```bash
 sudo nixos-install --root /mnt --flake .#host
 ```
 
 9. Reboot and you're good to go!
-10. \[OPTIONAL\] Set up an SSH key to decrypt sops secrets. Currently it's only being used to declaratively set my user password and for tailscale.
+1. \[OPTIONAL\] Set up an SSH key to decrypt sops secrets. Currently it's only being used to declaratively set my user password and for tailscale.
 
 ## Darwin
 

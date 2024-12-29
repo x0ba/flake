@@ -21,7 +21,7 @@
       firefox.enable = true;
       vscode.enable = true;
       # zed.enable = true;
-      syncthing.enable = true;
+      # syncthing.enable = true;
     };
     user = {
       enable = true;
