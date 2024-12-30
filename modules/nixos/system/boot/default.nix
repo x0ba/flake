@@ -1,6 +1,7 @@
 {
   options,
   config,
+  pkgs,
   lib,
   namespace,
   ...
@@ -14,9 +15,16 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      breeze-plymouth
+    ];
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.configurationLimit = 10;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.plymouth.enable = true;
+    boot.plymouth = {
+      enable = true;
+      theme = "breeze";
+    };
+    boot.initrd.systemd.enable = true;
   };
 }

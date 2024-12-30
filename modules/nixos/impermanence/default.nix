@@ -22,10 +22,21 @@ in {
     programs.fuse.userAllowOther = true;
     # This script does the actual wipe of the system
     # So if it doesn't run, the btrfs system effectively acts like a normal system
-    boot.initrd.postDeviceCommands = mkIf cfg.enable (
-      lib.mkAfter ''
+    boot.initrd.systemd.services.rollback = {
+      description = "Rollback BTRFS root subvolume to a pristine state";
+      wantedBy = [
+        "initrd.target"
+      ];
+      before = [
+        "sysroot.mount"
+      ];
+      wants = ["dev-root_vg-root.device"];
+      after = ["dev-root_vg-root.device"];
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig.Type = "oneshot";
+      script = ''
         mkdir /btrfs_tmp
-        mount /dev/root_vg/root /btrfs_tmp
+        mount /dev/pool/root /btrfs_tmp
         if [[ -e /btrfs_tmp/root ]]; then
             mkdir -p /btrfs_tmp/old_roots
             timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
@@ -46,8 +57,9 @@ in {
 
         btrfs subvolume create /btrfs_tmp/root
         umount /btrfs_tmp
-      ''
-    );
+      '';
+    };
+    boot.initrd.services.lvm.enable = true;
     fileSystems."/persist".neededForBoot = true;
     environment.persistence."/persist/system" = {
       hideMounts = true;
