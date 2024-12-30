@@ -15,16 +15,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      breeze-plymouth
-    ];
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.configurationLimit = 10;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.plymouth = {
-      enable = true;
-      theme = "breeze";
-    };
+    boot.plymouth.enable = true;
     boot.initrd.systemd.enable = true;
+    boot.kernelParams = ["quiet"];
   };
 }
