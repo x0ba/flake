@@ -8,6 +8,7 @@
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.utils;
+  inherit (pkgs.stdenv) isLinux;
 in {
   options.${namespace}.cli.utils = {
     enable = mkEnableOption "misc cli utils";
@@ -19,6 +20,7 @@ in {
       htop
       gocryptfs
       gh
+      onefetch
       fd
       ripgrep
       file
@@ -27,6 +29,17 @@ in {
       just
       yt-dlp
     ];
+    home = {
+      sessionVariables.LESS = "-R --use-color";
+      shellAliases = {
+        # switch between yubikeys for the same GPG key
+        switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
+
+        # podman
+        docker = lib.mkIf isLinux "podman";
+        docker-compose = lib.mkIf isLinux "podman-compose";
+      };
+    };
     programs = {
       fzf = {
         enable = true;
@@ -60,6 +73,17 @@ in {
           sync_frequency = "5m";
         };
       };
+
+      eza = {
+        enable = true;
+        icons = "auto";
+        extraOptions = [
+          "--group"
+          "--group-directories-first"
+          "--no-permissions"
+          "--octal-permissions"
+        ];
+      };
       bat.enable = true;
       btop = {
         enable = true;
@@ -68,6 +92,7 @@ in {
           vim_keys = true;
         };
       };
+
       nix-index-database.comma.enable = true;
       zoxide.enable = true;
       tealdeer = {
