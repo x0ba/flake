@@ -1,6 +1,7 @@
 {
   options,
   config,
+  pkgs,
   lib,
   namespace,
   ...
@@ -18,5 +19,7 @@ in {
     boot.loader.systemd-boot.configurationLimit = 10;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.plymouth.enable = true;
+    boot.initrd.systemd.enable = true;
+    boot.kernelParams = ["quiet"];
   };
 }
