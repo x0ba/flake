@@ -90,7 +90,7 @@ in {
         # css
         ''
           * {
-            font-family: BerkeleyMono Nerd Font;
+            font-family: Symbols Nerd Font, Inter;
             font-size: 15px;
             border-radius: 17px;
           }

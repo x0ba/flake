@@ -134,7 +134,7 @@ in {
 
             Mod+Return { spawn "ghostty"; }
             Mod+E { spawn "${pkgs.emacs29-pgtk}/bin/emacsclient" "-c"; }
-            Mod+E { spawn "sh" "-c" "${lib.getExe pkgs.clipman} pick -t ${lib.getExe pkgs.rofi-wayland} --err-on-no-selection && ${lib.getExe pkgs.wtype} -M ctrl -M shift v"; }
+            Mod+V { spawn "sh" "-c" "${lib.getExe pkgs.clipman} pick -t rofi --err-on-no-selection && ${lib.getExe pkgs.wtype} -M ctrl -M shift v"; }
             Mod+D { spawn "${lib.getExe pkgs.rofi-wayland}" "-show" "drun"; }
             Mod+P { spawn "${lib.getExe pkgs.wlogout}"; }
             Super+Alt+L { spawn "${lib.getExe config.programs.swaylock.package}"; }
