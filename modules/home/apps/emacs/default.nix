@@ -16,7 +16,8 @@ in {
 
   config = mkIf cfg.enable {
     services.emacs = {
-      enable = isLinux;
+      # enable = isLinux;
+      enable = false;
     };
     programs.emacs = {
       enable = true;

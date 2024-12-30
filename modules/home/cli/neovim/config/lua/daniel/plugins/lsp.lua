@@ -160,19 +160,8 @@ return {
       cmd = { "nixd" },
       settings = {
         nixd = {
-          nixpkgs = {
-            expr = "import <nixpkgs> { }",
-          },
           formatting = {
             command = { "alejandra" },
-          },
-          options = {
-            nixos = {
-              expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.phantom.options',
-            },
-            home_manager = {
-              expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations."daniel@phantom".options',
-            },
           },
         },
       },

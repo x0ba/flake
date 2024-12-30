@@ -21,9 +21,14 @@ in {
     programs.chromium = {
       enable = isLinux;
       package = pkgs.brave;
+      commandLineArgs = [
+        "--ozone-platform-hint=auto"
+        "--enable-features=VaapiVideoDecodeLinuxGL"
+        "--password-store=basic"
+      ];
     };
     programs.firefox = {
-      enable = false;
+      enable = true;
       profiles.default = {
         search.engines = {
           "Startpage" = {
@@ -217,6 +222,6 @@ in {
       "x-scheme-handler/https"
       "x-scheme-handler/about"
       "x-scheme-handler/unknown"
-    ] (_: "mullvad-browser.desktop");
+    ] (_: "firefox.desktop");
   };
 }

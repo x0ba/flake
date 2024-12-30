@@ -89,6 +89,8 @@ in {
           ".local/state/syncthing"
           ".config/spotify"
           ".config/doom"
+          ".mullvad"
+          ".config/BraveSoftware"
           ".config/emacs"
           ".config/obsidian"
           ".local/share/nvim"
