@@ -18,11 +18,9 @@
     };
     apps = {
       ghostty.enable = true;
-      firefox.enable = true;
       vscode.enable = true;
       emacs.enable = true;
-      # zed.enable = true;
-      # syncthing.enable = true;
+      zed.enable = true;
     };
     user = {
       enable = true;
