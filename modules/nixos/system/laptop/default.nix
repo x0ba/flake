@@ -19,12 +19,7 @@ in {
 
     # Enable TLP (better than gnomes internal power manager)
     services = {
-      tlp = {
-        enable = true;
-        settings = {
-          USB_DENYLIST = "046d:c52b 1050:0407";
-        };
-      };
+      auto-cpufreq.enable = true;
       power-profiles-daemon.enable = false;
       thermald.enable = true;
       undervolt = {

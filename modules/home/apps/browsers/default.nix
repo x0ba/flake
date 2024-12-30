@@ -217,6 +217,6 @@ in {
       "x-scheme-handler/https"
       "x-scheme-handler/about"
       "x-scheme-handler/unknown"
-    ] (_: "firefox.desktop");
+    ] (_: "mullvad-browser.desktop");
   };
 }

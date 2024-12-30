@@ -17,7 +17,7 @@ in {
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      font = "Inter 14";
+      font = "Inter 12";
       extraConfig.icon-theme = config.gtk.iconTheme.name;
       terminal = "ghostty";
       theme = "custom";

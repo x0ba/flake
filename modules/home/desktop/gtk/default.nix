@@ -42,8 +42,8 @@ in {
         package = pkgs.qogir-icon-theme;
       };
       theme = {
-        name = "Colloid-Dark";
-        package = pkgs.colloid-gtk-theme;
+        name = "Orchis-Dark";
+        package = pkgs.orchis-theme;
       };
     };
   };

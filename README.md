@@ -15,7 +15,14 @@ Here are my cross-platform dotfiles using NixOS, home-manager, and nix-darwin.
 | **Launcher:** | raycast                 | rofi                                             |
 | **Browser:**  | firefox                 | "                                                |
 
-I nuke my root partition on every startup by backing up and deleting a BTRFS root subvolume, a la [Erasing your darlings](https://grahamc.com/blog/erase-your-darlings/). This is to keep my system clean and reproducible. I do persist a few directories with [impermanence](https://github.com/nix-community/impermanence), but for the most part everything is erased.
+## Linux
+
+I pulled out every possible stop on this config. I have
+- encrypted /root partition
+- declarative disk partitioning with [disko](https://github.com/nix-community/disko)
+- impermanence using btrfs subvolumes and [impermanence](https://github.com/nix-community/disko) to persist a few select folders
+- home-manager to manage dotfiles
+- systemd-initrd purely for the plymouth luks prompt
 
 # Installation
 
