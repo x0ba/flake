@@ -27,7 +27,7 @@
       gtk.enable = true;
     };
     apps = {
-      firefox.enable = true;
+      browsers.enable = true;
       discord.enable = true;
       emacs.enable = true;
       ghostty.enable = true;
