@@ -8,19 +8,22 @@
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv.hostPlatform) isLinux;
 
-  cfg = config.${namespace}.apps.firefox;
+  cfg = config.${namespace}.apps.browsers;
 in {
-  options.${namespace}.apps.firefox = {
+  options.${namespace}.apps.browsers = {
     enable = mkEnableOption "firefox";
   };
 
   config = mkIf cfg.enable {
+    home.packages = lib.mkIf isLinux [
+      pkgs.mullvad-browser
+    ];
+    programs.chromium = {
+      enable = isLinux;
+      package = pkgs.brave;
+    };
     programs.firefox = {
-      enable = true;
-      package =
-        if isLinux
-        then pkgs.firefox
-        else (pkgs.writeScriptBin "__dummy-firefox" "");
+      enable = false;
       profiles.default = {
         search.engines = {
           "Startpage" = {
