@@ -20,6 +20,7 @@ in {
     security.pam.enableSudoTouchIdAuth = true;
     system = {
       defaults = {
+        loginwindow.LoginwindowText = "Live, laugh, love.";
         CustomSystemPreferences = {
           NSGlobalDomain = {
             AppleLanguages = [

@@ -42,6 +42,7 @@ in {
           "tailscale"
           "jordanbaird-ice"
           "ghostty"
+          "firefox"
           "mullvad-browser"
           "brave-browser"
           "maccy"
