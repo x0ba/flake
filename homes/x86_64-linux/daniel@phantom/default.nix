@@ -10,8 +10,8 @@
     transmission_4-gtk
     calibre
     pika-backup
+    yubioath-flutter
     spotify
-    powertop
   ];
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
@@ -20,6 +20,7 @@
     };
   };
   skibidi = {
+    secrets.enable = true;
     desktop = {
       # gnome.enable = true;
       niri.enable = true;
@@ -40,6 +41,7 @@
     user.enable = true;
     cli = {
       home-manager.enable = true;
+      borgmatic.enable = true;
       zsh.enable = true;
       ssh.enable = true;
       utils.enable = true;

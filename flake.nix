@@ -86,6 +86,7 @@
         ghostty-hm.homeModules.default
         impermanence.homeManagerModules.impermanence
         nix-index-database.hmModules.nix-index
+        inputs.sops-nix.homeManagerModules.sops
       ];
 
       systems.modules.nixos = with inputs; [
