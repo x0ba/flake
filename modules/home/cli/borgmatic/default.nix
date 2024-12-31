@@ -18,6 +18,10 @@ in {
     home.packages = with pkgs; [
       borgmatic
     ];
+    services.borgmatic = {
+      enable = true;
+      frequency = "daily";
+    };
     sops.secrets."borgmatic-phantom".path = "${config.xdg.configHome}/borgmatic/config.yaml";
   };
 }

@@ -89,6 +89,7 @@ in {
           ".local/state/syncthing"
           ".config/spotify"
           ".config/doom"
+          ".config/pika-backup"
           ".mullvad"
           ".config/BraveSoftware"
           ".config/emacs"
