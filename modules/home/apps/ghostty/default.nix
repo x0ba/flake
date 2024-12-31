@@ -28,6 +28,8 @@ in {
         theme = "catppuccin-mocha";
         confirm-close-surface = false;
 
+        gtk-single-instance = true;
+
         window-padding-x = "7";
         window-padding-y = "7";
       };

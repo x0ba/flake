@@ -53,12 +53,9 @@ in {
         criticalPowerAction = "PowerOff";
       };
       power-profiles-daemon.enable = false;
-      thermald.enable = true;
-      undervolt = {
+      throttled = {
         enable = true;
-        coreOffset = -95;
-        gpuOffset = -80;
-        tempBat = 65;
+        extraConfig = import ./throttled.nix;
       };
     };
   };
