@@ -86,6 +86,9 @@ in {
                 active-color "#b4befe"
                 inactive-color "#505050"
             }
+            insert-hint {
+              color "#b4befe40"
+            }
         }
 
 
