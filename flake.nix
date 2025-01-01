@@ -38,6 +38,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     catppuccin-vsc = {
       url = "github:catppuccin/vscode";
@@ -132,6 +136,7 @@
 
       overlays = [
         inputs.nix-vscode-extensions.overlays.default
+        inputs.niri.overlays.niri
         inputs.emacs-overlay.overlays.default
         inputs.catppuccin-vsc.overlays.default
         (final: _prev: {

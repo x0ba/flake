@@ -2,6 +2,7 @@
   options,
   config,
   pkgs,
+  inputs,
   lib,
   namespace,
   ...
@@ -13,11 +14,17 @@ in {
   options.${namespace}.desktop.niri = with types; {
     enable = mkBoolOpt false "Enable or disable the niri window manager.";
   };
+  imports = [
+    inputs.niri.nixosModules.niri
+  ];
 
   config = mkIf cfg.enable {
     security.pam.services.swaylock = {};
 
-    programs.niri.enable = true;
+    programs.niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
     programs.dconf.enable = true;
     skibidi.desktop.greeter.enable = true;
 
@@ -55,14 +62,6 @@ in {
       pathsToLink = [
         "/share/nautilus-python/extensions"
       ];
-    };
-
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gnome
-      ];
-      xdgOpenUsePortal = true;
     };
 
     services = {

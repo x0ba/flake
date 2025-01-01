@@ -73,7 +73,7 @@ in {
         enable = true;
         plugins =
           [
-            # "colored-man-pages"
+            "colored-man-pages"
             "colorize"
             "git"
           ]
