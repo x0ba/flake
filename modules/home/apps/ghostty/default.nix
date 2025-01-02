@@ -23,8 +23,12 @@ in {
         then inputs.ghostty.packages.x86_64-linux.default
         else (pkgs.writeScriptBin "__dummy-ghostty" "");
       enableZshIntegration = true;
+      installBatSyntax = false;
       settings = {
-        font-size = 13;
+        font-size =
+          if isLinux
+          then 10
+          else 13;
         font-family = "BerkeleyMono Nerd Font";
 
         theme = "catppuccin-mocha";
