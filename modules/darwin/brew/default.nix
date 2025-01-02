@@ -40,6 +40,7 @@ in {
           "easy-move+resize"
           "iina"
           "tailscale"
+          (skipSha "autodesk-fusion")
           "jordanbaird-ice"
           "ghostty"
           "firefox"
