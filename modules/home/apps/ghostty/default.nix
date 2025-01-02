@@ -23,7 +23,6 @@ in {
         then inputs.ghostty.packages.x86_64-linux.default
         else (pkgs.writeScriptBin "__dummy-ghostty" "");
       enableZshIntegration = true;
-      installBatSyntax = true;
       settings = {
         font-size = 13;
         font-family = "BerkeleyMono Nerd Font";
