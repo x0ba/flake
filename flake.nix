@@ -14,7 +14,6 @@
     };
 
     nur.url = "github:nix-community/nur";
-    ghostty-hm.url = "github:clo4/ghostty-hm-module";
     ghostty = {
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs-stable.follows = "nixpkgs";
@@ -87,7 +86,6 @@
       };
 
       homes.modules = with inputs; [
-        ghostty-hm.homeModules.default
         impermanence.homeManagerModules.impermanence
         nix-index-database.hmModules.nix-index
         inputs.sops-nix.homeManagerModules.sops

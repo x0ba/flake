@@ -16,11 +16,14 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = lib.mkIf isLinux [
-      inputs.ghostty.packages.x86_64-linux.default
-    ];
     programs.ghostty = {
       enable = true;
+      package =
+        if isLinux
+        then inputs.ghostty.packages.x86_64-linux.default
+        else (pkgs.writeScriptBin "__dummy-ghostty" "");
+      enableZshIntegration = true;
+      installBatSyntax = true;
       settings = {
         font-size = 13;
         font-family = "BerkeleyMono Nerd Font";
