@@ -7,10 +7,12 @@
     rnote
     nextcloud-client
     obsidian
+    obs-studio
     transmission_4-gtk
     calibre
     pika-backup
     yubioath-flutter
+    signal-desktop
     spotify
   ];
   dconf.settings = {

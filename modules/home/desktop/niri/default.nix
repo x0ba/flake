@@ -63,7 +63,8 @@ in {
 
         layout {
             gaps 8
-            always-center-single-column
+            // always-center-single-column
+            center-focused-column "always"
 
             preset-column-widths {
                 proportion 0.25
@@ -75,17 +76,9 @@ in {
             default-column-width {}
 
             focus-ring {
-                width 2
-                active-color "hsla(232, 97%, 85%, 1.0)"
-                inactive-color "hsla(251, 86%, 64%, 0.10)"
+                off
             }
 
-            border {
-                off
-                width 2
-                active-color "#b4befe"
-                inactive-color "#505050"
-            }
             insert-hint {
               color "#b4befe40"
             }
@@ -141,30 +134,45 @@ in {
         }
 
         window-rule {
-            min-height 100
-            geometry-corner-radius 8
+            min-height 200
+            min-width 200
+            geometry-corner-radius 6
             clip-to-geometry true
-        }
-
-        window-rule {
-            match app-id="com.mitchellh.ghostty"
-            draw-border-with-background false
         }
 
         window-rule {
             match title=r#"(?i)gmail"#
             match title=r#"(?i)inertia"#
             match title="Signal"
+
             block-out-from "screen-capture"
+
+            focus-ring {
+                on
+                width 3
+                active-color "#FF8787"
+                inactive-color "#FF8787"
+            }
         }
 
         window-rule {
-            match app-id="dev.zed.Zed-Preview"
-            draw-border-with-background false
+            match is-focused=false title=r#"(?i)gmail"#
+            match is-focused=false title=r#"(?i)inertia"#
+            match is-focused=false title="Signal"
+
+            opacity 0.5
+            draw-border-with-background true
+
+            border {
+                on
+                width 0
+                active-color "#000000"
+                inactive-color "#000000"
+            }
         }
 
         spawn-at-startup "${lib.getExe pkgs.xwayland-satellite}"
-        spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../wallpapers/space.png}"
+        spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../wallpapers/Bridge.jpg}"
         spawn-at-startup "${lib.getExe pkgs.waybar}"
         spawn-at-startup "${swayosd-server}"
         spawn-at-startup "sh" "-c" "${lib.getExe pkgs.swayidle} -w timeout 300 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep '${lib.getExe config.programs.swaylock.package} -f'"
