@@ -18,6 +18,7 @@ Here are my cross-platform dotfiles using NixOS, home-manager, and nix-darwin.
 ## Linux
 
 I pulled out every possible stop on this config. I have
+
 - encrypted /root partition
 - declarative disk partitioning with [disko](https://github.com/nix-community/disko)
 - impermanence using btrfs subvolumes and [impermanence](https://github.com/nix-community/disko) to persist a few select folders

@@ -6,11 +6,9 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.suites.common;
-in
-{
+in {
   options.${namespace}.suites.common = with types; {
     enable = mkBoolOpt false "Whether or not to enable common configuration.";
   };

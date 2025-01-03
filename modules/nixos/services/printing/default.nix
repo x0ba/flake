@@ -1,6 +1,5 @@
 {
   options,
-  pkgs,
   config,
   lib,
   namespace,

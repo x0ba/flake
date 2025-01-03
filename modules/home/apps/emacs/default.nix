@@ -8,7 +8,7 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.${namespace}.apps.emacs;
 
-  inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
+  inherit (pkgs.stdenv.hostPlatform) isDarwin;
 in {
   options.${namespace}.apps.emacs = {
     enable = mkEnableOption "emacs";

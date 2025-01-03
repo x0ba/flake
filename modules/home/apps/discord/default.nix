@@ -72,7 +72,7 @@ in {
     in
       # gets written as a file after the writeBoundary to keep it mutable
       inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"] # bash
-
+      
       ''
         mkdir -p "$(dirname "${path}")"
         cp -f "${json}" "${path}"

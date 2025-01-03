@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{pkgs, ...}:
 pkgs.mkShellNoCC {
   buildInputs = with pkgs; [
     alejandra

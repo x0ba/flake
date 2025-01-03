@@ -6,11 +6,9 @@
   ...
 }:
 with lib;
-with lib.${namespace};
-let
+with lib.${namespace}; let
   cfg = config.${namespace}.system.zram;
-in
-{
+in {
   options.${namespace}.system.zram = with types; {
     enable = mkBoolOpt false "Whether or not to enable zram.";
   };
