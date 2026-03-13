@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     brightnessctl
     discord
+    elephant
     evince
     file-roller
     firefox
@@ -179,6 +180,40 @@
       text-color = "#d8dee9";
     };
   };
+
+  systemd.user.services =
+    let
+      sessionTarget = [ "graphical-session.target" ];
+    in
+    {
+      elephant = {
+        Unit = {
+          Description = "Elephant backend for Walker";
+          PartOf = sessionTarget;
+          After = sessionTarget;
+        };
+        Service = {
+          ExecStart = "${pkgs.elephant}/bin/elephant";
+          Restart = "on-failure";
+          RestartSec = 2;
+        };
+        Install.WantedBy = sessionTarget;
+      };
+
+      walker-gapplication-service = {
+        Unit = {
+          Description = "Walker GApplication service";
+          PartOf = sessionTarget;
+          After = sessionTarget ++ [ "elephant.service" ];
+        };
+        Service = {
+          ExecStart = "${pkgs.walker}/bin/walker --gapplication-service";
+          Restart = "on-failure";
+          RestartSec = 2;
+        };
+        Install.WantedBy = sessionTarget;
+      };
+    };
 
   xdg.mimeApps = {
     enable = true;
