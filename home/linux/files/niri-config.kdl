@@ -31,6 +31,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 spawn-at-startup "waybar"
+spawn-at-startup "1password" "--silent"
 spawn-at-startup "swaybg" "-c" "#1f2430"
 spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "systemctl suspend" "before-sleep" "swaylock -f"
 
