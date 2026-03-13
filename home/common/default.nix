@@ -8,6 +8,7 @@
 let
   commonPackages = [
     pkgs.autossh
+    pkgs.cascadia-code
     pkgs.fd
     pkgs.gitflow
     pkgs.helix

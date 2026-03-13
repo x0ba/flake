@@ -40,8 +40,11 @@ window-rule {
 }
 
 binds {
-    Mod+Return { spawn "foot"; }
-    Mod+D { spawn "fuzzel"; }
+    Mod+Return { spawn "ghostty"; }
+    Mod+D { spawn "walker"; }
+    Mod+B { spawn "firefox"; }
+    Mod+E { spawn "code"; }
+    Mod+N { spawn "nautilus" "--new-window"; }
     Mod+Q { close-window; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Shift+E { quit; }
@@ -87,4 +90,12 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
+    XF86AudioLowerVolume { spawn "pamixer" "-d" "5"; }
+    XF86AudioRaiseVolume { spawn "pamixer" "-i" "5"; }
+    XF86AudioMute { spawn "pamixer" "-t"; }
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioNext { spawn "playerctl" "next"; }
+    XF86AudioPrev { spawn "playerctl" "previous"; }
 }

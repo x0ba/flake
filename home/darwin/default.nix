@@ -1,6 +1,9 @@
 { ... }:
 {
-  imports = [ ../common/default.nix ];
+  imports = [
+    ../common/default.nix
+    ../common/vscode.nix
+  ];
 
   xdg.configFile."karabiner/karabiner.json".text = builtins.toJSON {
     profiles = [
@@ -268,7 +271,7 @@
       enable = true;
       package = null;
       settings = {
-        font-family = "Berkeley Mono";
+        font-family = "Cascadia Code";
         font-feature = "-liga";
         keybind = [
           "alt+left=esc:B"
@@ -282,7 +285,7 @@
       package = null;
       mutableUserSettings = false;
       userSettings = {
-        buffer_font_family = "Berkeley Mono";
+        buffer_font_family = "Cascadia Code";
         vim_mode = true;
         icon_theme = {
           mode = "dark";

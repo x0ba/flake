@@ -1,63 +1,55 @@
 { pkgs, ... }:
 {
-  imports = [ ../common/default.nix ];
+  imports = [
+    ../common/default.nix
+    ../common/vscode.nix
+  ];
 
   home.packages = with pkgs; [
     brightnessctl
+    discord
+    evince
+    file-roller
+    firefox
     grim
-    mako
+    loupe
     pavucontrol
+    pamixer
     playerctl
+    mpv
+    nautilus
+    obsidian
     slurp
+    slack
+    spotify
     swaybg
     swayidle
     waybar
+    walker
+    _1password-gui
     pkgs."wl-clipboard"
   ];
 
   home.sessionVariables = {
+    BROWSER = "firefox";
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
+    TERMINAL = "ghostty";
   };
 
   programs = {
-    foot = {
+    ghostty = {
       enable = true;
       settings = {
-        main = {
-          font = "Berkeley Mono:size=11";
-          pad = "8x8";
-          term = "xterm-256color";
-        };
-        colors = {
-          alpha = "0.95";
-          background = "1f2430";
-          foreground = "d8dee9";
-        };
-      };
-    };
-
-    fuzzel = {
-      enable = true;
-      settings = {
-        main = {
-          terminal = "${pkgs.foot}/bin/foot";
-          font = "Berkeley Mono:size=12";
-          dpi-aware = "yes";
-          width = 36;
-        };
-        border = {
-          width = 2;
-          radius = 10;
-        };
-        colors = {
-          background = "1f2430ff";
-          border = "82aaffff";
-          match = "82aaffff";
-          selection = "33415cff";
-          selection-text = "d8dee9ff";
-          text = "d8dee9ff";
-        };
+        font-family = "Cascadia Code";
+        font-feature = "-liga";
+        background-opacity = 0.95;
+        window-padding-x = 8;
+        window-padding-y = 8;
+        keybind = [
+          "alt+left=esc:B"
+          "alt+right=esc:F"
+        ];
       };
     };
 
@@ -66,7 +58,7 @@
       settings = {
         color = "1f2430";
         daemonize = true;
-        font = "Berkeley Mono";
+        font = "Cascadia Code";
         grace = 2;
         indicator = true;
         indicator-radius = 120;
@@ -131,8 +123,7 @@
       style = ''
         * {
           border: none;
-          border-radius: 0;
-          font-family: "Berkeley Mono";
+          font-family: "Cascadia Code";
           font-size: 13px;
           min-height: 0;
         }
@@ -150,12 +141,15 @@
         #pulseaudio,
         #battery,
         #tray {
-          margin: 6px 0;
-          padding: 0 10px;
+          background: rgba(51, 65, 92, 0.7);
+          border-radius: 999px;
+          margin: 6px 4px;
+          padding: 0 12px;
         }
 
         #workspaces button {
           color: #82aaff;
+          border-radius: 999px;
           padding: 0 6px;
         }
 
@@ -179,7 +173,25 @@
       border-color = "#82aaff";
       border-radius = 10;
       default-timeout = 5000;
+      font = "Cascadia Code 11";
+      margin = "16";
+      padding = "14";
       text-color = "#d8dee9";
+    };
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = [ "org.gnome.Evince.desktop" ];
+      "image/gif" = [ "org.gnome.Loupe.desktop" ];
+      "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+      "image/png" = [ "org.gnome.Loupe.desktop" ];
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+      "text/html" = [ "firefox.desktop" ];
+      "video/mp4" = [ "mpv.desktop" ];
+      "x-scheme-handler/http" = [ "firefox.desktop" ];
+      "x-scheme-handler/https" = [ "firefox.desktop" ];
     };
   };
 
