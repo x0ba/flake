@@ -127,8 +127,8 @@ in
         "Mod+Shift+E".action.quit = [ ];
         "Mod+H".action."focus-column-left" = [ ];
         "Mod+L".action."focus-column-right" = [ ];
-        "Mod+J".action."focus-window-down" = [ ];
-        "Mod+K".action."focus-window-up" = [ ];
+        "Mod+J".action."focus-workspace-down" = [ ];
+        "Mod+K".action."focus-workspace-up" = [ ];
         "Mod+BracketRight".action."focus-workspace-down" = [ ];
         "Mod+BracketLeft".action."focus-workspace-up" = [ ];
         "Mod+Shift+H".action."move-column-left" = [ ];
