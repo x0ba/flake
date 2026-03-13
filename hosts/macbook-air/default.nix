@@ -6,7 +6,10 @@
   ...
 }:
 {
-  imports = [ ./homebrew.nix ];
+  imports = [
+    ./homebrew.nix
+    ../../modules/apps/darwin
+  ];
 
   networking.hostName = hostName;
   networking.localHostName = hostName;
@@ -33,6 +36,8 @@
     finder.AppleShowAllExtensions = true;
   };
 
+  app.homebrewApps.enable = true;
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -40,8 +45,11 @@
     extraSpecialArgs = {
       inherit inputs user hostName;
     };
-    users = {
-      ${user} = import ../../home/darwin;
+    users.${user} = {
+      imports = [
+        ../../home/darwin
+        ./home.nix
+      ];
     };
   };
 }

@@ -9,7 +9,7 @@ let
       kind = "darwin";
       system = "aarch64-darwin";
       homeModule = ../../home/darwin;
-      homeModules = [ ];
+      homeModules = [ ../../hosts/macbook-air/home.nix ];
       systemBuilder = inputs.nix-darwin.lib.darwinSystem;
       systemModules = [
         ../../modules/nix-core.nix
@@ -25,7 +25,10 @@ let
       kind = "nixos";
       system = "x86_64-linux";
       homeModule = ../../home/linux;
-      homeModules = [ inputs.niri.homeModules.config ];
+      homeModules = [
+        inputs.niri.homeModules.config
+        ../../hosts/thinkpad/home.nix
+      ];
       systemBuilder = lib.nixosSystem;
       systemModules = [
         ../../modules/nix-core.nix

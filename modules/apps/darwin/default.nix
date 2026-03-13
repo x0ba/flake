@@ -1,0 +1,4 @@
+{ ... }:
+{
+  imports = [ ./homebrew-apps.nix ];
+}

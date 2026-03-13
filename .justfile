@@ -38,6 +38,9 @@ home *args:
 @check *args:
   just rebuild dry-build {{args}}
 
+@format:
+  nix fmt $(rg --files -g '*.nix')
+
 @switch *args:
   just build {{args}}
   just confirm-switch {{args}}

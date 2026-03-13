@@ -1,9 +1,13 @@
 {
+  config,
   inputs,
+  lib,
   pkgs,
   ...
 }:
 let
+  cfg = config.app.vscode;
+
   vscodeExtension =
     publisher: name: builtins.getAttr name (builtins.getAttr publisher pkgs.vscode-extensions);
   marketplaceExtension =
@@ -148,90 +152,82 @@ let
   ];
 in
 {
-  programs.vscode = {
-    enable = true;
-    mutableExtensionsDir = false;
-    package = pkgs.vscode;
+  options.app.vscode.enable = lib.mkEnableOption "VS Code";
 
-    profiles.default = {
-      extensions = packagedExtensions ++ marketplaceExtensions;
+  config = lib.mkIf cfg.enable {
+    programs.vscode = {
+      enable = true;
+      mutableExtensionsDir = false;
+      package = pkgs.vscode;
 
-      userSettings = {
-        "workbench.colorTheme" = "poimandres";
-        "editor.fontFamily" = "Cascadia Code, Symbols Nerd Font, monospace";
-        "workbench.iconTheme" = "material-icon-theme";
-        "editor.rulers" = [
-          80
-          120
-        ];
-        "github.copilot.nextEditSuggestions.enabled" = true;
-        "editor.minimap.enabled" = false;
-        "[javascript]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "git.openRepositoryInParentFolders" = "never";
-        "editor.formatOnSave" = true;
-        "[typescript]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[typescriptreact]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[html]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[json]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[css]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[scss]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "workbench.secondarySideBar.defaultVisibility" = "hidden";
-        "editor.accessibilitySupport" = "on";
-        "files.associations" = {
-          "flake.lock" = "json";
-          ".env*" = "dotenv";
-        };
-        "editor.tokenColorCustomizations" = {
-          "[*Light*]" = {
-            textMateRules = [
-              {
-                scope = "ref.matchtext";
-                settings.foreground = "#000";
-              }
-            ];
-          };
-          "[*Dark*]" = {
-            textMateRules = [
-              {
-                scope = "ref.matchtext";
-                settings.foreground = "#fff";
-              }
-            ];
-          };
-          textMateRules = [
-            {
-              scope = "keyword.other.dotenv";
-              settings.foreground = "#FF000000";
-            }
+      profiles.default = {
+        extensions = packagedExtensions ++ marketplaceExtensions;
+
+        userSettings = {
+          "workbench.colorTheme" = "poimandres";
+          "editor.fontFamily" = "Cascadia Code, Symbols Nerd Font, monospace";
+          "workbench.iconTheme" = "material-icon-theme";
+          "editor.rulers" = [
+            80
+            120
           ];
-        };
-        "claudeCode.preferredLocation" = "sidebar";
-        "redhat.telemetry.enabled" = false;
-        "workbench.colorCustomizations" = { };
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        "containers.containerClient" = "com.microsoft.visualstudio.containers.docker";
-        "containers.orchestratorClient" = "com.microsoft.visualstudio.orchestrators.dockercompose";
-        "claudeCode.useTerminal" = true;
-        "extensions.ignoreRecommendations" = true;
-        "supermaven.enable" = {
-          java = false;
+          "github.copilot.nextEditSuggestions.enabled" = true;
+          "editor.minimap.enabled" = false;
+          "[javascript]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "git.openRepositoryInParentFolders" = "never";
+          "editor.formatOnSave" = true;
+          "[typescript]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[typescriptreact]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[html]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[json]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[css]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[scss]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "workbench.secondarySideBar.defaultVisibility" = "hidden";
+          "editor.accessibilitySupport" = "on";
+          "files.associations" = {
+            "flake.lock" = "json";
+            ".env*" = "dotenv";
+          };
+          "editor.tokenColorCustomizations" = {
+            "[*Light*]" = {
+              textMateRules = [
+                {
+                  scope = "ref.matchtext";
+                  settings.foreground = "#000";
+                }
+              ];
+            };
+            "[*Dark*]" = {
+              textMateRules = [
+                {
+                  scope = "ref.matchtext";
+                  settings.foreground = "#fff";
+                }
+              ];
+            };
+            textMateRules = [
+              {
+                scope = "keyword.other.dotenv";
+                settings.foreground = "#FF000000";
+              }
+            ];
+          };
         };
       };
-      keybindings = [ ];
     };
   };
 }

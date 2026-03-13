@@ -7,7 +7,10 @@
   ...
 }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/apps/nixos
+  ];
 
   networking.hostName = hostName;
   time.timeZone = "America/Los_Angeles";
@@ -38,26 +41,12 @@
   security.rtkit.enable = true;
 
   programs = {
-    niri = {
-      enable = true;
-      package = pkgs.niri;
-    };
     zsh.enable = true;
-    _1password.enable = true;
-    _1password-gui = {
-      enable = true;
-      polkitPolicyOwners = [ "daniel" ];
-    };
     nix-ld.enable = true;
   };
 
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --cmd ${config.programs.niri.package}/bin/niri-session";
-      user = "greeter";
-    };
-  };
+  app.niri.enable = true;
+  app.onepassword.enable = true;
 
   users.users = {
     ${user} = {
@@ -90,8 +79,11 @@
     extraSpecialArgs = {
       inherit inputs user hostName;
     };
-    users = {
-      ${user} = import ../../home/linux;
+    users.${user} = {
+      imports = [
+        ../../home/linux
+        ./home.nix
+      ];
     };
   };
 
