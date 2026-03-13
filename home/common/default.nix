@@ -132,7 +132,7 @@ in
         Make sure you always run the "check" and "format" commands after making changes for that project. If they don't currently exist in the project, add logical ones for that language. 
         When asking sets of questions, always include numbers so it's easy for me to clearly answer.
       '';
-    }
+    };
     claude-code.enable = true;
     direnv = {
       enable = true;
