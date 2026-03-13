@@ -53,8 +53,8 @@ binds {
     Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
-    Mod+LBracket { focus-workspace-down; }
-    Mod+RBracket { focus-workspace-up; }
+    Mod+BracketLeft { focus-workspace-down; }
+    Mod+BracketRight { focus-workspace-up; }
     Mod+Semicolon { focus-column-right; }
 
     Mod+Shift+H { move-column-left; }
