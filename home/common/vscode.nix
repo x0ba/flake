@@ -87,10 +87,6 @@ let
       name = "java";
     }
     {
-      publisher = "supermaven";
-      name = "supermaven";
-    }
-    {
       publisher = "vscjava";
       name = "vscode-gradle";
     }

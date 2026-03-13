@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ../common/default.nix
@@ -72,6 +72,10 @@
           "alt+right=esc:F"
         ];
       };
+    };
+    
+    noctalia-shell = {
+      enable = true;
     };
 
     swaylock = {
