@@ -21,7 +21,7 @@
 
   hardware.graphics.enable = true;
   hardware.bluetooth.enable = true;
-  services.tuned.enable = true;
+  services.tlp.enable = true;
   services.upower.enable = true;
 
   services.dbus.enable = true;

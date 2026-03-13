@@ -83,6 +83,13 @@ in
 
     noctalia-shell = {
       enable = true;
+      settings = {
+        location = {
+          monthBeforeDay = true;
+          name = "San Diego";
+        };
+        colorSchemes.predefinedScheme = "Monochrome";
+      };
       systemd.enable = true;
     };
 
