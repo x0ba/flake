@@ -9,7 +9,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./profile.nix
     ../../modules/apps/nixos
   ];
 
@@ -82,7 +81,7 @@
     users.${user} = {
       imports = [
         ../../home/linux
-        ./home.nix
+        ./profile.nix
       ];
     };
   };

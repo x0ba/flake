@@ -8,6 +8,7 @@
     ../common/default.nix
     ../apps/common
     ../apps/linux
+    ../../modules/home-config/home-manager.nix
     inputs.noctalia.homeModules.default
   ];
 

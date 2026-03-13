@@ -9,7 +9,6 @@
 {
   imports = [
     ./homebrew.nix
-    ./profile.nix
     ../../modules/apps/darwin
   ];
 
@@ -50,7 +49,7 @@
     users.${user} = {
       imports = [
         ../../home/darwin
-        ./home.nix
+        ./profile.nix
       ];
     };
   };
