@@ -22,6 +22,7 @@
   hardware.graphics.enable = true;
 
   services.dbus.enable = true;
+  services.power-profiles-daemon.enable = true;
   services.fwupd.enable = true;
   services.libinput.enable = true;
   services.pipewire = {
@@ -30,7 +31,9 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  services.upower.enable = true;
 
+  hardware.bluetooth.enable = true;
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
