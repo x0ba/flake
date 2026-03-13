@@ -6,6 +6,7 @@
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -41,6 +42,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      nix-homebrew,
       nix-index-database,
       ...
     }:
@@ -121,6 +123,7 @@
           ./modules/nix-core.nix
           home-manager.darwinModules.home-manager
           nix-index-database.darwinModules.nix-index
+          nix-homebrew.darwinModules.nix-homebrew
           { programs.nix-index-database.comma.enable = true; }
           ./hosts/macbook-air
         ];

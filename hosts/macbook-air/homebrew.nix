@@ -1,4 +1,10 @@
 {
+  nix-homebrew = {
+    enable = true;
+    enableRosetta = true;
+    user = "daniel";
+    autoMigrate = true;
+  };
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";

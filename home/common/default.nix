@@ -11,7 +11,6 @@ let
     pkgs.cascadia-code
     pkgs.fd
     pkgs.gitflow
-    pkgs.comma
     pkgs.helix
     pkgs.htop
     pkgs.lazygit
