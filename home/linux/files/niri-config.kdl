@@ -49,21 +49,24 @@ binds {
     Mod+Q { close-window; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Shift+E { quit; }
-    Mod+L { spawn "swaylock -f"; }
+    Mod+Escape { spawn "swaylock -f"; }
 
     Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
     Mod+BracketLeft { focus-workspace-down; }
     Mod+BracketRight { focus-workspace-up; }
+    Mod+L { focus-column-right; }
     Mod+Semicolon { focus-column-right; }
 
     Mod+Shift+H { move-column-left; }
     Mod+Shift+J { move-window-down; }
     Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
     Mod+Shift+Semicolon { move-column-right; }
 
     Mod+Ctrl+H { set-column-width "-10%"; }
+    Mod+Ctrl+L { set-column-width "+10%"; }
     Mod+Ctrl+Semicolon { set-column-width "+10%"; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
