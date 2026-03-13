@@ -76,13 +76,8 @@ in
       settings = {
         font-family = "Cascadia Code";
         font-feature = "-liga";
-        background-opacity = 0.95;
         window-padding-x = 8;
         window-padding-y = 8;
-        keybind = [
-          "alt+left=esc:B"
-          "alt+right=esc:F"
-        ];
       };
     };
 
