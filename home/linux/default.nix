@@ -86,13 +86,6 @@ in
       };
     };
 
-    _1password.enable = true;
-    _1password-gui = {
-      enable = true;
-      polkitPolicyOwners = [ "daniel" ];
-    };
-    nix-ld.enable = true;
-
     noctalia-shell = {
       enable = true;
       systemd.enable = true;
@@ -177,19 +170,18 @@ in
         "Mod+Q".action."close-window" = [ ];
         "Mod+Shift+Slash".action."show-hotkey-overlay" = [ ];
         "Mod+Shift+E".action.quit = [ ];
-        "Mod+L".action.spawn = noctalia "lockScreen toggle";
         "Mod+H".action."focus-column-left" = [ ];
+        "Mod+L".action."focus-column-right" = [ ];
         "Mod+J".action."focus-window-down" = [ ];
         "Mod+K".action."focus-window-up" = [ ];
-        "Mod+BracketLeft".action."focus-workspace-down" = [ ];
-        "Mod+BracketRight".action."focus-workspace-up" = [ ];
-        "Mod+Semicolon".action."focus-column-right" = [ ];
+        "Mod+BracketRight".action."focus-workspace-down" = [ ];
+        "Mod+BracketLeft".action."focus-workspace-up" = [ ];
         "Mod+Shift+H".action."move-column-left" = [ ];
         "Mod+Shift+J".action."move-window-down" = [ ];
         "Mod+Shift+K".action."move-window-up" = [ ];
-        "Mod+Shift+Semicolon".action."move-column-right" = [ ];
+        "Mod+Shift+L".action."move-column-right" = [ ];
         "Mod+Ctrl+H".action."set-column-width" = "-10%";
-        "Mod+Ctrl+Semicolon".action."set-column-width" = "+10%";
+        "Mod+Ctrl+L".action."set-column-width" = "+10%";
         "Mod+F".action."maximize-column" = [ ];
         "Mod+Shift+F".action."fullscreen-window" = [ ];
         "Mod+1".action."focus-workspace" = 1;

@@ -22,7 +22,6 @@
   hardware.graphics.enable = true;
 
   services.dbus.enable = true;
-  services.power-profiles-daemon.enable = true;
   services.fwupd.enable = true;
   services.libinput.enable = true;
   services.pipewire = {
@@ -31,9 +30,7 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  services.upower.enable = true;
 
-  hardware.bluetooth.enable = true;
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
@@ -43,6 +40,12 @@
       package = pkgs.niri;
     };
     zsh.enable = true;
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = [ "daniel" ];
+    };
+    nix-ld.enable = true;
   };
 
   services.greetd = {
