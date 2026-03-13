@@ -21,6 +21,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -133,6 +138,7 @@
         };
         modules = [
           ./modules/nix-core.nix
+          inputs.niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           ./hosts/thinkpad
         ];
@@ -147,7 +153,10 @@
       homeConfigurations."${user}@thinkpad" = mkHome {
         system = "x86_64-linux";
         hostName = "thinkpad";
-        modules = [ ./home/linux ];
+        modules = [
+          inputs.niri.homeModules.config
+          ./home/linux
+        ];
       };
     };
 }
