@@ -1,0 +1,45 @@
+{ ... }:
+{
+  app = {
+    autossh.enable = true;
+    bash.enable = true;
+    bat.enable = true;
+    btop.enable = true;
+    carapace.enable = true;
+    cascadia-code.enable = true;
+    "claude-code".enable = true;
+    codex.enable = true;
+    direnv.enable = true;
+    eza.enable = true;
+    fd.enable = true;
+    fzf.enable = true;
+    gh.enable = true;
+    ghostty.enable = true;
+    git.enable = true;
+    "git-lfs".enable = true;
+    gitflow.enable = true;
+    helix.enable = true;
+    htop.enable = true;
+    jujutsu.enable = true;
+    karabiner.enable = true;
+    lazygit.enable = true;
+    mise.enable = true;
+    poppler.enable = true;
+    "pre-commit".enable = true;
+    pyenv.enable = true;
+    starship.enable = true;
+    stow.enable = true;
+    tealdeer.enable = true;
+    tmux.enable = true;
+    vim.enable = true;
+    vscode.enable = true;
+    wget.enable = true;
+    yazi.enable = true;
+    "yubikey-manager".enable = true;
+    "yubikey-personalization".enable = true;
+    "zed-editor".enable = true;
+    zellij.enable = true;
+    zoxide.enable = true;
+    zsh.enable = true;
+  };
+}
