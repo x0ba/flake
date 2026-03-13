@@ -78,18 +78,6 @@
           ++ lib.optionals pkgs.stdenv.isDarwin [
             nix-darwin.packages.${system}.darwin-rebuild
           ];
-
-          shellHook = ''
-            echo "nix-config dev shell (${system})"
-            echo "Common commands: ./format, ./check"
-            echo "Home Manager apply: home-manager switch --flake .#${user}@$(hostname -s 2>/dev/null || hostname)"
-          ''
-          + lib.optionalString pkgs.stdenv.isDarwin ''
-            echo "Darwin apply: darwin-rebuild switch --flake .#macbook-air"
-          ''
-          + lib.optionalString pkgs.stdenv.isLinux ''
-            echo "NixOS apply: sudo nixos-rebuild switch --flake .#thinkpad"
-          '';
         };
 
       mkHome =

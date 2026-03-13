@@ -16,8 +16,8 @@ It also assumes the primary user is `daniel`. If the target machine should use a
 Recommended first check from the repo root:
 
 ```sh
-./format
-./check
+nix develop -c format
+nix develop -c check
 ```
 
 ## macOS
@@ -44,8 +44,8 @@ cd ~/nix-config
 ### 3. Validate the flake
 
 ```sh
-./format
-./check
+nix develop -c format
+nix develop -c check
 ```
 
 ### 4. Apply the macOS configuration
@@ -185,8 +185,8 @@ swapDevices = [
 
 ```sh
 cd /mnt/home/daniel/nix-config
-./format
-./check
+nix develop -c format
+nix develop -c check
 ```
 
 ### 9. Install and switch to the host configuration

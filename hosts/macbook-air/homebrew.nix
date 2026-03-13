@@ -42,7 +42,6 @@
       "the-unarchiver"
       "thebrowsercompany-dia"
       "topnotch"
-      "visual-studio-code"
       "warp"
       "wispr-flow"
       "yaak"

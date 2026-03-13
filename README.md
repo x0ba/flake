@@ -11,8 +11,8 @@ Flake-based multi-host Nix configuration for:
 - `hosts/`: system-level darwin and NixOS modules.
 - `home/`: shared Home Manager modules plus host-specific config payloads.
 - `nix develop`: enters a repo dev shell with formatting, linting, and flake-management tools.
-- `format`: formats all tracked `*.nix` files by passing them explicitly to `nix fmt`.
-- `check`: runs `nix flake check`.
+- `format`: available inside `nix develop`; formats all tracked `*.nix` files by passing them explicitly to `nix fmt`.
+- `check`: available inside `nix develop`; runs `nix flake check`.
 
 ## Bootstrap
 
@@ -20,7 +20,7 @@ Flake-based multi-host Nix configuration for:
 
 1. Install Nix with flakes enabled.
 2. Enter `nix develop` if you want the repo toolchain in-shell.
-3. From this repo, run `./format` and `./check`.
+3. From this repo, run `nix develop -c format` and `nix develop -c check`.
 4. Apply the darwin host with `darwin-rebuild switch --flake .#macbook-air`.
 
 ### ThinkPad
@@ -28,7 +28,7 @@ Flake-based multi-host Nix configuration for:
 1. Copy this repo onto the ThinkPad.
 2. Replace `hosts/thinkpad/hardware-configuration.nix` with the machine-generated file from `nixos-generate-config`.
 3. Enter `nix develop` if you want the repo toolchain in-shell.
-4. Run `./format` and `./check`.
+4. Run `nix develop -c format` and `nix develop -c check`.
 5. Apply the system with `sudo nixos-rebuild switch --flake .#thinkpad`.
 
 ## Notes
