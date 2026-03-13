@@ -26,6 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -36,6 +41,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      nix-index-database,
       ...
     }:
     let
@@ -114,6 +120,8 @@
         modules = [
           ./modules/nix-core.nix
           home-manager.darwinModules.home-manager
+          nix-index-database.darwinModules.nix-index
+          { programs.nix-index-database.comma.enable = true; }
           ./hosts/macbook-air
         ];
       };
@@ -127,7 +135,9 @@
         modules = [
           ./modules/nix-core.nix
           inputs.niri.nixosModules.niri
+          nix-index-database.nixosModules.default
           home-manager.nixosModules.home-manager
+          { programs.nix-index-database.comma.enable = true; }
           ./hosts/thinkpad
         ];
       };
