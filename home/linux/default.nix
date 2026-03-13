@@ -75,9 +75,9 @@
       };
     };
 
-    noctalia-shell = {
-      enable = true;
-    };
+    # noctalia-shell = {
+    #   enable = true;
+    # };
 
     niri.settings = {
       input = {

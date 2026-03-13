@@ -35,7 +35,10 @@
   security.rtkit.enable = true;
 
   programs = {
-    niri.enable = true;
+    niri = {
+      enable = true;
+      package = pkgs.niri;
+    };
     zsh.enable = true;
   };
 
