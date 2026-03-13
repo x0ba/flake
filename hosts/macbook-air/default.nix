@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   user,
@@ -8,6 +9,7 @@
 {
   imports = [
     ./homebrew.nix
+    ./profile.nix
     ../../modules/apps/darwin
   ];
 
@@ -36,14 +38,14 @@
     finder.AppleShowAllExtensions = true;
   };
 
-  app.homebrewApps.enable = true;
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "hm-backup";
     extraSpecialArgs = {
       inherit inputs user hostName;
+      isDarwin = true;
+      isLinux = false;
     };
     users.${user} = {
       imports = [

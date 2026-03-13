@@ -9,6 +9,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./profile.nix
     ../../modules/apps/nixos
   ];
 
@@ -45,9 +46,6 @@
     nix-ld.enable = true;
   };
 
-  app.niri.enable = true;
-  app.onepassword.enable = true;
-
   users.users = {
     ${user} = {
       isNormalUser = true;
@@ -78,6 +76,8 @@
     backupFileExtension = "hm-backup";
     extraSpecialArgs = {
       inherit inputs user hostName;
+      isDarwin = false;
+      isLinux = true;
     };
     users.${user} = {
       imports = [

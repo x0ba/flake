@@ -59,6 +59,8 @@ let
           user
           hostName
           ;
+        isDarwin = host.kind == "darwin";
+        isLinux = host.kind == "nixos";
       };
       modules = host.homeModules ++ [ host.homeModule ];
     };

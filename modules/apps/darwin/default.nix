@@ -1,4 +1,7 @@
 { ... }:
 {
-  imports = [ ./homebrew-apps.nix ];
+  imports = [
+    ../../home-config/darwin.nix
+    ./homebrew-apps.nix
+  ];
 }

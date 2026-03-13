@@ -1,7 +1,43 @@
 { ... }:
 {
   imports = [
+    ./autossh.nix
+    ./bash.nix
+    ./bat.nix
+    ./btop.nix
+    ./cascadia-code.nix
+    ./carapace.nix
+    ./claude-code.nix
+    ./codex.nix
+    ./direnv.nix
+    ./eza.nix
+    ./fd.nix
+    ./fzf.nix
+    ./gh.nix
+    ./git.nix
+    ./git-lfs.nix
+    ./gitflow.nix
     ./ghostty.nix
+    ./helix.nix
+    ./htop.nix
+    ./jujutsu.nix
+    ./lazygit.nix
+    ./mise.nix
+    ./poppler.nix
+    ./pre-commit.nix
+    ./pyenv.nix
+    ./starship.nix
+    ./stow.nix
+    ./tealdeer.nix
+    ./tmux.nix
+    ./vim.nix
     ./vscode.nix
+    ./wget.nix
+    ./yazi.nix
+    ./yubikey-manager.nix
+    ./yubikey-personalization.nix
+    ./zellij.nix
+    ./zoxide.nix
+    ./zsh.nix
   ];
 }
