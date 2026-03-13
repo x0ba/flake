@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
@@ -37,127 +39,28 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      nix-darwin,
-      home-manager,
-      nix-homebrew,
-      nix-index-database,
-      ...
-    }:
-    let
-      inherit (nixpkgs) lib;
-
-      user = "daniel";
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "aarch64-darwin"
         "x86_64-linux"
       ];
 
-      forAllSystems = lib.genAttrs systems;
-
-      mkPkgs =
-        system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-
-      mkDevShell =
-        system:
-        let
-          pkgs = mkPkgs system;
-        in
-        pkgs.mkShell {
-          packages = [
-            pkgs.cachix
-            pkgs.deadnix
-            pkgs.git
-            pkgs.home-manager
-            pkgs.just
-            pkgs.jq
-            pkgs.nil
-            pkgs.nix-output-monitor
-            pkgs.nix-tree
-            pkgs.nixfmt
-            pkgs.statix
-          ]
-          ++ lib.optionals pkgs.stdenv.isDarwin [
-            nix-darwin.packages.${system}.darwin-rebuild
-          ];
-        };
-
-      mkHome =
-        {
-          system,
-          hostName,
-          modules,
-        }:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = mkPkgs system;
-          extraSpecialArgs = {
-            inherit
-              inputs
-              self
-              user
-              hostName
-              ;
-          };
-          modules = modules;
-        };
-    in
-    {
-      formatter = forAllSystems (system: (mkPkgs system).nixfmt);
-      devShells = forAllSystems (system: {
-        default = mkDevShell system;
-      });
-
-      darwinConfigurations.macbook-air = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        specialArgs = {
-          inherit inputs self user;
-          hostName = "macbook-air";
-        };
-        modules = [
-          ./modules/nix-core.nix
-          home-manager.darwinModules.home-manager
-          nix-index-database.darwinModules.nix-index
-          nix-homebrew.darwinModules.nix-homebrew
-          { programs.nix-index-database.comma.enable = true; }
-          ./hosts/macbook-air
-        ];
-      };
-
-      nixosConfigurations.thinkpad = lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs self user;
-          hostName = "thinkpad";
-        };
-        modules = [
-          ./modules/nix-core.nix
-          inputs.niri.nixosModules.niri
-          nix-index-database.nixosModules.default
-          home-manager.nixosModules.home-manager
-          { programs.nix-index-database.comma.enable = true; }
-          ./hosts/thinkpad
-        ];
-      };
-
-      homeConfigurations."${user}@macbook-air" = mkHome {
-        system = "aarch64-darwin";
-        hostName = "macbook-air";
-        modules = [ ./home/darwin ];
-      };
-
-      homeConfigurations."${user}@thinkpad" = mkHome {
-        system = "x86_64-linux";
-        hostName = "thinkpad";
-        modules = [
-          inputs.niri.homeModules.config
-          ./home/linux
-        ];
-      };
+      imports = [
+        ./flake/parts/tooling.nix
+        ./flake/parts/hosts.nix
+      ];
+    };
+    nixConfig = {
+      substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+        "https://install.determinate.systems"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+      ];
     };
 }

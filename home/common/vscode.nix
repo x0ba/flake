@@ -10,7 +10,7 @@ let
     publisher: name:
     builtins.getAttr name (
       builtins.getAttr publisher
-        inputs.nix-vscode-extensions.extensions.${pkgs.system}."vscode-marketplace"
+        inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}."vscode-marketplace"
     );
 
   packagedExtensions = map ({ publisher, name }: vscodeExtension publisher name) [

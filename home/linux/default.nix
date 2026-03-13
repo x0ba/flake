@@ -157,7 +157,7 @@ in
         }
       ];
       debug = {
-        honor-xdg-activation-with-invalid-serial = [];
+        honor-xdg-activation-with-invalid-serial = [ ];
       };
       binds = {
         "Mod+Return".action.spawn = [ "ghostty" ];
