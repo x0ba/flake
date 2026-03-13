@@ -63,6 +63,10 @@ in
         app.vscode.enable = lib.mkDefault true;
       })
 
+      (lib.mkIf cfg.gui.firefox.enable {
+        app.firefox.enable = lib.mkDefault true;
+      })
+
       (lib.mkIf cfg.gui.ghostty.enable {
         app.ghostty.enable = lib.mkDefault true;
       })
@@ -82,10 +86,6 @@ in
       })
     ]
     ++ lib.optionals isLinux [
-      (lib.mkIf cfg.gui.firefox.enable {
-        app.firefox.enable = lib.mkDefault true;
-      })
-
       (lib.mkIf cfg.gui.social.enable {
         app.discord.enable = lib.mkDefault true;
         app.slack.enable = lib.mkDefault true;
