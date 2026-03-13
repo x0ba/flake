@@ -142,13 +142,16 @@ in
         {
           "clip-to-geometry" = true;
           "geometry-corner-radius" = {
-            "bottom-left" = 10.0;
-            "bottom-right" = 10.0;
-            "top-left" = 10.0;
-            "top-right" = 10.0;
+            "bottom-left" = 20.0;
+            "bottom-right" = 20.0;
+            "top-left" = 20.0;
+            "top-right" = 20.0;
           };
         }
       ];
+      debug = {
+        honor-xdg-activation-with-invalid-serial = [];
+      };
       binds = {
         "Mod+Return".action.spawn = [ "ghostty" ];
         "Mod+Space".action.spawn = noctalia "launcher toggle";
